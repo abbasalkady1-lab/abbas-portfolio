@@ -1,4 +1,5 @@
 const DEFAULT_SITE_URL = "https://www.abbasalkady.com";
+const GOOGLE_SITE_VERIFICATION = "_85vh-6ShI-czj04aTqYVOIdTxeHUR4KxyF3njd4IGc";
 const VERIFICATION_PATTERN = /^[A-Za-z0-9_-]{8,200}$/;
 
 export function sanitizeVerificationToken(value?: string | null): string {
@@ -28,7 +29,8 @@ export function getSiteUrl(canonicalFromCms?: string | null): string {
 export function resolveGoogleSiteVerification(fromCms?: string | null): string {
   return (
     sanitizeVerificationToken(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION) ||
-    sanitizeVerificationToken(fromCms)
+    sanitizeVerificationToken(fromCms) ||
+    GOOGLE_SITE_VERIFICATION
   );
 }
 

@@ -87,6 +87,9 @@ export default async function RootLayout({
   const profile = await getProfile();
   const seo = await getSEO();
   const siteUrl = getSiteUrl(seo.canonicalUrl);
+  const googleVerification = resolveGoogleSiteVerification(
+    seo.googleSiteVerification
+  );
 
   // Structured Data / JSON-LD for Search Engines
   const jsonLd = {
@@ -168,6 +171,12 @@ export default async function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        {googleVerification ? (
+          <meta
+            name="google-site-verification"
+            content={googleVerification}
+          />
+        ) : null}
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(){try{var t=localStorage.getItem("theme");if(t==="dark"){document.documentElement.classList.add("dark")}else{document.documentElement.classList.remove("dark")}}catch(e){}})()`,
