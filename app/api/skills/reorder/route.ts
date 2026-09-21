@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getSkills, saveSkills } from "@/lib/db";
+import { getSkills, saveSkills, handleStorageError } from "@/lib/db";
 
 export async function POST(req: NextRequest) {
   try {
@@ -30,6 +30,6 @@ export async function POST(req: NextRequest) {
     await saveSkills(reordered);
     return NextResponse.json({ success: true, count: reordered.length });
   } catch (error) {
-    return NextResponse.json({ error: "Failed to reorder skills" }, { status: 500 });
+    return handleStorageError(error, "Failed to reorder skills");
   }
 }

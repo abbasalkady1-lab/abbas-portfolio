@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getNovaKnowledge, saveNovaKnowledge } from "@/lib/db";
+import { getNovaKnowledge, saveNovaKnowledge, handleStorageError } from "@/lib/db";
 import { NovaKnowledgeItem } from "@/types";
 
 export async function GET() {
@@ -22,7 +22,7 @@ export async function POST(req: NextRequest) {
     await saveNovaKnowledge(items);
     return NextResponse.json(newItem, { status: 201 });
   } catch (error) {
-    return NextResponse.json({ error: "Failed to add knowledge item" }, { status: 500 });
+    return handleStorageError(error, "Failed to add knowledge item");
   }
 }
 
@@ -43,7 +43,7 @@ export async function PUT(req: NextRequest) {
     await saveNovaKnowledge(items);
     return NextResponse.json(items[index]);
   } catch (error) {
-    return NextResponse.json({ error: "Failed to update knowledge item" }, { status: 500 });
+    return handleStorageError(error, "Failed to update knowledge item");
   }
 }
 
@@ -60,6 +60,6 @@ export async function DELETE(req: NextRequest) {
     await saveNovaKnowledge(filtered);
     return NextResponse.json({ success: true });
   } catch (error) {
-    return NextResponse.json({ error: "Failed to delete knowledge item" }, { status: 500 });
+    return handleStorageError(error, "Failed to delete knowledge item");
   }
 }

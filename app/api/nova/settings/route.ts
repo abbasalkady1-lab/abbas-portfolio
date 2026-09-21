@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getNovaSettings, saveNovaSettings } from "@/lib/db";
+import { getNovaSettings, saveNovaSettings, handleStorageError } from "@/lib/db";
 
 export async function GET() {
   const settings = await getNovaSettings();
@@ -19,6 +19,6 @@ export async function PUT(req: NextRequest) {
     await saveNovaSettings(updated);
     return NextResponse.json(updated);
   } catch (error) {
-    return NextResponse.json({ error: "Failed to update NOVA settings" }, { status: 500 });
+    return handleStorageError(error, "Failed to update NOVA settings");
   }
 }

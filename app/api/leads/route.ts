@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getLeads, addLead, updateLeadStatus, deleteLead } from "@/lib/db";
+import { getLeads, addLead, updateLeadStatus, deleteLead, handleStorageError } from "@/lib/db";
 
 export async function GET() {
   const leads = await getLeads();
@@ -24,7 +24,7 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json(lead, { status: 201 });
   } catch (error) {
-    return NextResponse.json({ error: "Failed to create lead" }, { status: 500 });
+    return handleStorageError(error, "Failed to create lead");
   }
 }
 
@@ -42,7 +42,7 @@ export async function PUT(req: NextRequest) {
 
     return NextResponse.json(updated);
   } catch (error) {
-    return NextResponse.json({ error: "Failed to update lead" }, { status: 500 });
+    return handleStorageError(error, "Failed to update lead");
   }
 }
 
@@ -61,6 +61,6 @@ export async function DELETE(req: NextRequest) {
 
     return NextResponse.json({ success: true });
   } catch (error) {
-    return NextResponse.json({ error: "Failed to delete lead" }, { status: 500 });
+    return handleStorageError(error, "Failed to delete lead");
   }
 }

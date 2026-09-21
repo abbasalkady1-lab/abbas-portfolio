@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getProjects, saveProjects } from "@/lib/db";
+import { getProjects, saveProjects, handleStorageError } from "@/lib/db";
 import { Project } from "@/types";
 
 export async function GET() {
@@ -27,7 +27,7 @@ export async function POST(req: NextRequest) {
     await saveProjects(projects);
     return NextResponse.json(newProject, { status: 201 });
   } catch (error) {
-    return NextResponse.json({ error: "Failed to create project" }, { status: 500 });
+    return handleStorageError(error, "Failed to create project");
   }
 }
 
@@ -52,7 +52,7 @@ export async function PUT(req: NextRequest) {
     await saveProjects(projects);
     return NextResponse.json(projects[index]);
   } catch (error) {
-    return NextResponse.json({ error: "Failed to update project" }, { status: 500 });
+    return handleStorageError(error, "Failed to update project");
   }
 }
 
@@ -69,6 +69,6 @@ export async function DELETE(req: NextRequest) {
     await saveProjects(filtered);
     return NextResponse.json({ success: true });
   } catch (error) {
-    return NextResponse.json({ error: "Failed to delete project" }, { status: 500 });
+    return handleStorageError(error, "Failed to delete project");
   }
 }

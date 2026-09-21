@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getProjects, saveProjects } from "@/lib/db";
+import { getProjects, saveProjects, handleStorageError } from "@/lib/db";
 
 export async function POST(req: NextRequest) {
   try {
@@ -33,6 +33,6 @@ export async function POST(req: NextRequest) {
     await saveProjects(reordered);
     return NextResponse.json({ success: true, count: reordered.length });
   } catch (error) {
-    return NextResponse.json({ error: "Failed to reorder projects" }, { status: 500 });
+    return handleStorageError(error, "Failed to reorder projects");
   }
 }

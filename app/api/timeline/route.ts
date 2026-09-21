@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getTimeline, saveTimeline } from "@/lib/db";
+import { getTimeline, saveTimeline, handleStorageError } from "@/lib/db";
 import { TimelineItem } from "@/types";
 
 export async function GET() {
@@ -22,7 +22,7 @@ export async function POST(req: NextRequest) {
     await saveTimeline(timeline);
     return NextResponse.json(newItem, { status: 201 });
   } catch (error) {
-    return NextResponse.json({ error: "Failed to create timeline item" }, { status: 500 });
+    return handleStorageError(error, "Failed to create timeline item");
   }
 }
 
@@ -43,7 +43,7 @@ export async function PUT(req: NextRequest) {
     await saveTimeline(timeline);
     return NextResponse.json(timeline[index]);
   } catch (error) {
-    return NextResponse.json({ error: "Failed to update timeline item" }, { status: 500 });
+    return handleStorageError(error, "Failed to update timeline item");
   }
 }
 
@@ -60,6 +60,6 @@ export async function DELETE(req: NextRequest) {
     await saveTimeline(filtered);
     return NextResponse.json({ success: true });
   } catch (error) {
-    return NextResponse.json({ error: "Failed to delete timeline item" }, { status: 500 });
+    return handleStorageError(error, "Failed to delete timeline item");
   }
 }

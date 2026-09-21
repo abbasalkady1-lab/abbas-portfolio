@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getSkills, saveSkills } from "@/lib/db";
+import { getSkills, saveSkills, handleStorageError } from "@/lib/db";
 import { Skill } from "@/types";
 
 export async function GET() {
@@ -24,7 +24,7 @@ export async function POST(req: NextRequest) {
     await saveSkills(skills);
     return NextResponse.json(newSkill, { status: 201 });
   } catch (error) {
-    return NextResponse.json({ error: "Failed to create skill" }, { status: 500 });
+    return handleStorageError(error, "Failed to create skill");
   }
 }
 
@@ -50,7 +50,7 @@ export async function PUT(req: NextRequest) {
     await saveSkills(skills);
     return NextResponse.json(skills[index]);
   } catch (error) {
-    return NextResponse.json({ error: "Failed to update skill" }, { status: 500 });
+    return handleStorageError(error, "Failed to update skill");
   }
 }
 
@@ -67,6 +67,6 @@ export async function DELETE(req: NextRequest) {
     await saveSkills(filtered);
     return NextResponse.json({ success: true });
   } catch (error) {
-    return NextResponse.json({ error: "Failed to delete skill" }, { status: 500 });
+    return handleStorageError(error, "Failed to delete skill");
   }
 }

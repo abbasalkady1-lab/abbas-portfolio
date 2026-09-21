@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getCV, saveCV } from "@/lib/db";
+import { getCV, saveCV, handleStorageError } from "@/lib/db";
 
 export async function GET() {
   const cv = await getCV();
@@ -20,6 +20,6 @@ export async function PUT(req: NextRequest) {
     await saveCV(updated);
     return NextResponse.json(updated);
   } catch (error) {
-    return NextResponse.json({ error: "Failed to update CV data" }, { status: 500 });
+    return handleStorageError(error, "Failed to update CV data");
   }
 }

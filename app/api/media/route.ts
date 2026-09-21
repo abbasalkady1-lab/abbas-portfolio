@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getMedia, saveMediaItem, deleteMediaItem } from "@/lib/db";
+import { getMedia, saveMediaItem, deleteMediaItem, isVercelEnvironment, handleStorageError } from "@/lib/db";
 import fs from "fs";
 import path from "path";
 
@@ -76,6 +76,17 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "No file provided" }, { status: 400 });
     }
 
+    if (isVercelEnvironment()) {
+      return NextResponse.json(
+        {
+          error:
+            "Direct file uploads to the local filesystem are disabled on Vercel serverless. Please add media via YouTube URL or external links, or connect cloud storage (e.g. Vercel Blob, Cloudinary).",
+          code: "READ_ONLY_STORAGE",
+        },
+        { status: 503 }
+      );
+    }
+
     const uploadsDir = path.join(process.cwd(), "public", "uploads");
     if (!fs.existsSync(uploadsDir)) {
       fs.mkdirSync(uploadsDir, { recursive: true });
@@ -103,7 +114,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json(newItem, { status: 201 });
   } catch (error) {
     console.error("Media processing error:", error);
-    return NextResponse.json({ error: "Failed to process media asset" }, { status: 500 });
+    return handleStorageError(error, "Failed to process media asset");
   }
 }
 
@@ -118,6 +129,6 @@ export async function DELETE(req: NextRequest) {
     const success = await deleteMediaItem(id);
     return NextResponse.json({ success });
   } catch (error) {
-    return NextResponse.json({ error: "Failed to delete media" }, { status: 500 });
+    return handleStorageError(error, "Failed to delete media");
   }
 }

@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getProfile, saveProfile, getSEO, saveSEO, getDatabase } from "@/lib/db";
+import { getProfile, saveProfile, getSEO, saveSEO, getDatabase, handleStorageError } from "@/lib/db";
 
 export async function GET() {
   const db = await getDatabase();
@@ -28,6 +28,6 @@ export async function PUT(req: NextRequest) {
       analytics: db.analytics,
     });
   } catch (error) {
-    return NextResponse.json({ error: "Failed to update settings" }, { status: 500 });
+    return handleStorageError(error, "Failed to update settings");
   }
 }

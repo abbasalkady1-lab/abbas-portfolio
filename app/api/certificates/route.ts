@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getCertificates, saveCertificates } from "@/lib/db";
+import { getCertificates, saveCertificates, handleStorageError } from "@/lib/db";
 import { Certificate } from "@/types";
 
 export async function GET() {
@@ -22,7 +22,7 @@ export async function POST(req: NextRequest) {
     await saveCertificates(certs);
     return NextResponse.json(newCert, { status: 201 });
   } catch (error) {
-    return NextResponse.json({ error: "Failed to create certificate" }, { status: 500 });
+    return handleStorageError(error, "Failed to create certificate");
   }
 }
 
@@ -43,7 +43,7 @@ export async function PUT(req: NextRequest) {
     await saveCertificates(certs);
     return NextResponse.json(certs[index]);
   } catch (error) {
-    return NextResponse.json({ error: "Failed to update certificate" }, { status: 500 });
+    return handleStorageError(error, "Failed to update certificate");
   }
 }
 
@@ -60,6 +60,6 @@ export async function DELETE(req: NextRequest) {
     await saveCertificates(filtered);
     return NextResponse.json({ success: true });
   } catch (error) {
-    return NextResponse.json({ error: "Failed to delete certificate" }, { status: 500 });
+    return handleStorageError(error, "Failed to delete certificate");
   }
 }

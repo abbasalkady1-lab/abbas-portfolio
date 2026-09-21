@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getServices, saveServices } from "@/lib/db";
+import { getServices, saveServices, handleStorageError } from "@/lib/db";
 import { Service } from "@/types";
 
 export async function GET() {
@@ -30,7 +30,7 @@ export async function POST(req: NextRequest) {
     await saveServices(services);
     return NextResponse.json(newService, { status: 201 });
   } catch (error) {
-    return NextResponse.json({ error: "Failed to create service" }, { status: 500 });
+    return handleStorageError(error, "Failed to create service");
   }
 }
 
@@ -59,7 +59,7 @@ export async function PUT(req: NextRequest) {
     await saveServices(services);
     return NextResponse.json(services[index]);
   } catch (error) {
-    return NextResponse.json({ error: "Failed to update service" }, { status: 500 });
+    return handleStorageError(error, "Failed to update service");
   }
 }
 
@@ -76,6 +76,6 @@ export async function DELETE(req: NextRequest) {
     await saveServices(filtered);
     return NextResponse.json({ success: true });
   } catch (error) {
-    return NextResponse.json({ error: "Failed to delete service" }, { status: 500 });
+    return handleStorageError(error, "Failed to delete service");
   }
 }
