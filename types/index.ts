@@ -177,6 +177,7 @@ export interface SEOSettings {
   keywords: string[];
   ogImage: string;
   canonicalUrl: string;
+  googleAnalyticsId?: string;
 }
 
 export interface MediaItem {

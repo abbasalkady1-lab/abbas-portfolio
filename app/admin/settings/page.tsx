@@ -431,6 +431,24 @@ export default function AdminSettingsPage() {
                     className="w-full px-3.5 py-2.5 rounded-xl bg-white/[0.04] border border-white/10 text-white focus:border-cyan-400 focus:outline-none"
                   />
                 </div>
+
+                <div>
+                  <label className="block text-gray-400 mb-1 uppercase">
+                    Google Analytics 4 Measurement ID
+                  </label>
+                  <input
+                    type="text"
+                    value={seo.googleAnalyticsId || ""}
+                    onChange={(e) =>
+                      setSeo({ ...seo, googleAnalyticsId: e.target.value.trim() })
+                    }
+                    placeholder="G-XXXXXXXXXX"
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-white/[0.04] border border-white/10 text-white focus:border-cyan-400 focus:outline-none"
+                  />
+                  <span className="text-[10px] text-gray-500 mt-1 block">
+                    On Vercel, also set NEXT_PUBLIC_GA_MEASUREMENT_ID in Environment Variables so Analytics survives production deploys.
+                  </span>
+                </div>
               </div>
             )}
 

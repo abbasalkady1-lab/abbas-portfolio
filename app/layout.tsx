@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { getSEO, getProfile } from "@/lib/db";
+import { GoogleAnalytics } from "@/components/google-analytics";
+import { resolveGaMeasurementId } from "@/lib/analytics";
 
 export async function generateMetadata(): Promise<Metadata> {
   const seo = await getSEO();
@@ -148,6 +150,9 @@ export default async function RootLayout({
         />
       </head>
       <body className="bg-[#F8FAFC] text-slate-900 dark:bg-[#090A0F] dark:text-slate-100 antialiased overflow-x-hidden selection:bg-sky-500/20 selection:text-sky-700 dark:selection:text-sky-300">
+        <GoogleAnalytics
+          measurementId={resolveGaMeasurementId(seo.googleAnalyticsId)}
+        />
         {children}
       </body>
     </html>
