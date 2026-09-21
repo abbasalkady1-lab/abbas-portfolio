@@ -1,10 +1,11 @@
 import React from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getProjects, getProjectBySlug, getProfile } from "@/lib/db";
+import { getProjects, getProjectBySlug, getSEO } from "@/lib/db";
 import { ArrowLeft, ArrowRight, ExternalLink, Sparkles, CheckCircle, AlertCircle, Layers, Cpu, ShieldCheck, Zap } from "lucide-react";
 import { GithubIcon } from "@/components/icons";
 import { Metadata } from "next";
+import { getSiteUrl } from "@/lib/seo";
 
 interface Props {
   params: {
@@ -14,14 +15,30 @@ interface Props {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const project = await getProjectBySlug(params.slug);
+  const seo = await getSEO();
+  const siteUrl = getSiteUrl(seo.canonicalUrl);
   if (!project) return { title: "Project Not Found | Abbas El Kady" };
+
+  const url = `${siteUrl}/projects/${project.slug}`;
+  const title = `${project.title} | Abbas El Kady Case Study`;
+  const description = project.shortDescription;
+
   return {
-    title: `${project.title} | Abbas El Kady Case Study`,
-    description: project.shortDescription,
+    title,
+    description,
+    alternates: { canonical: url },
     openGraph: {
+      type: "article",
+      url,
       title: project.title,
-      description: project.shortDescription,
-      images: [project.thumbnail],
+      description,
+      images: [project.coverImage || project.thumbnail],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: project.title,
+      description,
+      images: [project.coverImage || project.thumbnail],
     },
   };
 }
@@ -35,9 +52,31 @@ export default async function ProjectDetailPage({ params }: Props) {
   const currentIndex = publishedProjects.findIndex((p) => p.slug === project.slug);
   const prevProject = currentIndex > 0 ? publishedProjects[currentIndex - 1] : null;
   const nextProject = currentIndex < publishedProjects.length - 1 ? publishedProjects[currentIndex + 1] : null;
+  const seo = await getSEO();
+  const siteUrl = getSiteUrl(seo.canonicalUrl);
+  const projectUrl = `${siteUrl}/projects/${project.slug}`;
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    name: project.title,
+    description: project.shortDescription,
+    url: projectUrl,
+    image: project.coverImage || project.thumbnail,
+    dateCreated: project.year,
+    author: {
+      "@type": "Person",
+      name: "Abbas El Kady",
+      url: siteUrl,
+    },
+    keywords: project.technologies?.join(", "),
+  };
 
   return (
     <main className="min-h-screen bg-[#F8FAFC] dark:bg-[#090A0F] text-slate-900 dark:text-white selection:bg-sky-500/25 selection:text-slate-900 dark:selection:text-white py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden transition-colors duration-200">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Subtle Ambient Background Light */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-96 bg-gradient-to-b from-sky-500/5 dark:from-cyan-500/5 via-indigo-500/5 to-transparent blur-3xl pointer-events-none" />
 

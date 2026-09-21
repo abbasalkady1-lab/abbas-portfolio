@@ -427,7 +427,7 @@ export default function AdminSettingsPage() {
                     type="text"
                     value={seo.canonicalUrl}
                     onChange={(e) => setSeo({ ...seo, canonicalUrl: e.target.value })}
-                    placeholder="https://abbaselkady.dev"
+                    placeholder="https://www.abbasalkady.com"
                     className="w-full px-3.5 py-2.5 rounded-xl bg-white/[0.04] border border-white/10 text-white focus:border-cyan-400 focus:outline-none"
                   />
                 </div>
@@ -448,6 +448,49 @@ export default function AdminSettingsPage() {
                   <span className="text-[10px] text-gray-500 mt-1 block">
                     On Vercel, also set NEXT_PUBLIC_GA_MEASUREMENT_ID in Environment Variables so Analytics survives production deploys.
                   </span>
+                </div>
+
+                <div className="p-4 rounded-2xl bg-emerald-500/[0.04] border border-emerald-500/20 space-y-4">
+                  <h4 className="font-bold text-emerald-300 uppercase tracking-wider text-xs">
+                    Google Search Console
+                  </h4>
+                  <p className="text-gray-400 text-[11px] font-sans leading-relaxed">
+                    اربط النطاق من Search Console بطريقة HTML tag، ثم الصق قيمة content هنا أو في متغير البيئة NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION على Vercel. بعد النشر أرسل Sitemap: /sitemap.xml
+                  </p>
+                  <div>
+                    <label className="block text-gray-400 mb-1 uppercase">
+                      Google Site Verification
+                    </label>
+                    <input
+                      type="text"
+                      value={seo.googleSiteVerification || ""}
+                      onChange={(e) =>
+                        setSeo({
+                          ...seo,
+                          googleSiteVerification: e.target.value.trim(),
+                        })
+                      }
+                      placeholder="google-site-verification content"
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-white/[0.04] border border-white/10 text-white focus:border-cyan-400 focus:outline-none"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-gray-400 mb-1 uppercase">
+                      Bing Webmaster Verification (optional)
+                    </label>
+                    <input
+                      type="text"
+                      value={seo.bingSiteVerification || ""}
+                      onChange={(e) =>
+                        setSeo({
+                          ...seo,
+                          bingSiteVerification: e.target.value.trim(),
+                        })
+                      }
+                      placeholder="msvalidate.01 content"
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-white/[0.04] border border-white/10 text-white focus:border-cyan-400 focus:outline-none"
+                    />
+                  </div>
                 </div>
               </div>
             )}
@@ -487,7 +530,7 @@ export default function AdminSettingsPage() {
                     type="text"
                     value={seo.canonicalUrl}
                     onChange={(e) => setSeo({ ...seo, canonicalUrl: e.target.value })}
-                    placeholder="https://abbaselkady.dev"
+                    placeholder="https://www.abbasalkady.com"
                     className="w-full px-3.5 py-2.5 rounded-xl bg-white/[0.04] border border-white/10 text-white focus:border-cyan-400 focus:outline-none"
                   />
                   <span className="text-[10px] text-gray-500 mt-1 block">

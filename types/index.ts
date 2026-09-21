@@ -178,6 +178,8 @@ export interface SEOSettings {
   ogImage: string;
   canonicalUrl: string;
   googleAnalyticsId?: string;
+  googleSiteVerification?: string;
+  bingSiteVerification?: string;
 }
 
 export interface MediaItem {

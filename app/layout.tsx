@@ -3,22 +3,36 @@ import "./globals.css";
 import { getSEO, getProfile } from "@/lib/db";
 import { GoogleAnalytics } from "@/components/google-analytics";
 import { resolveGaMeasurementId } from "@/lib/analytics";
+import {
+  getSiteUrl,
+  resolveBingSiteVerification,
+  resolveGoogleSiteVerification,
+} from "@/lib/seo";
 
 export async function generateMetadata(): Promise<Metadata> {
   const seo = await getSEO();
   const profile = await getProfile();
+  const siteUrl = getSiteUrl(seo.canonicalUrl);
+  const googleVerification = resolveGoogleSiteVerification(
+    seo.googleSiteVerification
+  );
+  const bingVerification = resolveBingSiteVerification(seo.bingSiteVerification);
 
   return {
-    metadataBase: new URL(seo.canonicalUrl || "https://abbaselkady.dev"),
+    metadataBase: new URL(siteUrl),
     title: seo.metaTitle,
     description: seo.metaDescription,
     keywords: seo.keywords,
-    authors: [{ name: profile.name, url: seo.canonicalUrl }],
+    authors: [{ name: profile.name, url: siteUrl }],
     creator: profile.name,
+    publisher: profile.name,
+    category: "technology",
+    applicationName: `${profile.name} Portfolio`,
     openGraph: {
       type: "website",
       locale: "en_US",
-      url: seo.canonicalUrl,
+      alternateLocale: ["ar_EG"],
+      url: siteUrl,
       title: seo.metaTitle,
       description: seo.metaDescription,
       siteName: `${profile.name} | AI & Automation Portfolio`,
@@ -38,11 +52,11 @@ export async function generateMetadata(): Promise<Metadata> {
       images: [seo.ogImage],
     },
     alternates: {
-      canonical: seo.canonicalUrl,
+      canonical: siteUrl,
       languages: {
-        en: `${seo.canonicalUrl}/?lang=en`,
-        ar: `${seo.canonicalUrl}/?lang=ar`,
-        "x-default": seo.canonicalUrl,
+        en: `${siteUrl}/?lang=en`,
+        ar: `${siteUrl}/?lang=ar`,
+        "x-default": siteUrl,
       },
     },
     robots: {
@@ -56,6 +70,12 @@ export async function generateMetadata(): Promise<Metadata> {
         "max-snippet": -1,
       },
     },
+    verification: {
+      ...(googleVerification ? { google: googleVerification } : {}),
+      ...(bingVerification
+        ? { other: { "msvalidate.01": bingVerification } }
+        : {}),
+    },
   };
 }
 
@@ -66,6 +86,7 @@ export default async function RootLayout({
 }>) {
   const profile = await getProfile();
   const seo = await getSEO();
+  const siteUrl = getSiteUrl(seo.canonicalUrl);
 
   // Structured Data / JSON-LD for Search Engines
   const jsonLd = {
@@ -73,14 +94,21 @@ export default async function RootLayout({
     "@graph": [
       {
         "@type": "Person",
-        "@id": `${seo.canonicalUrl}/#person`,
+        "@id": `${siteUrl}/#person`,
         name: profile.name,
         alternateName: profile.nameAr,
         jobTitle: profile.jobTitle,
         description: profile.shortBio,
-        url: seo.canonicalUrl,
+        url: siteUrl,
         image: profile.avatarUrl,
-        sameAs: [profile.github, profile.linkedin].filter(Boolean),
+        sameAs: [
+          profile.github,
+          profile.linkedin,
+          profile.youtube,
+          profile.telegram,
+          profile.behance,
+          profile.twitter,
+        ].filter(Boolean),
         alumniOf: {
           "@type": "CollegeOrUniversity",
           name: profile.university,
@@ -99,25 +127,25 @@ export default async function RootLayout({
       },
       {
         "@type": "ProfilePage",
-        "@id": `${seo.canonicalUrl}/#webpage`,
-        url: seo.canonicalUrl,
+        "@id": `${siteUrl}/#webpage`,
+        url: siteUrl,
         name: `${profile.name} — AI Engineer & Intelligent Products Builder`,
         isPartOf: {
-          "@id": `${seo.canonicalUrl}/#website`,
+          "@id": `${siteUrl}/#website`,
         },
         mainEntity: {
-          "@id": `${seo.canonicalUrl}/#person`,
+          "@id": `${siteUrl}/#person`,
         },
       },
       {
         "@type": "SoftwareApplication",
-        "@id": `${seo.canonicalUrl}/#runnova`,
+        "@id": `${siteUrl}/#runnova`,
         name: "Runnova",
         alternateName: "Runnova Enterprise Autonomous AI Platform",
         applicationCategory: "BusinessApplication",
         operatingSystem: "Web, Cloud",
         author: {
-          "@id": `${seo.canonicalUrl}/#person`,
+          "@id": `${siteUrl}/#person`,
         },
         description:
           "Enterprise autonomous AI employee platform featuring 77+ production routes, multi-channel orchestration, sub-450ms real-time voice synthesis, and multi-tenant security.",
@@ -125,12 +153,13 @@ export default async function RootLayout({
       },
       {
         "@type": "WebSite",
-        "@id": `${seo.canonicalUrl}/#website`,
-        url: seo.canonicalUrl,
+        "@id": `${siteUrl}/#website`,
+        url: siteUrl,
         name: `${profile.name} Digital Ecosystem`,
         description: seo.metaDescription,
+        inLanguage: ["en", "ar"],
         publisher: {
-          "@id": `${seo.canonicalUrl}/#person`,
+          "@id": `${siteUrl}/#person`,
         },
       },
     ],
