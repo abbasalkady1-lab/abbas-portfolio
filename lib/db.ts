@@ -72,6 +72,12 @@ function getBundledDatabase(): SiteDatabase {
 }
 
 export async function getDatabase(): Promise<SiteDatabase> {
+  // On Vercel the filesystem is not a writable CMS store. Always use the
+  // bundled JSON so homepage SSR never touches disk (avoids EROFS / missing cwd paths).
+  if (isVercelEnvironment()) {
+    return getBundledDatabase();
+  }
+
   try {
     if (fs.existsSync(DB_PATH)) {
       const raw = fs.readFileSync(DB_PATH, "utf-8");
