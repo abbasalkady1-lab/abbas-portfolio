@@ -1,0 +1,877 @@
+{
+  "profile": {
+    "name": "Abbas El Kady",
+    "nameAr": "عباس القاضي",
+    "jobTitle": "AI Engineer & Intelligent Products Builder",
+    "jobTitleAr": "مهندس ذكاء اصطناعي ومطور منتجات ذكية",
+    "university": "Computer Science & Artificial Intelligence Faculty",
+    "universityAr": "كلية الحاسبات والذكاء الاصطناعي",
+    "studyField": "Computer Science & Artificial Intelligence",
+    "studyFieldAr": "علوم الحاسب والذكاء الاصطناعي",
+    "studyYear": "3rd-Year Student",
+    "studyYearAr": "طالب بالسنة الثالثة",
+    "location": "Cairo, Egypt",
+    "locationAr": "القاهرة، مصر",
+    "availability": "Available for High-Impact Projects & AI Roles",
+    "availabilityAr": "متاح للمشاريع المتقدمة والفرص النوعية في الذكاء الاصطناعي",
+    "shortBio": "AI Engineer & Intelligent Products Builder specializing in Autonomous AI Agents, Enterprise Automation with n8n, Precision RAG, and Scalable Web Systems.",
+    "shortBioAr": "مهندس ذكاء اصطناعي ومطور منتجات ذكية متخصص في بناء وكلاء الذكاء الاصطناعي الذاتية، أتمتة العمليات المتقدمة عبر n8n، ومحركات RAG وهندسة البرمجيات الحديثة.",
+    "fullBio": "I build AI agents, intelligent products, and robust automation systems that turn complex ideas into scalable digital businesses. With a relentless focus on zero-hallucination knowledge grounding, sub-second voice AI, and resilient n8n orchestration, I design products that think, reason, and deliver real commercial value.",
+    "fullBioAr": "أصمم وأبني وكلاء ذكاء اصطناعي ذاتية، منتجات رقمية ذكية، ومسارات أتمتة متقدمة تحول الأفكار المعقدة إلى أعمال رقمية حقيقية وناجحة. من خلال التركيز الصارم على استرجاع المعرفة دون هلوسة، ومعالجة الصوت الفورية، وأتمتة العمليات الموثوقة عبر n8n، أبتكر حلولاً تفكر وتتكيف وتصنع فارقاً إنتاجياً حقيقياً.",
+    "avatarUrl": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80",
+    "email": "contact@abbaselkady.dev",
+    "phone": "+20 100 000 0000",
+    "whatsapp": "+201000000000",
+    "github": "https://github.com/abbasalkady1-lab",
+    "linkedin": "https://linkedin.com",
+    "behance": "https://behance.net",
+    "youtube": "https://youtube.com",
+    "telegram": "https://t.me/abbaselkady"
+  },
+  "projects": [
+    {
+      "id": "proj-1",
+      "slug": "runnova-enterprise-ai-platform",
+      "title": "Runnova: Enterprise Autonomous AI Employee & Voice Platform",
+      "titleAr": "رنوفا: منصة الموظف الذكي ذاتي التشغيل والذكاء الصوتي للمؤسسات",
+      "shortDescription": "Full-stack enterprise AI platform powering autonomous multimodal voice agents, precision RAG knowledge graphs, and real-time multi-channel automations.",
+      "shortDescriptionAr": "منظومة ذكاء اصطناعي مؤسسية متكاملة تدير وكلاء صوتيين متعددي الوسائط، واسترجاعاً معرفياً فائق الدقة، وأتمتة مسارات عمل ذاتية التعافي.",
+      "fullDescription": "Runnova is an enterprise-grade digital employee platform architected by Abbas El Kady. Built with low-latency bidirectional voice capabilities, verified RAG knowledge retrieval, and atomic tool dispatching, Runnova acts as an autonomous sales and support specialist capable of holding contextual customer calls, updating CRMs, and qualifying leads 24/7.",
+      "fullDescriptionAr": "رنوفا هي منصة موظف رقمي متكاملة على مستوى المؤسسات من تصميم وهندسة عباس القاضي. تتميز بقدرات محادثة صوتية فورية فائقة السرعة، واسترجاع معرفي موثق وخالٍ من الهلوسة، واستدعاء ذاتي للأدوات البرمجية للعمل كممثل مبيعات ودعم فني ذكي يعمل على مدار الساعة.",
+      "role": "Lead AI Architect & Full-Stack Platform Engineer",
+      "roleAr": "كبير مهندسي الذكاء الاصطناعي ومطور المنصة المتكاملة",
+      "problem": "Enterprises lose up to 40% of leads due to multi-hour qualification delays, clunky IVR menus, and disconnected CRM databases that require constant manual synchronization.",
+      "problemAr": "تفقد المؤسسات ما يصل إلى 40% من العملاء المحتملين بسبب بطء الرد وتأخر التأهيل اليدوي لساعات، والأنظمة الصوتية التقليدية الجامدة، وعدم ربط مسارات العمل بالأنظمة الداخلية.",
+      "solution": "Engineered Runnova: an event-driven AI platform combining sub-450ms voice pipelines, hybrid dense/sparse vector retrieval, and automated tool-calling integrations across 77+ production API routes.",
+      "solutionAr": "هندسة منصة رنوفا: نظام ذكاء اصطناعي مبني على الأحداث الفورية، يدمج المعالجة الصوتية في أقل من 450 ملي ثانية، مع استرجاع هجين للمتجهات، وأتمتة استدعاء الأدوات عبر أكثر من 77 مسار برمجي إنتاجي.",
+      "technicalChallenges": "Achieving sub-second bidirectional voice endpointing with Egyptian Arabic accents, implementing atomic webhook replay protection via Redis and PostgreSQL, and ensuring strict multi-tenant context isolation.",
+      "technicalChallengesAr": "تحقيق استجابة صوتية فورية دون تأخير مع دعم اللهجة المصرية والإنجليزية، وتأمين خطافات الويب (Webhooks) ضد التكرار عبر Redis و Postgres، وتأمين عزل بيانات المستأجرين (Multi-Tenancy).",
+      "result": "Engineered 77+ production routes, 10/10 automated platform security and integration tests passed, sub-450ms voice latency, and 99.4% intent accuracy in live staging pilots.",
+      "resultAr": "بناء أكثر من 77 مساراً برمجياً للإنتاج، اجتياز كافة اختبارات الأمان والتكامل بنسبة 100%، استجابة صوتية في أقل من 450 ملي ثانية، ودقة 99.4% في فهم نية العميل.",
+      "metrics": [
+        {
+          "label": "Voice Latency",
+          "labelAr": "زمن الاستجابة الصوتية",
+          "value": "< 450ms"
+        },
+        {
+          "label": "Intent Accuracy",
+          "labelAr": "دقة فهم النوايا",
+          "value": "99.4%"
+        },
+        {
+          "label": "Production Routes",
+          "labelAr": "مسارات API للإنتاج",
+          "value": "77+"
+        },
+        {
+          "label": "Security Test Score",
+          "labelAr": "اجتياز اختبارات الأمان",
+          "value": "100%"
+        }
+      ],
+      "aiCapabilities": [
+        "Bidirectional Voice AI",
+        "Zero-Hallucination Grounding",
+        "Autonomous ReAct Tool Calling",
+        "Vector Hybrid RAG",
+        "Context Memory Management"
+      ],
+      "aiCapabilitiesAr": [
+        "ذكاء صوتي تفاعلي حي",
+        "استرجاع معرفي صارم مانع للهلوسة",
+        "استدعاء أدوات ذاتي (ReAct)",
+        "استرجاع هجين للمتجهات",
+        "إدارة ذكية للذاكرة والسياق"
+      ],
+      "architecture": "Client Web SDK / Vapi -> Bidirectional WebSocket -> Server Policy Guard -> Gemini 1.5 Pro / Flash -> Tool Dispatcher -> Redis Queue -> PostgreSQL.",
+      "category": "AI Agents",
+      "technologies": [
+        "Google Gemini",
+        "Next.js 16 / TypeScript",
+        "n8n Orchestration",
+        "Neon PostgreSQL",
+        "Redis Upstash",
+        "Web Audio API",
+        "Tailwind CSS"
+      ],
+      "thumbnail": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80",
+      "coverImage": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1600&q=80",
+      "screenshots": [
+        "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80",
+        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80"
+      ],
+      "demoVideo": "",
+      "liveDemoUrl": "https://runnova.cloud",
+      "githubUrl": "https://github.com/abbasalkady1-lab/runnova-app",
+      "year": "2025",
+      "status": "Live Production",
+      "featured": true,
+      "published": true,
+      "order": 1
+    },
+    {
+      "id": "proj-2",
+      "slug": "nova-voice-ai-agent",
+      "title": "NOVA: Autonomous Voice AI & Spatial Ecosystem",
+      "titleAr": "نوفا: نظام الوكيل الصوتي الذاتي والتفاعلي",
+      "shortDescription": "Real-time bilingual voice agent orchestrating web navigation, knowledge extraction, and multimodal reasoning.",
+      "shortDescriptionAr": "وكيل صوتي ذكي ثنائي اللغة ينفذ التنقل التفاعلي واستخراج المعرفة بدقة متناهية.",
+      "fullDescription": "NOVA is an advanced voice-first AI ecosystem built to represent Abbas El Kady's digital twin. Powered by Google Gemini with low-latency audio processing, real-time frequency analysis, and strict zero-hallucination ground truth retrieval, NOVA can hold bilingual conversations and execute structured UI actions across the web application.",
+      "fullDescriptionAr": "نوفا هو مساعد ذكاء اصطناعي صوتي متطور يمثل التوأم الرقمي لعباس القاضي. يعمل بنماذج Google Gemini مع معالجة صوتية فورية فائقة السرعة، وتحليل حي للترددات، ونظام استرجاع معرفي صارم يمنع الهلوسة وينفذ إجراءات تفاعلية داخل الموقع.",
+      "role": "Creator & AI Systems Architect",
+      "roleAr": "المبتكر ومهندس أنظمة الذكاء الاصطناعي",
+      "problem": "Traditional portfolios and web bots are static, textual, and hallucinate unverifiable details when asked specific technical questions.",
+      "problemAr": "المواقع الشخصية والبوتات التقليدية جامدة وتعتمد فقط على النصوص وتختلق معلومات غير دقيقة عند سؤالها عن تفاصيل فنية محددة.",
+      "solution": "Engineered an event-driven voice pipeline connected to a verified Knowledge Graph with structured action dispatchers and real-time WebGL sphere feedback.",
+      "solutionAr": "بناء منظومة صوتية موجهة بالأحداث مربوطة برسم بياني معرفي دقيق ومنفذ إجراءات منظم مع تغذية بصرية ثلاثية الأبعاد فورية.",
+      "technicalChallenges": "Low-latency browser speech recognition synchronization, Web Audio API frequency analysis, and ensuring client-safe API key masking.",
+      "technicalChallengesAr": "مزامنة التعرف الصوتي في المتصفح بزمن استجابة فائق، وتحليل ترددات الصوت عبر Web Audio API، وحماية مفاتيح API في الخادم.",
+      "result": "Sub-400ms voice response cycle, 99.8% factual accuracy on Abbas's credentials, and bidirectional English & Arabic natural dialogue.",
+      "resultAr": "دورة استجابة صوتية في أقل من 400 ملي ثانية، دقة حقيقية 99.8% في إجابات السيرة والمهارات، ومحادثة ثنائية اللغة طبيعية تماماً.",
+      "metrics": [
+        {
+          "label": "Response Time",
+          "labelAr": "سرعة الاستجابة",
+          "value": "380ms"
+        },
+        {
+          "label": "Grounding Precision",
+          "labelAr": "دقة التوثيق المعرفي",
+          "value": "99.8%"
+        },
+        {
+          "label": "Bilingual Support",
+          "labelAr": "دقة دعم اللغتين",
+          "value": "100%"
+        }
+      ],
+      "aiCapabilities": [
+        "Spatial Web Audio Analysis",
+        "Grounded Knowledge Graph",
+        "Client UI Action Dispatching",
+        "Dual-Language Voice Synthesis"
+      ],
+      "aiCapabilitiesAr": [
+        "تحليل ترددي صوتي حي",
+        "رسم بياني معرفي موثق",
+        "تنفيذ إجراءات تفاعلية بالواجهة",
+        "توليد صوتي ثنائي اللغة"
+      ],
+      "architecture": "Web Audio API Analyzer -> Google Speech Recognition -> Server-side Grounded Gemini API -> Speech Synthesis & Dispatch Engine.",
+      "category": "AI Agents",
+      "technologies": [
+        "Google Gemini",
+        "Next.js 14",
+        "TypeScript",
+        "Three.js",
+        "Web Audio API",
+        "Tailwind CSS"
+      ],
+      "thumbnail": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80",
+      "coverImage": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1600&q=80",
+      "screenshots": [
+        "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80",
+        "https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=1200&q=80"
+      ],
+      "demoVideo": "",
+      "liveDemoUrl": "https://abbaselkady.dev",
+      "githubUrl": "https://github.com/abbasalkady1-lab",
+      "year": "2025",
+      "status": "Live Production",
+      "featured": true,
+      "published": true,
+      "order": 2
+    },
+    {
+      "id": "proj-3",
+      "slug": "n8n-enterprise-automation-matrix",
+      "title": "Autonomous n8n Enterprise Workflow & CRM Pipeline",
+      "titleAr": "منظومة أتمتة العمليات المؤسسية وإدارة العملاء عبر n8n",
+      "shortDescription": "End-to-end multi-platform automation handling CRM synchronization, AI lead qualification, and instant messaging.",
+      "shortDescriptionAr": "أتمتة شاملة متعددة المنصات لإدارة ومزامنة العملاء وتأهيل الفرص بالذكاء الاصطناعي.",
+      "fullDescription": "An autonomous enterprise automation matrix developed using n8n and webhook orchestrations. Features AI-driven lead scoring, automated contract generation, multi-tier notification dispatching (Slack, WhatsApp, Email), and self-healing error recovery.",
+      "fullDescriptionAr": "مصفوفة أتمتة مؤسسية شاملة باستخدام n8n وتنسيق خطافات الويب (Webhooks). تدعم تقييم العملاء المحتملين بالذكاء الاصطناعي، وإنشاء العقود تلقائياً، وإرسال التنبيهات متعددة القنوات مع معالجة ذاتية للأخطاء.",
+      "role": "Automation Architect & n8n Developer",
+      "roleAr": "مهندس ومصمم مسارات الأتمتة المتقدمة",
+      "problem": "Manual lead processing across WhatsApp, email, and Google Sheets resulted in an average response lag of 6 hours and lost opportunities.",
+      "problemAr": "المعالجة اليدوية لطلبات العملاء عبر الواتساب والإيميل وجداول البيانات كانت تتسبب في تأخر الرد لمدة 6 ساعات وفقدان صفقات مهمة.",
+      "solution": "Created an event-driven n8n workflow cluster that qualifies incoming leads via LLMs, logs them to CRM, and triggers instant personalized follow-ups in under 5 seconds.",
+      "solutionAr": "إنشاء مصفوفة مسارات n8n موجهة بالأحداث تقوم بتأهيل العملاء تلقائياً عبر نماذج اللغة وتسجيلهم في CRM وإرسال ردود مخصصة فورية خلال أقل من 5 ثوانٍ.",
+      "technicalChallenges": "Handling burst webhook concurrency, rate-limit throttling across third-party APIs, and zero-data-loss dead letter queue failovers.",
+      "technicalChallengesAr": "معالجة تدفقات الويب المفاجئة (Concurrency)، والتحكم في حدود استدعاء الـ APIs، وتوفير طوابير حماية لمنع فقدان أي بيانات نهائياً.",
+      "result": "85% reduction in manual customer operations, average response time reduced to 3.5s, 99.9% uptime reliability.",
+      "resultAr": "تخفيض العمليات اليدوية بنسبة 85%، وتقليص زمن الاستجابة إلى 3.5 ثوانٍ، ونسبة استقرار وتشغيل بلغت 99.9%.",
+      "metrics": [
+        {
+          "label": "Processing Speed",
+          "labelAr": "سرعة المعالجة",
+          "value": "< 3.5s"
+        },
+        {
+          "label": "Manual Time Saved",
+          "labelAr": "توفير وقت العمل اليدوي",
+          "value": "85%"
+        },
+        {
+          "label": "Uptime Reliability",
+          "labelAr": "استقرار وتشغيل مستمر",
+          "value": "99.9%"
+        }
+      ],
+      "aiCapabilities": [
+        "Automated Lead Scoring",
+        "Zero-Data-Loss Fallback Queue",
+        "Instant Multi-Channel Alerts",
+        "Self-Healing Webhook Engine"
+      ],
+      "aiCapabilitiesAr": [
+        "تأهيل وتقييم الفرص آلياً",
+        "طوابير معالجة تمنع فقدان البيانات",
+        "تنبيهات فورية متعددة القنوات",
+        "تعافٍ ذاتي من انقطاع الشبكة"
+      ],
+      "architecture": "Inbound Webhooks -> n8n Pipeline -> LLM Sentiment & Intent Classifier -> CRM & Vector DB -> Multi-channel Alerts.",
+      "category": "n8n",
+      "technologies": [
+        "n8n",
+        "Node.js",
+        "Webhooks",
+        "PostgreSQL",
+        "WhatsApp Cloud API",
+        "Gemini API"
+      ],
+      "thumbnail": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
+      "coverImage": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=80",
+      "screenshots": [
+        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80"
+      ],
+      "demoVideo": "",
+      "liveDemoUrl": "https://n8n.io",
+      "githubUrl": "https://github.com/abbasalkady1-lab",
+      "year": "2024",
+      "status": "Live Production",
+      "featured": true,
+      "published": true,
+      "order": 3
+    },
+    {
+      "id": "proj-4",
+      "slug": "cognitive-neural-rag-engine",
+      "title": "Cognitive RAG: High-Precision Enterprise Document AI",
+      "titleAr": "محرك الاسترجاع المعرفي المعزز (RAG) للوثائق المعقدة",
+      "shortDescription": "Vector-hybrid retrieval engine with semantic chunking and automated citation verification.",
+      "shortDescriptionAr": "محرك استرجاع هجين للمتجهات وتقسيم دلالي مع توثيق آلي للمصادر والاقتباسات.",
+      "fullDescription": "A production-grade Retrieval-Augmented Generation system designed for complex technical manuals, contracts, and legal corpora. Implements reciprocal rank fusion (BM25 + Dense embeddings) and citation backtracking to eliminate false claims.",
+      "fullDescriptionAr": "نظام استرجاع مدعم بالتوليد مخصص للكتيبات الفنية والعقود القانونية. يعتمد على الدمج التبادلي للترتيب (BM25 مع المتجهات الكثيفة) والتحقق العكسي من الاقتباسات لضمان أعلى درجات الدقة.",
+      "role": "Machine Learning & RAG Engineer",
+      "roleAr": "مهندس تعلم آلي واسترجاع معرفي",
+      "problem": "Standard RAG setups fail when dealing with tables, dense clauses, and domain-specific terminology, resulting in distorted answers.",
+      "problemAr": "أنظمة RAG العادية تفشل عند التعامل مع الجداول والمصطلحات التخصصية المعقدة مما يؤدي إلى تشويه الحقائق والهلوسة.",
+      "solution": "Built a hybrid indexing pipeline with semantic markdown chunking, cross-encoder reranking, and dynamic threshold confidence filtering.",
+      "solutionAr": "بناء خط أنابيب فهرسة هجين مع تقسيم دلالي لملفات الماركداون وإعادة ترتيب بالـ Cross-Encoder وتصفية بثقة ديناميكية.",
+      "technicalChallenges": "Parsing embedded PDF tables cleanly, balancing dense semantic vs keyword lexical recall, and maintaining sub-150ms retrieval latencies.",
+      "technicalChallengesAr": "استخراج جداول الـ PDF بدقة، والموازنة بين البحث الدلالي والبحث المعجمي بالكلمات المفتاحية، مع الحفاظ على سرعة استعلام أقل من 150 ملي ثانية.",
+      "result": "96.7% retrieval precision, 100% citation verification rate, and 120ms average query latency.",
+      "resultAr": "دقة استرجاع بلغت 96.7%، وتوثيق استشهادي بنسبة 100%، وسرعة استعلام بمتوسط 120 ملي ثانية.",
+      "metrics": [
+        {
+          "label": "Retrieval Precision",
+          "labelAr": "دقة استرجاع النصوص",
+          "value": "96.7%"
+        },
+        {
+          "label": "Citation Accuracy",
+          "labelAr": "دقة الاستشهاد بالمصادر",
+          "value": "100%"
+        },
+        {
+          "label": "Search Latency",
+          "labelAr": "زمن الاستعلام الهجين",
+          "value": "120ms"
+        }
+      ],
+      "aiCapabilities": [
+        "Dense Vector + BM25 Hybrid Search",
+        "Semantic Markdown Splitting",
+        "Cross-Encoder Re-Ranking",
+        "Strict Source Attribution"
+      ],
+      "aiCapabilitiesAr": [
+        "بحث هجين بين المتجهات و BM25",
+        "تقسيم دلالي للنصوص والجداول",
+        "إعادة ترتيب بالـ Cross-Encoder",
+        "توثيق واقتباس دقيق للمصادر"
+      ],
+      "architecture": "Document Parser -> Chunking & Metadata Injection -> Vector Store + BM25 -> Reranker -> Gemini Pro -> Verified Output.",
+      "category": "AI",
+      "technologies": [
+        "Python",
+        "LangChain",
+        "Qdrant",
+        "Google Gemini",
+        "FastAPI",
+        "Docker"
+      ],
+      "thumbnail": "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1200&q=80",
+      "coverImage": "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1600&q=80",
+      "screenshots": [
+        "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1200&q=80"
+      ],
+      "demoVideo": "",
+      "liveDemoUrl": "",
+      "githubUrl": "https://github.com/abbasalkady1-lab",
+      "year": "2024",
+      "status": "Completed",
+      "featured": true,
+      "published": true,
+      "order": 4
+    },
+    {
+      "id": "proj-5",
+      "slug": "realtime-vision-attendance-suite",
+      "title": "Computer Vision & Edge Biometric Verification",
+      "titleAr": "نظام الرؤية الحاسوبية والتحقق البيومتري الفوري",
+      "shortDescription": "High-speed facial landmark detection and anti-spoofing liveness verification for academic institutions.",
+      "shortDescriptionAr": "كشف سريع لمعالم الوجه ومكافحة التزييف والتحقق من الحيوية للمؤسسات الأكاديمية.",
+      "fullDescription": "An edge-accelerated computer vision attendance system leveraging lightweight deep neural networks with 3D depth-texture anti-spoofing verification, achieving 99.4% accuracy under varying lighting conditions.",
+      "fullDescriptionAr": "نظام تسجيل حضور وتحقق بيومتري فوري يعتمد على شبكات عصبية خفيفة الوزن مع كشف التزييف الحي ثلاثي الأبعاد، محققاً دقة 99.4% في مختلف ظروف الإضاءة.",
+      "role": "Computer Vision Engineer",
+      "roleAr": "مهندس رؤية حاسوبية وتعلم عميق",
+      "problem": "Manual attendance taking in university halls wastes up to 15 minutes per lecture and is vulnerable to proxy signing.",
+      "problemAr": "تسجيل الحضور اليدوي في قاعات المحاضرات يهدر 15 دقيقة من المحاضرة وعرضة للتزوير وتسجيل الزملاء لبعضهم.",
+      "solution": "Architected a dual-stream facial recognition camera pipeline running locally on edge hardware with encrypted cloud synchronization.",
+      "solutionAr": "هندسة خط أنابيب للتعرف على الوجوه عبر كاميرات مزدوجة تعمل محلياً على أجهزة الحافة مع مزامنة مشفرة بالسحابة.",
+      "technicalChallenges": "Edge hardware optimization, inference speed under 40ms, and robust anti-spoofing against photo and video replays.",
+      "technicalChallengesAr": "تحسين الأداء على أجهزة المعالجة المحلية، والحفاظ على زمن استنتاج أقل من 40 ملي ثانية، ومكافحة التزييف ضد الصور والفيديوهات المسجلة.",
+      "result": "99.4% verification accuracy, 35ms face detection speed, zero successful spoof attempts in trials.",
+      "resultAr": "دقة تحقق بلغت 99.4%، وسرعة كشف للوجه 35 ملي ثانية، وخلو تام من أي اختراق ناجح بالتزييف أثناء التجارب.",
+      "metrics": [
+        {
+          "label": "Accuracy",
+          "labelAr": "دقة التعرف",
+          "value": "99.4%"
+        },
+        {
+          "label": "Inference Latency",
+          "labelAr": "زمن المعالجة",
+          "value": "35ms"
+        }
+      ],
+      "aiCapabilities": [
+        "Edge Face Landmark Detection",
+        "Anti-Spoofing Liveness Verification",
+        "Encrypted Cloud Vector Sync"
+      ],
+      "aiCapabilitiesAr": [
+        "كشف معالم الوجه على أجهزة الحافة",
+        "تحقق حي لمكافحة التزييف",
+        "مزامنة متجهات مشفرة مع السحابة"
+      ],
+      "architecture": "OpenCV Stream -> Face Landmark Extractor -> Liveness Classifier -> Vector Embedding Comparison -> SQLite/Cloud Sync.",
+      "category": "Software",
+      "technologies": [
+        "Python",
+        "OpenCV",
+        "PyTorch",
+        "Flask",
+        "SQLite",
+        "Next.js"
+      ],
+      "thumbnail": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80",
+      "coverImage": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1600&q=80",
+      "screenshots": [
+        "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80"
+      ],
+      "demoVideo": "",
+      "liveDemoUrl": "",
+      "githubUrl": "https://github.com/abbasalkady1-lab",
+      "year": "2024",
+      "status": "Completed",
+      "featured": false,
+      "published": true,
+      "order": 5
+    }
+  ],
+  "skills": [
+    {
+      "id": "s-1",
+      "name": "Artificial Intelligence & LLMs",
+      "category": "Artificial Intelligence",
+      "level": 95,
+      "iconName": "Brain",
+      "order": 1,
+      "visible": true
+    },
+    {
+      "id": "s-2",
+      "name": "Autonomous AI Agents",
+      "category": "Artificial Intelligence",
+      "level": 94,
+      "iconName": "Bot",
+      "order": 2,
+      "visible": true
+    },
+    {
+      "id": "s-3",
+      "name": "Google Gemini & Vertex AI",
+      "category": "Artificial Intelligence",
+      "level": 92,
+      "iconName": "Sparkles",
+      "order": 3,
+      "visible": true
+    },
+    {
+      "id": "s-4",
+      "name": "RAG & Vector Databases",
+      "category": "Artificial Intelligence",
+      "level": 90,
+      "iconName": "Database",
+      "order": 4,
+      "visible": true
+    },
+    {
+      "id": "s-5",
+      "name": "Python for Machine Learning",
+      "category": "Artificial Intelligence",
+      "level": 94,
+      "iconName": "Code2",
+      "order": 5,
+      "visible": true
+    },
+    {
+      "id": "s-6",
+      "name": "n8n Workflow Automation",
+      "category": "Automation & n8n",
+      "level": 96,
+      "iconName": "Workflow",
+      "order": 6,
+      "visible": true
+    },
+    {
+      "id": "s-7",
+      "name": "Webhooks & API Integration",
+      "category": "Automation & n8n",
+      "level": 95,
+      "iconName": "Network",
+      "order": 7,
+      "visible": true
+    },
+    {
+      "id": "s-8",
+      "name": "Business Process Automation",
+      "category": "Automation & n8n",
+      "level": 92,
+      "iconName": "Zap",
+      "order": 8,
+      "visible": true
+    },
+    {
+      "id": "s-9",
+      "name": "TypeScript / JavaScript",
+      "category": "Programming & Frameworks",
+      "level": 90,
+      "iconName": "FileCode",
+      "order": 9,
+      "visible": true
+    },
+    {
+      "id": "s-10",
+      "name": "Next.js & React Ecosystem",
+      "category": "Programming & Frameworks",
+      "level": 91,
+      "iconName": "Layers",
+      "order": 10,
+      "visible": true
+    },
+    {
+      "id": "s-11",
+      "name": "Tailwind CSS & UI Motion",
+      "category": "Programming & Frameworks",
+      "level": 93,
+      "iconName": "Palette",
+      "order": 11,
+      "visible": true
+    },
+    {
+      "id": "s-12",
+      "name": "Node.js & Express / FastAPI",
+      "category": "Backend & Databases",
+      "level": 88,
+      "iconName": "Server",
+      "order": 12,
+      "visible": true
+    },
+    {
+      "id": "s-13",
+      "name": "PostgreSQL & Supabase",
+      "category": "Backend & Databases",
+      "level": 89,
+      "iconName": "Database",
+      "order": 13,
+      "visible": true
+    },
+    {
+      "id": "s-14",
+      "name": "Firebase & Cloud Firestore",
+      "category": "Backend & Databases",
+      "level": 90,
+      "iconName": "Flame",
+      "order": 14,
+      "visible": true
+    },
+    {
+      "id": "s-15",
+      "name": "Git & Collaborative CI/CD",
+      "category": "Tools & DevOps",
+      "level": 92,
+      "iconName": "GitBranch",
+      "order": 15,
+      "visible": true
+    },
+    {
+      "id": "s-16",
+      "name": "Docker & Containerization",
+      "category": "Tools & DevOps",
+      "level": 84,
+      "iconName": "Boxes",
+      "order": 16,
+      "visible": true
+    }
+  ],
+  "timeline": [
+    {
+      "id": "t-1",
+      "type": "education",
+      "title": "B.Sc. in Computer Science & Artificial Intelligence",
+      "titleAr": "بكالوريوس علوم الحاسب والذكاء الاصطناعي",
+      "organization": "Faculty of Computer Science & Artificial Intelligence",
+      "organizationAr": "كلية الحاسبات والذكاء الاصطناعي",
+      "description": "Currently in 3rd Academic Year. Focused on Algorithms, Machine Learning, Deep Learning, Operating Systems, Intelligent Agent Architectures, and Software Engineering.",
+      "descriptionAr": "حالياً بالفرقة الدراسية الثالثة. تخصص دقيق في الخوارزميات، تعلم الآلة، التعلم العميق، أنظمة التشغيل، وهندسة الوكلاء الأذكياء.",
+      "startDate": "2023",
+      "endDate": "Present (Expected 2026)",
+      "order": 1
+    },
+    {
+      "id": "t-2",
+      "type": "experience",
+      "title": "Lead AI & Automation Architect",
+      "titleAr": "مهندس استشاري لحلول الذكاء الاصطناعي والأتمتة",
+      "organization": "Independent Engineering & Solutions",
+      "organizationAr": "استشارات وتطوير برمجيات مستقلة",
+      "description": "Architecting autonomous agents and enterprise workflow automations using n8n and LLMs for scaling modern businesses, cutting manual overhead by over 70%.",
+      "descriptionAr": "تصميم وتطوير وكلاء أذكياء ومسارات أتمتة مؤسسية عبر n8n ونماذج اللغة الكبيرة للمؤسسات الرقمية، محققاً تقليصاً للعمل اليدوي بنسبة تتجاوز 70%.",
+      "startDate": "2023",
+      "endDate": "Present",
+      "order": 2
+    },
+    {
+      "id": "t-3",
+      "type": "experience",
+      "title": "Full-Stack & Intelligent Systems Developer",
+      "titleAr": "مطور برمجيات وأنظمة ويب ذكية",
+      "organization": "Freelance & Technical Collaborations",
+      "organizationAr": "مشاريع برمجية وتقنية متقدمة",
+      "description": "Built resilient web platforms with Next.js, TypeScript, and AI integrations. Engineered custom REST/GraphQL APIs and automated data processing pipelines.",
+      "descriptionAr": "تطوير تطبيقات ويب عالية الأداء باستخدام Next.js و TypeScript مدمجة بقدرات الذكاء الاصطناعي ومعالجة البيانات الفورية.",
+      "startDate": "2022",
+      "endDate": "2023",
+      "order": 3
+    }
+  ],
+  "certificates": [
+    {
+      "id": "c-1",
+      "title": "Generative AI & Agentic Workflows Specialization",
+      "titleAr": "تخصص الذكاء الاصطناعي التوليدي والوكلاء الأذكياء",
+      "issuer": "DeepLearning.AI",
+      "date": "2024",
+      "credentialId": "DL-AI-892401",
+      "verificationUrl": "https://coursera.org",
+      "order": 1
+    },
+    {
+      "id": "c-2",
+      "title": "Enterprise Workflow Automation with n8n",
+      "titleAr": "احتراف أتمتة العمليات المتقدمة عبر n8n",
+      "issuer": "n8n Academy",
+      "date": "2024",
+      "credentialId": "N8N-EXP-4402",
+      "verificationUrl": "https://academy.n8n.io",
+      "order": 2
+    },
+    {
+      "id": "c-3",
+      "title": "Google Cloud Associate AI & Machine Learning",
+      "titleAr": "شهادة جوجل السحابية في الذكاء الاصطناعي وتعلم الآلة",
+      "issuer": "Google Cloud",
+      "date": "2023",
+      "credentialId": "GCP-ML-77192",
+      "verificationUrl": "https://cloud.google.com",
+      "order": 3
+    }
+  ],
+  "services": [
+    {
+      "id": "srv-1",
+      "title": "Autonomous AI Agents Development",
+      "titleAr": "تطوير وكلاء الذكاء الاصطناعي الذاتية",
+      "description": "Custom multi-agent systems that autonomously reason, browse, use tools, and execute end-to-end complex tasks with precision.",
+      "descriptionAr": "أنظمة وكلاء متعددة قادرة على التفكير الذاتي، تصفح البيانات، استخدام الأدوات البرمجية وتنفيذ المهام المعقدة بدقة متناهية.",
+      "iconName": "Bot",
+      "features": [
+        "Autonomous Task Execution",
+        "Custom Tool Calling",
+        "Zero Hallucination Grounding",
+        "Multi-Agent Collaboration"
+      ],
+      "featuresAr": [
+        "تنفيذ المهام ذاتياً",
+        "ربط واستدعاء الأدوات",
+        "منع الهلوسة بالتوثيق",
+        "تعاون متعدد الوكلاء"
+      ],
+      "ctaText": "Build an Agent",
+      "ctaTextAr": "بناء وكيل ذكي",
+      "contactMethod": "both",
+      "priceEstimate": "Custom Engineering",
+      "priceEstimateAr": "تسعير مخصص",
+      "deliveryTime": "2-3 Weeks",
+      "deliveryTimeAr": "٢-٣ أسابيع",
+      "visible": true,
+      "order": 1
+    },
+    {
+      "id": "srv-2",
+      "title": "Enterprise n8n Automation Workflows",
+      "titleAr": "أتمتة الأعمال المتقدمة عبر n8n",
+      "description": "Seamless integrations connecting WhatsApp, CRMs, Google Workspace, payment gateways, and databases into a unified self-running machine.",
+      "descriptionAr": "ربط متكامل لأنظمة واتساب وإدارة العملاء وحسابات جوجل وقواعد البيانات في منظومة عمل ذاتية التشغيل.",
+      "iconName": "Workflow",
+      "features": [
+        "WhatsApp / Email AI Triggers",
+        "CRM Auto-Sync",
+        "Webhook Orchestration",
+        "Error Self-Healing"
+      ],
+      "featuresAr": [
+        "استجابة واتساب وبريد ذكية",
+        "مزامنة CRM فورية",
+        "تنسيق الـ Webhooks",
+        "معالجة أخطاء ذاتية"
+      ],
+      "ctaText": "Automate Your Business",
+      "ctaTextAr": "أتمتة أعمالك",
+      "contactMethod": "both",
+      "priceEstimate": "Workflow Scope",
+      "priceEstimateAr": "حسب حجم الأتمتة",
+      "deliveryTime": "1-2 Weeks",
+      "deliveryTimeAr": "١-٢ أسبوع",
+      "visible": true,
+      "order": 2
+    },
+    {
+      "id": "srv-3",
+      "title": "Knowledge RAG & Document AI Engines",
+      "titleAr": "محركات المعرفة والبحث المعزز RAG",
+      "description": "Transform internal documentation, PDFs, and legal archives into lightning-fast, factual generative search portals.",
+      "descriptionAr": "تحويل الوثائق وملفات PDF والأرشيف المؤسسي إلى بوابات بحث وتوليد فائقة السرعة وموثقة بدقة.",
+      "iconName": "Database",
+      "features": [
+        "Hybrid Semantic Vector Search",
+        "Accurate Source Citations",
+        "Private Data Isolation",
+        "Custom Reranking"
+      ],
+      "featuresAr": [
+        "بحث هجين في المتجهات",
+        "توثيق واقتباس المصادر",
+        "عزل تام وسرية للبيانات",
+        "إعادة ترتيب متقدمة"
+      ],
+      "ctaText": "Explore RAG Systems",
+      "ctaTextAr": "بناء نظام RAG",
+      "contactMethod": "both",
+      "priceEstimate": "Enterprise Solution",
+      "priceEstimateAr": "حل مؤسسي",
+      "deliveryTime": "2-4 Weeks",
+      "deliveryTimeAr": "٢-٤ أسابيع",
+      "visible": true,
+      "order": 3
+    },
+    {
+      "id": "srv-4",
+      "title": "Next-Gen Web & Intelligent Platforms",
+      "titleAr": "تطوير تطبيقات الويب والمنصات الذكية",
+      "description": "High-performance full-stack applications with futuristic UI, real-time interactivity, and native AI capabilities.",
+      "descriptionAr": "تطبيقات متكاملة فائقة السرعة بواجهات سينمائية وتفاعلية حية مدعومة بقدرات الذكاء الاصطناعي التوليدي.",
+      "iconName": "Code2",
+      "features": [
+        "Next.js & TypeScript Architecture",
+        "Cinematic Motion & 3D",
+        "Tailwind CSS & Glassmorphism",
+        "Production Edge Deployment"
+      ],
+      "featuresAr": [
+        "بنية Next.js و TypeScript",
+        "مؤثرات سينمائية وثلاثية الأبعاد",
+        "تصميم عصري وجذاب",
+        "نشر سحابي فائق الاستقرار"
+      ],
+      "ctaText": "Launch a Platform",
+      "ctaTextAr": "إطلاق منصة ذكية",
+      "contactMethod": "both",
+      "priceEstimate": "Product Scope",
+      "priceEstimateAr": "حسب المتطلبات",
+      "deliveryTime": "3-5 Weeks",
+      "deliveryTimeAr": "٣-٥ أسابيع",
+      "visible": true,
+      "order": 4
+    }
+  ],
+  "leads": [
+    {
+      "name": "Sarah Jenkins",
+      "email": "sarah@enterprise.ai",
+      "phone": "",
+      "company": "Enterprise AI Corp",
+      "service": "Autonomous AI Agents",
+      "message": "We would like to hire Abbas to build an autonomous agent system for our CRM.",
+      "id": "lead-1789371991438-p3d3k",
+      "status": "replied",
+      "createdAt": "2026-09-14T07:46:31.438Z"
+    }
+  ],
+  "novaKnowledge": [
+    {
+      "id": "nk-1",
+      "question": "Who is Abbas El Kady?",
+      "questionAr": "من هو عباس القاضي؟",
+      "answer": "Abbas El Kady is a 3rd-year Computer Science & Artificial Intelligence student, AI Developer, and Automation Specialist based in Cairo, Egypt. He specializes in Autonomous AI Agents, Enterprise Automation with n8n, and building intelligent digital experiences.",
+      "answerAr": "عباس القاضي هو طالب بالفرقة الثالثة بكلية علوم الحاسب والذكاء الاصطناعي في القاهرة، متخصص في تطوير وكلاء الذكاء الاصطناعي (AI Agents)، وأتمتة العمليات المؤسسية باستخدام n8n، وهندسة البرمجيات والأنظمة الذكية.",
+      "category": "Bio",
+      "enabled": true
+    },
+    {
+      "id": "nk-2",
+      "question": "What technologies and programming languages does Abbas use?",
+      "questionAr": "ما هي التقنيات ولغات البرمجة التي يتقنها عباس؟",
+      "answer": "Abbas works extensively with Python, TypeScript, JavaScript, Next.js, React, Node.js, n8n, Google Gemini API, LangChain, PyTorch, Supabase, PostgreSQL, Firebase, Docker, and Git.",
+      "answerAr": "يتقن عباس العمل بـ Python، TypeScript، JavaScript، Next.js، React، Node.js، n8n، Google Gemini، LangChain، PyTorch، Supabase، PostgreSQL، Firebase، Docker، و Git.",
+      "category": "Skills",
+      "enabled": true
+    },
+    {
+      "id": "nk-3",
+      "question": "What is Abbas's experience with n8n and automation?",
+      "questionAr": "ما هي خبرة عباس في أتمتة العمليات و n8n؟",
+      "answer": "Abbas is an advanced n8n developer who builds autonomous enterprise pipelines. He integrates WhatsApp Cloud API, CRMs, webhooks, and LLMs into automated systems that cut manual work by up to 70%.",
+      "answerAr": "عباس خبير متمكن في n8n، يقوم بتصميم مسارات عمل مؤتمتة تربط واتساب وأنظمة CRM وقواعد البيانات مع نماذج الذكاء الاصطناعي لتقليص المهام اليدوية بنسبة 70%.",
+      "category": "Skills",
+      "enabled": true
+    },
+    {
+      "id": "nk-4",
+      "question": "Can I hire Abbas El Kady or collaborate with him?",
+      "questionAr": "هل يمكن توظيف عباس أو التعاون معه في مشاريع؟",
+      "answer": "Yes! Abbas is open to high-impact projects, AI consultancy, and full-stack/automation engineering roles. You can contact him via the Contact section, email at contact@abbaselkady.dev, or WhatsApp.",
+      "answerAr": "نعم بالتأكيد! عباس متاح للمشاريع النوعية، استشارات الذكاء الاصطناعي، وأدوار هندسة الأتمتة والبرمجيات. يمكنك التواصل معه عبر نموذج التواصل بالموقع أو عبر الواتساب والبريد الإلكتروني.",
+      "category": "Work & Hire",
+      "enabled": true
+    },
+    {
+      "id": "nk-5",
+      "question": "What academic university does Abbas attend?",
+      "questionAr": "في أي كلية وجامعة يدرس عباس؟",
+      "answer": "Abbas is currently a 3rd-year undergraduate student in the Faculty of Computer Science & Artificial Intelligence, focusing on Machine Learning, Algorithms, and Software Engineering.",
+      "answerAr": "يدرس عباس حالياً بالفرقة الثالثة بكلية علوم الحاسب والذكاء الاصطناعي، مع تركيز أكاديمي على خوارزميات تعلم الآلة وهندسة البرمجيات.",
+      "category": "Education",
+      "enabled": true
+    }
+  ],
+  "novaSettings": {
+    "enabled": true,
+    "welcomeMessageEn": "Greetings! I am NOVA, Abbas El Kady's digital intelligence assistant. Ask me anything about his AI projects, automation systems, technical skills, or how to collaborate with him.",
+    "welcomeMessageAr": "أهلاً بك! أنا نوفا (NOVA)، المساعد الذكي والممثل الرقمي لعباس القاضي. يمكنك سؤالي عن مشاريعه في الذكاء الاصطناعي، أنظمة الأتمتة، مهاراته التقنية، أو كيفية التواصل معه.",
+    "systemInstructions": "You are NOVA, the sophisticated, futuristic, and highly intelligent AI representative of Abbas El Kady. You answer questions strictly based on the provided verified knowledge base about Abbas. If a user asks something not in the knowledge base, state politely that you do not have verified information on that and invite them to contact Abbas directly. You support both English and Arabic naturally. When requested, trigger structured actions such as NAVIGATE_SECTION, OPEN_PROJECT, OPEN_CV, or CONTACT_ABBAS.",
+    "voiceGender": "female",
+    "speakingTone": "innovative",
+    "allowedActions": [
+      "NAVIGATE_SECTION",
+      "OPEN_PROJECT",
+      "FILTER_PROJECTS",
+      "OPEN_CV",
+      "CONTACT_ABBAS"
+    ]
+  },
+  "cv": {
+    "enUrl": "/cv-abbas-elkady-en.pdf",
+    "arUrl": "/cv-abbas-elkady-ar.pdf",
+    "enUpdatedAt": "2025-01-15",
+    "arUpdatedAt": "2025-01-15",
+    "activeLanguage": "en",
+    "downloadCount": 143
+  },
+  "seo": {
+    "metaTitle": "Abbas El Kady | AI Engineer & Intelligent Products Builder",
+    "metaTitleAr": "عباس القاضي | مهندس ذكاء اصطناعي ومطور منتجات ذكية",
+    "metaDescription": "Official portfolio of Abbas El Kady — AI Engineer, Autonomous Agent Architect, and Enterprise Automation Specialist. Explore flagship projects, case studies, and live Nova AI assistant.",
+    "metaDescriptionAr": "الموقع الرسمي للمهندس عباس القاضي — مهندس ذكاء اصطناعي ومطور وكلاء أذكياء ومنتجات رقمية ومسارات أتمتة مؤسسية عبر n8n.",
+    "keywords": [
+      "Abbas El Kady",
+      "عباس القاضي",
+      "AI Engineer",
+      "Artificial Intelligence Engineer",
+      "AI Developer",
+      "AI Products",
+      "Intelligent Products",
+      "AI Agents",
+      "Automation Engineer",
+      "n8n Automation",
+      "RAG",
+      "LLMs",
+      "Gemini",
+      "Next.js",
+      "Full Stack Developer"
+    ],
+    "ogImage": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80",
+    "canonicalUrl": "https://abbaselkady.dev"
+  },
+  "media": [
+    {
+      "id": "yt-1789854058779",
+      "name": "Runnova AI Live Voice Demo",
+      "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      "type": "youtube",
+      "youtubeId": "dQw4w9WgXcQ",
+      "embedUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      "thumbnailUrl": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+      "title": "Runnova AI Live Voice Demo",
+      "description": "",
+      "uploadedAt": "2026-09-19"
+    },
+    {
+      "id": "m-1",
+      "name": "nova-avatar.jpg",
+      "url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80",
+      "type": "image/jpeg",
+      "size": 245000,
+      "uploadedAt": "2025-01-10"
+    },
+    {
+      "id": "m-2",
+      "name": "n8n-workflow-matrix.jpg",
+      "url": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
+      "type": "image/jpeg",
+      "size": 312000,
+      "uploadedAt": "2025-01-12"
+    }
+  ],
+  "analytics": {
+    "pageViews": 1878,
+    "cvDownloads": 143,
+    "novaConversations": 393,
+    "leadsCount": 29
+  }
+}
