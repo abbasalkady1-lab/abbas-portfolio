@@ -447,24 +447,48 @@ export default function AdminProjectsPage() {
                   </div>
 
                   <div>
-                    <label className="block text-gray-400 mb-1 uppercase">Category</label>
-                    <select
+                    <div className="flex items-center justify-between mb-1">
+                      <label className="block text-gray-400 uppercase font-semibold">
+                        Category / التصنيف (مخصص يمكنك كتابته)
+                      </label>
+                      <span className="text-[10px] text-cyan-400">اكتب أي تصنيف مخصص</span>
+                    </div>
+                    <input
+                      type="text"
+                      list="categories-list"
+                      placeholder="e.g. AI Agents, Automation & n8n, AI & RAG, Web & Platforms..."
                       value={editingProject.category}
                       onChange={(e) =>
                         setEditingProject({
                           ...editingProject,
-                          category: e.target.value as any,
+                          category: e.target.value,
                         })
                       }
-                      className="w-full px-3.5 py-2.5 rounded-xl bg-[#080B12] border border-white/10 text-white focus:border-cyan-400 focus:outline-none"
-                    >
-                      <option value="AI Agents">AI Agents</option>
-                      <option value="n8n">n8n Automation</option>
-                      <option value="AI">AI & Machine Learning</option>
-                      <option value="Software">Software & Full-Stack</option>
-                      <option value="Web Development">Web Development</option>
-                      <option value="Experiments">Experiments</option>
-                    </select>
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-[#080B12] border border-white/10 text-white focus:border-cyan-400 focus:outline-none font-mono"
+                    />
+                    <datalist id="categories-list">
+                      <option value="AI Agents" />
+                      <option value="Automation & n8n" />
+                      <option value="AI & RAG" />
+                      <option value="Web & Platforms" />
+                    </datalist>
+                    {/* Quick Preset Buttons */}
+                    <div className="flex flex-wrap gap-1.5 mt-2">
+                      {["AI Agents", "Automation & n8n", "AI & RAG", "Web & Platforms"].map((cat) => (
+                        <button
+                          key={cat}
+                          type="button"
+                          onClick={() => setEditingProject({ ...editingProject, category: cat })}
+                          className={`px-2 py-0.5 rounded text-[10px] border transition-colors cursor-pointer ${
+                            editingProject.category === cat
+                              ? "bg-cyan-500/20 border-cyan-400 text-cyan-300 font-bold"
+                              : "bg-white/[0.03] border-white/10 text-gray-400 hover:text-white"
+                          }`}
+                        >
+                          {cat}
+                        </button>
+                      ))}
+                    </div>
                   </div>
 
                   <div>

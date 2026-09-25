@@ -22,7 +22,7 @@ export interface Project {
   technicalChallengesAr?: string;
   result?: string;
   resultAr?: string;
-  category: "AI" | "AI Agents" | "Automation" | "n8n" | "Web Development" | "Software" | "Experiments";
+  category: string;
   technologies: string[];
   thumbnail: string;
   coverImage?: string;

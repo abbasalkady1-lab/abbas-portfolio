@@ -187,6 +187,37 @@ body {
   animation: pulse-energy 2.8s ease-in-out infinite;
 }
 
+/* Smooth Marquee Glide (Right to Left) */
+@keyframes marquee-glide-left {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee-tape {
+  display: flex;
+  width: max-content;
+  animation: marquee-glide-left 48s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-tape:hover,
+.marquee-is-paused {
+  animation-play-state: paused !important;
+}
+
+/* Hide scrollbar utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 /* Adaptive Glassmorphism Classes */
 .glass-panel {
   background: var(--glass-bg);

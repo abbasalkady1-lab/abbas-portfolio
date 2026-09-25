@@ -232,7 +232,7 @@
         "تعافٍ ذاتي من انقطاع الشبكة"
       ],
       "architecture": "Inbound Webhooks -> n8n Pipeline -> LLM Sentiment & Intent Classifier -> CRM & Vector DB -> Multi-channel Alerts.",
-      "category": "n8n",
+      "category": "Automation & n8n",
       "technologies": [
         "n8n",
         "Node.js",
@@ -304,7 +304,7 @@
         "توثيق واقتباس دقيق للمصادر"
       ],
       "architecture": "Document Parser -> Chunking & Metadata Injection -> Vector Store + BM25 -> Reranker -> Gemini Pro -> Verified Output.",
-      "category": "AI",
+      "category": "AI & RAG",
       "technologies": [
         "Python",
         "LangChain",
@@ -369,7 +369,7 @@
         "مزامنة متجهات مشفرة مع السحابة"
       ],
       "architecture": "OpenCV Stream -> Face Landmark Extractor -> Liveness Classifier -> Vector Embedding Comparison -> SQLite/Cloud Sync.",
-      "category": "Software",
+      "category": "Web & Platforms",
       "technologies": [
         "Python",
         "OpenCV",
@@ -590,10 +590,16 @@
       "date": "2024",
       "credentialId": "DL-AI-892401",
       "verificationUrl": "https://coursera.org",
-      "imageUrl": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80",
+      "imageUrl": "",
       "description": "Comprehensive specialization covering Autonomous LLM Agents, ReAct reasoning, structured tool dispatching, RAG architectures, and multi-agent coordination.",
       "descriptionAr": "تخصص شامل يغطي وكلاء النماذج اللغوية الذاتية، نمط تفكير ReAct، استدعاء الأدوات بدقة، بنية RAG، وتنسيق الوكلاء المتعددين.",
-      "skills": ["ReAct Framework", "Tool Calling", "RAG Systems", "LangChain", "Autonomous Agents"],
+      "skills": [
+        "ReAct Framework",
+        "Tool Calling",
+        "RAG Systems",
+        "LangChain",
+        "Autonomous Agents"
+      ],
       "order": 1
     },
     {
@@ -608,7 +614,13 @@
       "imageUrl": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
       "description": "Advanced certification in architecting scalable, self-healing distributed automation pipelines, webhook security, CRM integrations, and custom node development.",
       "descriptionAr": "شهادة متقدمة في هندسة مسارات الأتمتة الموزعة وذاتية التعافي، حماية خطافات الويب (Webhooks)، الربط مع أنظمة إدارة العملاء وتطوير العقد المخصصة.",
-      "skills": ["n8n Architecture", "Webhook Security", "CRM Automation", "API Integration", "Self-Healing Workflows"],
+      "skills": [
+        "n8n Architecture",
+        "Webhook Security",
+        "CRM Automation",
+        "API Integration",
+        "Self-Healing Workflows"
+      ],
       "order": 2
     },
     {
@@ -623,7 +635,13 @@
       "imageUrl": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80",
       "description": "Validated expertise in deploying production ML pipelines, Vertex AI foundation models, Gemini API integrations, and cloud-native AI architectures.",
       "descriptionAr": "إثبات كفاءة معتمد في نشر مسارات تعلم الآلة في بيئات الإنتاج، نماذج Vertex AI، دمج Gemini API، وبناء معمارية الذكاء الاصطناعي السحابية.",
-      "skills": ["Google Cloud", "Vertex AI", "Gemini API", "Model Deployment", "MLOps"],
+      "skills": [
+        "Google Cloud",
+        "Vertex AI",
+        "Gemini API",
+        "Model Deployment",
+        "MLOps"
+      ],
       "order": 3
     }
   ],
