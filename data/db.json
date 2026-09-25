@@ -586,9 +586,14 @@
       "title": "Generative AI & Agentic Workflows Specialization",
       "titleAr": "تخصص الذكاء الاصطناعي التوليدي والوكلاء الأذكياء",
       "issuer": "DeepLearning.AI",
+      "issuerAr": "ديب ليرنينج دوت إيه آي",
       "date": "2024",
       "credentialId": "DL-AI-892401",
       "verificationUrl": "https://coursera.org",
+      "imageUrl": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80",
+      "description": "Comprehensive specialization covering Autonomous LLM Agents, ReAct reasoning, structured tool dispatching, RAG architectures, and multi-agent coordination.",
+      "descriptionAr": "تخصص شامل يغطي وكلاء النماذج اللغوية الذاتية، نمط تفكير ReAct، استدعاء الأدوات بدقة، بنية RAG، وتنسيق الوكلاء المتعددين.",
+      "skills": ["ReAct Framework", "Tool Calling", "RAG Systems", "LangChain", "Autonomous Agents"],
       "order": 1
     },
     {
@@ -596,9 +601,14 @@
       "title": "Enterprise Workflow Automation with n8n",
       "titleAr": "احتراف أتمتة العمليات المتقدمة عبر n8n",
       "issuer": "n8n Academy",
+      "issuerAr": "أكاديمية n8n",
       "date": "2024",
       "credentialId": "N8N-EXP-4402",
       "verificationUrl": "https://academy.n8n.io",
+      "imageUrl": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
+      "description": "Advanced certification in architecting scalable, self-healing distributed automation pipelines, webhook security, CRM integrations, and custom node development.",
+      "descriptionAr": "شهادة متقدمة في هندسة مسارات الأتمتة الموزعة وذاتية التعافي، حماية خطافات الويب (Webhooks)، الربط مع أنظمة إدارة العملاء وتطوير العقد المخصصة.",
+      "skills": ["n8n Architecture", "Webhook Security", "CRM Automation", "API Integration", "Self-Healing Workflows"],
       "order": 2
     },
     {
@@ -606,9 +616,14 @@
       "title": "Google Cloud Associate AI & Machine Learning",
       "titleAr": "شهادة جوجل السحابية في الذكاء الاصطناعي وتعلم الآلة",
       "issuer": "Google Cloud",
+      "issuerAr": "سحابة جوجل (Google Cloud)",
       "date": "2023",
       "credentialId": "GCP-ML-77192",
       "verificationUrl": "https://cloud.google.com",
+      "imageUrl": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80",
+      "description": "Validated expertise in deploying production ML pipelines, Vertex AI foundation models, Gemini API integrations, and cloud-native AI architectures.",
+      "descriptionAr": "إثبات كفاءة معتمد في نشر مسارات تعلم الآلة في بيئات الإنتاج، نماذج Vertex AI، دمج Gemini API، وبناء معمارية الذكاء الاصطناعي السحابية.",
+      "skills": ["Google Cloud", "Vertex AI", "Gemini API", "Model Deployment", "MLOps"],
       "order": 3
     }
   ],

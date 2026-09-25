@@ -69,10 +69,14 @@ export interface Certificate {
   title: string;
   titleAr?: string;
   issuer: string;
+  issuerAr?: string;
   date: string;
   credentialId?: string;
   verificationUrl?: string;
   imageUrl?: string;
+  description?: string;
+  descriptionAr?: string;
+  skills?: string[];
   order: number;
 }
 
