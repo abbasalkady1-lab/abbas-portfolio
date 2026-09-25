@@ -79,13 +79,11 @@ export function Navbar({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Brand Logo */}
         <Link href="/" className="group flex items-center space-x-3 rtl:space-x-reverse">
-          <div className="relative flex items-center justify-center w-9 h-9 rounded-full bg-white dark:bg-white/[0.04] border border-slate-200 dark:border-white/15 group-hover:border-[#0066FF] dark:group-hover:border-[#00C2FF] shadow-sm transition-all duration-300 overflow-hidden shrink-0">
-            <img
-              src="/avatar.png"
-              alt={lang === "ar" ? "عباس القاضي" : "Abbas El Kady"}
-              className="w-full h-full object-cover"
-            />
-            <span className="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-[#00C2FF] ring-2 ring-white dark:ring-[#07111F] animate-pulse" />
+          <div className="relative flex items-center justify-center w-9 h-9 rounded-xl bg-white dark:bg-white/[0.04] border border-slate-200 dark:border-white/10 group-hover:border-[#0066FF] dark:group-hover:border-[#00C2FF] shadow-sm transition-all duration-300">
+            <span className="font-mono text-xs font-bold text-[#0066FF] dark:text-[#00C2FF]">
+              AK
+            </span>
+            <span className="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full bg-[#00C2FF] animate-pulse" />
           </div>
           <div>
             <div className="text-sm font-bold tracking-wide text-slate-900 dark:text-white group-hover:text-[#0066FF] dark:group-hover:text-[#00C2FF] transition-colors">
