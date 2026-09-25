@@ -22,8 +22,12 @@ export function Footer({ profile, lang }: FooterProps) {
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
         {/* Left: Brand & Title */}
         <div className="flex items-center space-x-3 rtl:space-x-reverse text-center md:text-left rtl:md:text-right">
-          <div className="w-8 h-8 rounded-lg bg-sky-50 dark:bg-white/[0.04] border border-sky-200 dark:border-white/10 flex items-center justify-center text-sky-600 dark:text-cyan-400 font-mono font-bold">
-            AK
+          <div className="w-8 h-8 rounded-full overflow-hidden border border-slate-200 dark:border-white/10 shrink-0 shadow-sm">
+            <img
+              src="/avatar.png"
+              alt={isAr ? profile.nameAr : profile.name}
+              className="w-full h-full object-cover"
+            />
           </div>
           <div>
             <div className="text-slate-900 dark:text-white font-semibold tracking-wide">

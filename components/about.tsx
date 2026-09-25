@@ -70,11 +70,11 @@ export function About({ profile, lang }: AboutProps) {
             <div className="absolute top-0 right-0 w-32 h-32 bg-sky-500/5 dark:bg-cyan-500/5 rounded-full blur-3xl -z-10 group-hover:bg-sky-500/10 dark:group-hover:bg-cyan-500/10 transition-all" />
 
             {/* Avatar / Portrait */}
-            <div className="relative w-28 h-28 mx-auto mb-6 rounded-2xl overflow-hidden border border-slate-200 dark:border-white/15 p-1 bg-slate-50 dark:bg-white/[0.02] shadow-sm">
+            <div className="relative w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-2 border-[#0066FF]/30 dark:border-[#00C2FF]/30 p-1 bg-gradient-to-tr from-[#0066FF]/20 via-[#6D5DFB]/15 to-[#00C2FF]/20 shadow-lg group-hover:scale-105 transition-all duration-500">
               <img
                 src={profile.avatarUrl}
                 alt={isAr ? profile.nameAr : profile.name}
-                className="w-full h-full object-cover rounded-xl grayscale group-hover:grayscale-0 transition-all duration-500"
+                className="w-full h-full object-cover rounded-full transition-all duration-500"
               />
             </div>
 
