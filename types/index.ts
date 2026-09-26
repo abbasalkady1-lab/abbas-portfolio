@@ -200,6 +200,17 @@ export interface MediaItem {
   description?: string;
 }
 
+export interface FeaturedVideo {
+  title: string;
+  titleAr: string;
+  subtitle?: string;
+  subtitleAr?: string;
+  youtubeUrl: string;
+  badge?: string;
+  badgeAr?: string;
+  enabled?: boolean;
+}
+
 export interface SiteDatabase {
   profile: ProfileData;
   projects: Project[];
@@ -213,6 +224,7 @@ export interface SiteDatabase {
   cv: CVData;
   seo: SEOSettings;
   media: MediaItem[];
+  featuredVideo?: FeaturedVideo;
   analytics: {
     pageViews: number;
     cvDownloads: number;
@@ -220,3 +232,4 @@ export interface SiteDatabase {
     leadsCount: number;
   };
 }
+

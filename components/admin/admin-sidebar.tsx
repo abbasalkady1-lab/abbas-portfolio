@@ -18,6 +18,7 @@ import {
   Settings,
   LogOut,
   ExternalLink,
+  Video,
 } from "lucide-react";
 
 interface AdminSidebarProps {
@@ -34,6 +35,7 @@ export function AdminSidebar({ onLogout }: AdminSidebarProps) {
     { href: "/admin/timeline", label: "Experience & Edu", icon: GraduationCap },
     { href: "/admin/certificates", label: "Certificates", icon: Award },
     { href: "/admin/services", label: "Services", icon: Sparkles },
+    { href: "/admin/video", label: "Featured Video", icon: Video },
     { href: "/admin/cv", label: "CV & Resume", icon: FileText },
     { href: "/admin/media", label: "Media Library", icon: ImageIcon },
     { href: "/admin/nova", label: "NOVA AI Studio", icon: Bot },

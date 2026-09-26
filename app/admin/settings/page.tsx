@@ -2,14 +2,39 @@
 
 import React, { useState, useEffect } from "react";
 import { AdminHeader } from "@/components/admin/admin-header";
-import { ProfileData, SEOSettings } from "@/types";
-import { User, Search, Globe, Save, CheckCircle2, Link as LinkIcon, Sparkles } from "lucide-react";
+import { ProfileData, SEOSettings, FeaturedVideo } from "@/types";
+import { YoutubeIcon } from "@/components/icons";
+import {
+  User,
+  Search,
+  Globe,
+  Save,
+  CheckCircle2,
+  Link as LinkIcon,
+  Sparkles,
+  Tv,
+  Play,
+  ExternalLink,
+} from "lucide-react";
+
+function extractYouTubeId(url?: string): string | null {
+  if (!url) return null;
+  const trimmed = url.trim();
+  const regExp = /(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=|shorts\/))([\w-]{11})/;
+  const match = trimmed.match(regExp);
+  if (match) return match[1];
+  if (trimmed.length === 11 && !trimmed.includes("/") && !trimmed.includes(".")) {
+    return trimmed;
+  }
+  return null;
+}
 
 export default function AdminSettingsPage() {
   const [profile, setProfile] = useState<ProfileData | null>(null);
   const [seo, setSeo] = useState<SEOSettings | null>(null);
+  const [featuredVideo, setFeaturedVideo] = useState<FeaturedVideo | null>(null);
   const [loading, setLoading] = useState(true);
-  const [activeTab, setActiveTab] = useState<"profile" | "seo" | "domain">("profile");
+  const [activeTab, setActiveTab] = useState<"profile" | "seo" | "video" | "domain">("profile");
   const [saveStatus, setSaveStatus] = useState("");
 
   const fetchData = async () => {
@@ -18,6 +43,18 @@ export default function AdminSettingsPage() {
       const data = await res.json();
       setProfile(data.profile);
       setSeo(data.seo);
+      setFeaturedVideo(
+        data.featuredVideo || {
+          title: "Autonomous AI Agents & Enterprise Architecture Walkthrough",
+          titleAr: "شرح معماري متقدم لوكلاء الذكاء الاصطناعي والأتمتة المؤسسية",
+          subtitle: "A deep technical breakdown of autonomous agent loops, low-latency voice pipelines, and self-healing n8n automations.",
+          subtitleAr: "نظرة تفصيلية متعمقة في دورات عمل الوكلاء الذاتية، خطوط المعالجة الصوتية فائقة السرعة، ومسارات الأتمتة ذاتية التعافي.",
+          youtubeUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+          badge: "FEATURED SYSTEM DEMO",
+          badgeAr: "عرض توضيحي مميز",
+          enabled: true,
+        }
+      );
     } catch (e) {
       console.error(e);
     } finally {
@@ -38,7 +75,7 @@ export default function AdminSettingsPage() {
       await fetch("/api/settings", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ profile, seo }),
+        body: JSON.stringify({ profile, seo, featuredVideo }),
       });
       setSaveStatus("Settings successfully synchronized!");
       setTimeout(() => setSaveStatus(""), 3000);
@@ -86,6 +123,18 @@ export default function AdminSettingsPage() {
           >
             <Search className="w-4 h-4" />
             <span>SEO & OpenGraph Metadata</span>
+          </button>
+
+          <button
+            onClick={() => setActiveTab("video")}
+            className={`flex items-center space-x-2 px-4 py-2 rounded-xl transition-all ${
+              activeTab === "video"
+                ? "bg-red-500 text-white font-bold shadow-[0_0_15px_rgba(239,68,68,0.35)]"
+                : "bg-white/[0.04] text-gray-400 hover:text-white"
+            }`}
+          >
+            <YoutubeIcon className="w-4 h-4 text-red-500" />
+            <span>Featured Video (YouTube)</span>
           </button>
 
           <button
@@ -489,6 +538,210 @@ export default function AdminSettingsPage() {
                       }
                       placeholder="msvalidate.01 content"
                       className="w-full px-3.5 py-2.5 rounded-xl bg-white/[0.04] border border-white/10 text-white focus:border-cyan-400 focus:outline-none"
+                    />
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* TAB: FEATURED YOUTUBE VIDEO */}
+            {activeTab === "video" && featuredVideo && (
+              <div className="glass-panel p-6 sm:p-8 rounded-3xl border border-white/10 space-y-6 shadow-xl">
+                <div className="flex items-center justify-between border-b border-white/10 pb-4">
+                  <div className="flex items-center space-x-3 rtl:space-x-reverse">
+                    <div className="w-9 h-9 rounded-xl bg-red-500/15 border border-red-500/30 flex items-center justify-center text-red-500">
+                      <YoutubeIcon className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-white uppercase tracking-wider text-sm">
+                        Featured YouTube Video Showcase
+                      </h3>
+                      <p className="text-gray-400 text-xs font-sans mt-0.5">
+                        التحكم الكامل في فيديو اليوتيوب التوضيحي، العنوان، الوصف، ورابط الفيديو المعروض بالصفحة الرئيسية
+                      </p>
+                    </div>
+                  </div>
+
+                  <label className="flex items-center space-x-2 cursor-pointer bg-white/[0.04] hover:bg-white/[0.08] px-3.5 py-2 rounded-xl border border-white/10 transition-colors">
+                    <input
+                      type="checkbox"
+                      checked={featuredVideo.enabled !== false}
+                      onChange={(e) =>
+                        setFeaturedVideo({ ...featuredVideo, enabled: e.target.checked })
+                      }
+                      className="rounded text-red-500 focus:ring-red-400 h-4 w-4 bg-black/40 border-white/20"
+                    />
+                    <span className="text-xs text-white font-sans">
+                      {featuredVideo.enabled !== false ? "مفعل (ظاهر بالصفحة)" : "معطل (مخفي)"}
+                    </span>
+                  </label>
+                </div>
+
+                {/* YouTube URL & ID Resolution */}
+                <div className="space-y-2">
+                  <label className="block text-gray-400 uppercase font-bold text-[11px]">
+                    رابط فيديو اليوتيوب (YouTube Video URL or ID) *
+                  </label>
+                  <div className="flex items-center space-x-2">
+                    <input
+                      type="text"
+                      required
+                      value={featuredVideo.youtubeUrl}
+                      onChange={(e) =>
+                        setFeaturedVideo({ ...featuredVideo, youtubeUrl: e.target.value })
+                      }
+                      placeholder="https://www.youtube.com/watch?v=... or https://youtu.be/..."
+                      className="flex-1 px-3.5 py-2.5 rounded-xl bg-white/[0.04] border border-white/10 text-white focus:border-red-500 focus:outline-none font-mono"
+                    />
+                    {featuredVideo.youtubeUrl && (
+                      <a
+                        href={featuredVideo.youtubeUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-3.5 py-2.5 rounded-xl bg-white/[0.06] hover:bg-white/[0.1] border border-white/10 text-white flex items-center space-x-1.5 transition-colors"
+                        title="فتح في يوتيوب للتأكد"
+                      >
+                        <ExternalLink className="w-4 h-4 text-red-400" />
+                        <span>فتح الرابط</span>
+                      </a>
+                    )}
+                  </div>
+
+                  {/* ID Validation Pill */}
+                  {(() => {
+                    const ytId = extractYouTubeId(featuredVideo.youtubeUrl);
+                    return ytId ? (
+                      <div className="text-[11px] text-emerald-400 flex items-center space-x-2 pt-1 font-mono">
+                        <span className="w-2 h-2 rounded-full bg-emerald-400" />
+                        <span>معرف الفيديو المكتشف (Video ID): <strong>{ytId}</strong></span>
+                      </div>
+                    ) : (
+                      <div className="text-[11px] text-amber-400 flex items-center space-x-2 pt-1 font-mono">
+                        <span className="w-2 h-2 rounded-full bg-amber-400" />
+                        <span>يرجى إدخال رابط يوتيوب صحيح (Watch / Share / Shorts / Embed)</span>
+                      </div>
+                    );
+                  })()}
+                </div>
+
+                {/* Live Preview Window */}
+                {(() => {
+                  const ytId = extractYouTubeId(featuredVideo.youtubeUrl);
+                  return ytId ? (
+                    <div className="space-y-2">
+                      <div className="text-gray-400 uppercase text-[11px] font-bold flex items-center justify-between">
+                        <span>معاينة حية فورية داخل الداشبورد (Live Preview)</span>
+                        <span className="text-red-400 font-mono text-[10px]">1080p / 4K STREAM</span>
+                      </div>
+                      <div className="relative w-full aspect-video rounded-2xl overflow-hidden border border-white/15 bg-black/90 shadow-xl max-w-2xl">
+                        <iframe
+                          src={`https://www.youtube-nocookie.com/embed/${ytId}?rel=0&modestbranding=1`}
+                          title="Live Preview"
+                          className="w-full h-full border-0 absolute inset-0"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowFullScreen
+                        />
+                      </div>
+                    </div>
+                  ) : null;
+                })()}
+
+                {/* Bilingual Titles */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                  <div>
+                    <label className="block text-gray-400 mb-1 uppercase font-bold text-[11px]">
+                      عنوان البوكس (English Title) *
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      value={featuredVideo.title}
+                      onChange={(e) =>
+                        setFeaturedVideo({ ...featuredVideo, title: e.target.value })
+                      }
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-white/[0.04] border border-white/10 text-white focus:border-cyan-400 focus:outline-none"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-gray-400 mb-1 uppercase font-bold text-[11px]">
+                      عنوان البوكس (Arabic Title) *
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      value={featuredVideo.titleAr}
+                      onChange={(e) =>
+                        setFeaturedVideo({ ...featuredVideo, titleAr: e.target.value })
+                      }
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-white/[0.04] border border-white/10 text-white focus:border-cyan-400 focus:outline-none"
+                      dir="rtl"
+                    />
+                  </div>
+                </div>
+
+                {/* Bilingual Subtitle / Description */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-gray-400 mb-1 uppercase text-[11px]">
+                      الوصف / الشرح الفرعي (English Subtitle)
+                    </label>
+                    <textarea
+                      rows={3}
+                      value={featuredVideo.subtitle || ""}
+                      onChange={(e) =>
+                        setFeaturedVideo({ ...featuredVideo, subtitle: e.target.value })
+                      }
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-white/[0.04] border border-white/10 text-white focus:border-cyan-400 focus:outline-none"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-gray-400 mb-1 uppercase text-[11px]">
+                      الوصف / الشرح الفرعي (Arabic Subtitle)
+                    </label>
+                    <textarea
+                      rows={3}
+                      value={featuredVideo.subtitleAr || ""}
+                      onChange={(e) =>
+                        setFeaturedVideo({ ...featuredVideo, subtitleAr: e.target.value })
+                      }
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-white/[0.04] border border-white/10 text-white focus:border-cyan-400 focus:outline-none"
+                      dir="rtl"
+                    />
+                  </div>
+                </div>
+
+                {/* Bilingual Badge Tag */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-gray-400 mb-1 uppercase text-[11px]">
+                      نص الشارة العلوية (Badge EN)
+                    </label>
+                    <input
+                      type="text"
+                      value={featuredVideo.badge || ""}
+                      onChange={(e) =>
+                        setFeaturedVideo({ ...featuredVideo, badge: e.target.value })
+                      }
+                      placeholder="e.g. FEATURED SYSTEM DEMO"
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-white/[0.04] border border-white/10 text-white focus:border-cyan-400 focus:outline-none"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-gray-400 mb-1 uppercase text-[11px]">
+                      نص الشارة العلوية (Badge AR)
+                    </label>
+                    <input
+                      type="text"
+                      value={featuredVideo.badgeAr || ""}
+                      onChange={(e) =>
+                        setFeaturedVideo({ ...featuredVideo, badgeAr: e.target.value })
+                      }
+                      placeholder="مثال: عرض توضيحي مميز"
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-white/[0.04] border border-white/10 text-white focus:border-cyan-400 focus:outline-none"
+                      dir="rtl"
                     />
                   </div>
                 </div>

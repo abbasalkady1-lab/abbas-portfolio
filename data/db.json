@@ -904,6 +904,16 @@
       "uploadedAt": "2025-01-12"
     }
   ],
+  "featuredVideo": {
+    "title": "Autonomous AI Agents & Enterprise Architecture Walkthrough",
+    "titleAr": "شرح معماري متقدم لوكلاء الذكاء الاصطناعي والأتمتة المؤسسية",
+    "subtitle": "A deep technical breakdown of autonomous agent loops, low-latency voice pipelines, and self-healing n8n automations.",
+    "subtitleAr": "نظرة تفصيلية متعمقة في دورات عمل الوكلاء الذاتية، خطوط المعالجة الصوتية فائقة السرعة، ومسارات الأتمتة ذاتية التعافي.",
+    "youtubeUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+    "badge": "FEATURED SYSTEM DEMO",
+    "badgeAr": "عرض توضيحي مميز",
+    "enabled": true
+  },
   "analytics": {
     "pageViews": 1878,
     "cvDownloads": 144,

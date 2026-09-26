@@ -8,7 +8,7 @@ import { Navbar } from "@/components/navbar";
 import { Hero } from "@/components/hero";
 import { ProjectsGallery } from "@/components/projects-gallery";
 import { CapabilitiesSection } from "@/components/capabilities-section";
-import { WorkflowSimulator } from "@/components/workflow-simulator";
+import { FeaturedVideoSection } from "@/components/featured-video-section";
 import { About } from "@/components/about";
 import { SkillsMatrix } from "@/components/skills-matrix";
 import { TimelineSection } from "@/components/timeline-section";
@@ -105,8 +105,8 @@ export function PortfolioView({ initialData }: PortfolioViewProps) {
           lang={lang}
         />
 
-        {/* 5. Live Workflow & Pipeline Architecture Simulator */}
-        <WorkflowSimulator lang={lang} />
+        {/* 5. Featured Architecture & System YouTube Showcase */}
+        <FeaturedVideoSection video={initialData.featuredVideo} lang={lang} />
 
         {/* 6. About Abbas El Kady & Engineering Philosophy */}
         <About profile={initialData.profile} lang={lang} />

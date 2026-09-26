@@ -16,6 +16,7 @@ import {
   CVData,
   SEOSettings,
   MediaItem,
+  FeaturedVideo,
 } from "@/types";
 
 const DB_PATH = path.join(process.cwd(), "data", "db.json");
@@ -378,6 +379,32 @@ export async function deleteMediaItem(id: string): Promise<boolean> {
     return true;
   }
   return false;
+}
+
+export async function getFeaturedVideo(): Promise<FeaturedVideo> {
+  const db = await getDatabase();
+  return (
+    db.featuredVideo ||
+    (defaultDatabase as unknown as SiteDatabase).featuredVideo || {
+      title: "Autonomous AI Agents & Enterprise Architecture Walkthrough",
+      titleAr: "شرح معماري متقدم لوكلاء الذكاء الاصطناعي والأتمتة المؤسسية",
+      subtitle: "A deep technical breakdown of autonomous agent loops, low-latency voice pipelines, and self-healing n8n automations.",
+      subtitleAr: "نظرة تفصيلية متعمقة في دورات عمل الوكلاء الذاتية، خطوط المعالجة الصوتية فائقة السرعة، ومسارات الأتمتة ذاتية التعافي.",
+      youtubeUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      badge: "FEATURED SYSTEM DEMO",
+      badgeAr: "عرض توضيحي مميز",
+      enabled: true,
+    }
+  );
+}
+
+export async function saveFeaturedVideo(
+  video: FeaturedVideo
+): Promise<FeaturedVideo> {
+  const db = await getDatabase();
+  db.featuredVideo = video;
+  await saveDatabase(db);
+  return db.featuredVideo;
 }
 
 export async function incrementPageViews(): Promise<number> {
