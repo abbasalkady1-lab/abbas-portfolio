@@ -41,11 +41,22 @@ export interface Project {
 export interface Skill {
   id: string;
   name: string;
-  category: "Artificial Intelligence" | "Automation & n8n" | "Programming & Frameworks" | "Backend & Databases" | "Tools & DevOps";
+  nameAr?: string;
+  category: string;
   level: number; // 1-100 percentage
   iconName: string;
   order: number;
   visible: boolean;
+  description?: string;
+  descriptionAr?: string;
+  link?: string;
+  linkLabel?: string;
+  linkLabelAr?: string;
+  proofUrl?: string;
+  proofLabel?: string;
+  proofLabelAr?: string;
+  tags?: string[];
+  yearsOfExperience?: string;
 }
 
 export interface TimelineItem {

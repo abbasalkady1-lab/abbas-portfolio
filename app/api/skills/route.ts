@@ -13,11 +13,24 @@ export async function POST(req: NextRequest) {
     const skills = await getSkills();
 
     const newSkill: Skill = {
-      ...data,
       id: "skill-" + Date.now(),
-      order: skills.length + 1,
-      visible: data.visible !== undefined ? Boolean(data.visible) : true,
+      name: data.name || "",
+      nameAr: data.nameAr || "",
+      category: data.category || "Artificial Intelligence",
       level: Number(data.level) || 85,
+      iconName: data.iconName || "Code2",
+      order: data.order || skills.length + 1,
+      visible: data.visible !== undefined ? Boolean(data.visible) : true,
+      description: data.description || "",
+      descriptionAr: data.descriptionAr || "",
+      link: data.link || "",
+      linkLabel: data.linkLabel || "",
+      linkLabelAr: data.linkLabelAr || "",
+      proofUrl: data.proofUrl || "",
+      proofLabel: data.proofLabel || "",
+      proofLabelAr: data.proofLabelAr || "",
+      tags: Array.isArray(data.tags) ? data.tags : [],
+      yearsOfExperience: data.yearsOfExperience || "",
     };
 
     skills.push(newSkill);
@@ -45,6 +58,7 @@ export async function PUT(req: NextRequest) {
       ...skills[index],
       ...data,
       level: Number(data.level) || skills[index].level,
+      tags: Array.isArray(data.tags) ? data.tags : skills[index].tags || [],
     };
 
     await saveSkills(skills);
