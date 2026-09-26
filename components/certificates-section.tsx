@@ -58,12 +58,18 @@ export function CertificatesSection({ certificates, lang }: CertificatesSectionP
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-14">
-          <div className="inline-flex items-center space-x-2 rtl:space-x-reverse px-3.5 py-1.5 rounded-full bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200 dark:border-emerald-500/20 text-emerald-700 dark:text-emerald-400 font-mono text-xs mb-3 shadow-sm">
+          <motion.div
+            animate={{ y: [0, -4, 0] }}
+            transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+            className="inline-flex items-center space-x-2 rtl:space-x-reverse px-3.5 py-1.5 rounded-full bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200 dark:border-emerald-500/20 text-emerald-700 dark:text-emerald-400 font-mono text-xs mb-3 shadow-sm"
+          >
             <Sparkles className="w-3.5 h-3.5" />
             <span>{isAr ? "الاعتمادات والمؤهلات المعتمدة" : "ACCREDITATIONS // CERTIFICATES"}</span>
-          </div>
+          </motion.div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white font-sans tracking-tight">
-            {isAr ? "الشهادات والاعتمادات الدولية" : "Verified Credentials & Honors"}
+            <span className="animate-shimmer-text">
+              {isAr ? "الشهادات والاعتمادات الدولية" : "Verified Credentials & Honors"}
+            </span>
           </h2>
           <p className="mt-3 text-sm sm:text-base text-slate-600 dark:text-slate-400 max-w-2xl mx-auto font-sans leading-relaxed">
             {isAr

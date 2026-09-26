@@ -85,7 +85,7 @@ export default function AdminSettingsPage() {
   };
 
   return (
-    <div className="flex-1 flex flex-col font-mono text-xs">
+    <div className="flex-1 flex flex-col font-sans antialiased text-slate-200">
       <AdminHeader
         title="ECOSYSTEM SETTINGS // PROFILE & SEO CONTROL"
         subtitle="Manage personal identity, academic degrees, social connections, search engine metadata, and custom domain"
@@ -93,20 +93,20 @@ export default function AdminSettingsPage() {
 
       <main className="p-6 sm:p-8 space-y-6 max-w-5xl">
         {saveStatus && (
-          <div className="p-4 rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 flex items-center space-x-2">
-            <CheckCircle2 className="w-4 h-4" />
+          <div className="p-4 rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 flex items-center space-x-2 font-sans font-medium text-sm">
+            <CheckCircle2 className="w-5 h-5 text-cyan-400" />
             <span>{saveStatus}</span>
           </div>
         )}
 
         {/* Tab Navigation */}
-        <div className="flex items-center space-x-3 border-b border-white/10 pb-4">
+        <div className="flex items-center space-x-2.5 border-b border-slate-800 pb-4 overflow-x-auto">
           <button
             onClick={() => setActiveTab("profile")}
-            className={`flex items-center space-x-2 px-4 py-2 rounded-xl transition-all ${
+            className={`flex items-center space-x-2 px-4 py-2.5 rounded-xl transition-all text-xs font-semibold shrink-0 ${
               activeTab === "profile"
-                ? "bg-cyan-500 text-black font-bold shadow-[0_0_15px_rgba(0,240,255,0.3)]"
-                : "bg-white/[0.04] text-gray-400 hover:text-white"
+                ? "bg-gradient-to-r from-[#0066FF] to-[#0052CC] text-white shadow-md shadow-blue-500/25"
+                : "bg-slate-800/60 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-700/60"
             }`}
           >
             <User className="w-4 h-4" />
@@ -115,10 +115,10 @@ export default function AdminSettingsPage() {
 
           <button
             onClick={() => setActiveTab("seo")}
-            className={`flex items-center space-x-2 px-4 py-2 rounded-xl transition-all ${
+            className={`flex items-center space-x-2 px-4 py-2.5 rounded-xl transition-all text-xs font-semibold shrink-0 ${
               activeTab === "seo"
-                ? "bg-cyan-500 text-black font-bold shadow-[0_0_15px_rgba(0,240,255,0.3)]"
-                : "bg-white/[0.04] text-gray-400 hover:text-white"
+                ? "bg-gradient-to-r from-[#0066FF] to-[#0052CC] text-white shadow-md shadow-blue-500/25"
+                : "bg-slate-800/60 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-700/60"
             }`}
           >
             <Search className="w-4 h-4" />
@@ -127,22 +127,22 @@ export default function AdminSettingsPage() {
 
           <button
             onClick={() => setActiveTab("video")}
-            className={`flex items-center space-x-2 px-4 py-2 rounded-xl transition-all ${
+            className={`flex items-center space-x-2 px-4 py-2.5 rounded-xl transition-all text-xs font-semibold shrink-0 ${
               activeTab === "video"
-                ? "bg-red-500 text-white font-bold shadow-[0_0_15px_rgba(239,68,68,0.35)]"
-                : "bg-white/[0.04] text-gray-400 hover:text-white"
+                ? "bg-gradient-to-r from-red-600 to-rose-600 text-white shadow-md shadow-red-500/25"
+                : "bg-slate-800/60 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-700/60"
             }`}
           >
-            <YoutubeIcon className="w-4 h-4 text-red-500" />
+            <YoutubeIcon className="w-4 h-4 text-red-400" />
             <span>Featured Video (YouTube)</span>
           </button>
 
           <button
             onClick={() => setActiveTab("domain")}
-            className={`flex items-center space-x-2 px-4 py-2 rounded-xl transition-all ${
+            className={`flex items-center space-x-2 px-4 py-2.5 rounded-xl transition-all text-xs font-semibold shrink-0 ${
               activeTab === "domain"
-                ? "bg-cyan-500 text-black font-bold shadow-[0_0_15px_rgba(0,240,255,0.3)]"
-                : "bg-white/[0.04] text-gray-400 hover:text-white"
+                ? "bg-gradient-to-r from-[#0066FF] to-[#0052CC] text-white shadow-md shadow-blue-500/25"
+                : "bg-slate-800/60 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-700/60"
             }`}
           >
             <Globe className="w-4 h-4" />
@@ -151,7 +151,7 @@ export default function AdminSettingsPage() {
         </div>
 
         {loading || !profile || !seo ? (
-          <div className="py-12 text-center text-gray-500">Loading settings...</div>
+          <div className="py-12 text-center text-slate-400">Loading settings...</div>
         ) : (
           <form onSubmit={handleSave} className="space-y-6">
             {/* TAB 1: PROFILE MANAGEMENT */}
@@ -797,7 +797,7 @@ export default function AdminSettingsPage() {
             <div className="flex justify-end pt-4">
               <button
                 type="submit"
-                className="flex items-center space-x-2 px-8 py-3 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-black font-bold shadow-[0_0_20px_rgba(0,240,255,0.4)] transition-all"
+                className="flex items-center space-x-2 px-8 py-3 rounded-xl bg-gradient-to-r from-[#0066FF] to-[#0052CC] hover:from-[#0052CC] hover:to-[#0040A8] text-white font-bold shadow-lg shadow-blue-500/25 transition-all text-sm font-sans"
               >
                 <Save className="w-4 h-4" />
                 <span>Save All Changes</span>

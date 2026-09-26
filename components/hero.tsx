@@ -51,15 +51,18 @@ export function Hero({ profile, lang, onOpenNova }: HeroProps) {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           {/* LEFT COLUMN: Editorial Authority & Choreographed Sequence */}
           <div className="lg:col-span-7 space-y-6 text-left rtl:text-right">
-            {/* 1. 100ms: Availability & Status Pill */}
+            {/* 1. 100ms: Availability & Status Pill with Subtle Floating Aura */}
             <motion.div
               initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.45, delay: 0.1 }}
-              className="inline-flex items-center space-x-2.5 rtl:space-x-reverse px-3.5 py-1.5 rounded-full bg-white/90 dark:bg-[#0B1627]/90 border border-slate-200/90 dark:border-white/10 text-slate-800 dark:text-slate-200 font-mono text-xs shadow-sm backdrop-blur-md"
+              animate={{ opacity: 1, y: [0, -4, 0] }}
+              transition={{
+                opacity: { duration: 0.45, delay: 0.1 },
+                y: { repeat: Infinity, duration: 4, ease: "easeInOut" },
+              }}
+              className="inline-flex items-center space-x-2.5 rtl:space-x-reverse px-4 py-2 rounded-full bg-white/95 dark:bg-[#0B1627]/95 border border-slate-200/90 dark:border-white/15 text-slate-800 dark:text-slate-200 font-mono text-xs shadow-md shadow-[#00C2FF]/5 backdrop-blur-md"
             >
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-              <span className="font-semibold text-slate-700 dark:text-slate-200">
+              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse ring-4 ring-emerald-500/20" />
+              <span className="font-semibold text-slate-800 dark:text-slate-100">
                 {isAr ? profile.availabilityAr : profile.availability}
               </span>
             </motion.div>
@@ -71,29 +74,30 @@ export function Hero({ profile, lang, onOpenNova }: HeroProps) {
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.2 }}
-                className="text-xs sm:text-sm font-mono tracking-widest text-[#0066FF] dark:text-[#00C2FF] uppercase font-bold"
+                className="text-xs sm:text-sm font-mono tracking-widest text-[#0066FF] dark:text-[#00C2FF] uppercase font-bold flex items-center space-x-2 rtl:space-x-reverse"
               >
-                {isAr ? "عباس القاضي // ملف الأعمال الرقمي" : "ABBAS EL KADY // OFFICIAL PORTFOLIO"}
+                <Sparkles className="w-3.5 h-3.5 animate-pulse text-[#00C2FF]" />
+                <span>{isAr ? "عباس القاضي // ملف الأعمال الرقمي" : "ABBAS EL KADY // OFFICIAL PORTFOLIO"}</span>
               </motion.div>
 
-              {/* 300ms: Mask/Clip Name Reveal + 450ms: Slow Gradient Headline */}
+              {/* 300ms: Mask/Clip Name Reveal + 450ms: Slow Kinetic Shimmer Headline */}
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight font-sans text-slate-900 dark:text-white leading-[1.08]">
                 {/* 300ms: Name with smooth clip/mask */}
                 <motion.span
                   initial={{ clipPath: "inset(0 100% 0 0)", opacity: 0 }}
                   animate={{ clipPath: "inset(0 0% 0 0)", opacity: 1 }}
                   transition={{ duration: 0.55, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                  className="block text-slate-950 dark:text-white"
+                  className="block text-slate-950 dark:text-white tracking-tight"
                 >
                   {isAr ? profile.nameAr : profile.name}
                 </motion.span>
 
-                {/* 450ms: Headline with Slow Animated Gradient Flow */}
+                {/* 450ms: Headline with Shimmering Gradient Kinetic Motion */}
                 <motion.span
                   initial={{ opacity: 0, y: 14 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
-                  className="block text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-extrabold text-gradient-primary mt-2"
+                  className="block text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-extrabold animate-shimmer-text mt-2 drop-shadow-sm"
                 >
                   {isAr ? (
                     "مهندس ذكاء اصطناعي ومطور منتجات ذكية"
@@ -116,7 +120,7 @@ export function Hero({ profile, lang, onOpenNova }: HeroProps) {
                 : "Architecting autonomous AI agents, enterprise n8n workflow automations, and precision RAG engines that turn complex requirements into high-value intelligent digital products."}
             </motion.p>
 
-            {/* 4. 750ms: Engineering Capability Badges (Staggered) */}
+            {/* 4. 750ms: Engineering Capability Badges (Staggered Floating Motion) */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -127,10 +131,23 @@ export function Hero({ profile, lang, onOpenNova }: HeroProps) {
                 <motion.span
                   key={i}
                   initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.35, delay: 0.75 + i * 0.05 }}
-                  whileHover={{ scale: 1.05, borderColor: "rgba(10, 132, 255, 0.4)" }}
-                  className="px-3 py-1.5 rounded-xl bg-white dark:bg-white/[0.04] border border-slate-200/90 dark:border-white/10 text-slate-700 dark:text-slate-300 font-sans text-xs font-semibold shadow-sm hover:shadow-md transition-all cursor-default"
+                  animate={{
+                    opacity: 1,
+                    scale: 1,
+                    y: [0, -3, 0],
+                  }}
+                  transition={{
+                    opacity: { duration: 0.35, delay: 0.75 + i * 0.05 },
+                    scale: { duration: 0.35, delay: 0.75 + i * 0.05 },
+                    y: {
+                      repeat: Infinity,
+                      duration: 3 + (i % 3) * 0.8,
+                      ease: "easeInOut",
+                      delay: i * 0.2,
+                    },
+                  }}
+                  whileHover={{ scale: 1.08, borderColor: "rgba(0, 194, 255, 0.6)" }}
+                  className="px-3.5 py-1.5 rounded-xl bg-white dark:bg-white/[0.04] border border-slate-200/90 dark:border-white/10 text-slate-800 dark:text-slate-200 font-sans text-xs font-semibold shadow-sm hover:shadow-md hover:shadow-cyan-500/10 transition-all cursor-default"
                 >
                   {cap}
                 </motion.span>

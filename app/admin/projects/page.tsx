@@ -66,20 +66,20 @@ function SortableProjectItem({
     <div
       ref={setNodeRef}
       style={style}
-      className="glass-panel p-4 rounded-xl border border-white/10 hover:border-cyan-500/40 transition-all flex items-center justify-between gap-4 group"
+      className="bg-slate-900/90 p-4 rounded-xl border border-slate-800 hover:border-blue-500/50 transition-all flex items-center justify-between gap-4 group shadow-md"
     >
       {/* Drag handle */}
       <div
         {...attributes}
         {...listeners}
-        className="cursor-grab active:cursor-grabbing p-2 text-gray-500 hover:text-cyan-400"
+        className="cursor-grab active:cursor-grabbing p-2 text-slate-400 hover:text-blue-400 transition-colors"
         title="Drag to reorder"
       >
         <GripVertical className="w-5 h-5" />
       </div>
 
       {/* Project Thumbnail */}
-      <div className="w-14 h-14 rounded-lg bg-gray-950 overflow-hidden border border-white/10 shrink-0">
+      <div className="w-14 h-14 rounded-lg bg-slate-950 overflow-hidden border border-slate-700 shrink-0">
         <img
           src={project.thumbnail}
           alt={project.title}
@@ -91,20 +91,20 @@ function SortableProjectItem({
       <div className="flex-1 min-w-0">
         <div className="flex items-center space-x-2">
           <span className="font-bold text-white text-sm truncate">{project.title}</span>
-          <span className="text-[10px] px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 shrink-0">
+          <span className="text-xs px-2.5 py-0.5 rounded-md bg-blue-500/10 text-blue-400 border border-blue-500/20 shrink-0 font-medium">
             {project.category}
           </span>
           {project.featured && (
-            <span className="text-[10px] px-2 py-0.5 rounded bg-violet-500/20 text-violet-300 border border-violet-500/30 shrink-0 flex items-center space-x-1">
-              <Sparkles className="w-3 h-3 text-yellow-300" />
+            <span className="text-xs px-2.5 py-0.5 rounded-md bg-amber-500/10 text-amber-400 border border-amber-500/20 shrink-0 flex items-center space-x-1 font-medium">
+              <Sparkles className="w-3.5 h-3.5 text-amber-400" />
               <span>Featured</span>
             </span>
           )}
         </div>
-        <div className="text-gray-400 text-[11px] font-sans truncate mt-0.5">
+        <div className="text-slate-300 text-xs font-sans truncate mt-1">
           {project.shortDescription}
         </div>
-        <div className="flex items-center space-x-3 text-[10px] text-gray-500 mt-1 font-mono">
+        <div className="flex items-center space-x-3 text-xs text-slate-400 mt-1 font-mono">
           <span>Order: #{project.order}</span>
           <span>Status: {project.status}</span>
           <span>Year: {project.year}</span>
@@ -118,8 +118,8 @@ function SortableProjectItem({
           onClick={() => onTogglePublish(project)}
           className={`p-2 rounded-lg border transition-colors ${
             project.published
-              ? "bg-emerald-500/10 border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/20"
-              : "bg-gray-800 border-gray-700 text-gray-500 hover:text-white"
+              ? "bg-emerald-500/15 border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/25"
+              : "bg-slate-800 border-slate-700 text-slate-400 hover:text-white"
           }`}
           title={project.published ? "Published (click to unpublish)" : "Draft (click to publish)"}
         >
@@ -131,8 +131,8 @@ function SortableProjectItem({
           onClick={() => onToggleFeatured(project)}
           className={`p-2 rounded-lg border transition-colors ${
             project.featured
-              ? "bg-yellow-500/10 border-yellow-500/30 text-yellow-400"
-              : "bg-white/[0.02] border-white/5 text-gray-500 hover:text-yellow-400"
+              ? "bg-amber-500/15 border-amber-500/30 text-amber-400"
+              : "bg-slate-800 border-slate-700 text-slate-400 hover:text-amber-400"
           }`}
           title="Toggle Featured"
         >
@@ -142,7 +142,7 @@ function SortableProjectItem({
         {/* Duplicate */}
         <button
           onClick={() => onDuplicate(project)}
-          className="p-2 rounded-lg bg-white/[0.02] hover:bg-white/[0.08] border border-white/5 text-gray-400 hover:text-cyan-400 transition-colors"
+          className="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-300 hover:text-blue-400 transition-colors"
           title="Duplicate Project"
         >
           <Copy className="w-4 h-4" />
@@ -151,7 +151,7 @@ function SortableProjectItem({
         {/* Edit */}
         <button
           onClick={() => onEdit(project)}
-          className="p-2 rounded-lg bg-cyan-500/10 hover:bg-cyan-500/20 border border-cyan-500/30 text-cyan-400 transition-colors"
+          className="p-2 rounded-lg bg-blue-500/15 hover:bg-blue-500/25 border border-blue-500/30 text-blue-400 transition-colors"
           title="Edit Project"
         >
           <Edit2 className="w-4 h-4" />
@@ -160,7 +160,7 @@ function SortableProjectItem({
         {/* Delete */}
         <button
           onClick={() => onDelete(project.id)}
-          className="p-2 rounded-lg bg-red-500/10 hover:bg-red-500/20 border border-red-500/30 text-red-400 transition-colors"
+          className="p-2 rounded-lg bg-red-500/15 hover:bg-red-500/25 border border-red-500/30 text-red-400 transition-colors"
           title="Delete Project"
         >
           <Trash2 className="w-4 h-4" />
@@ -290,7 +290,7 @@ export default function AdminProjectsPage() {
   };
 
   return (
-    <div className="flex-1 flex flex-col font-mono text-xs">
+    <div className="flex-1 flex flex-col font-sans antialiased text-slate-200">
       <AdminHeader
         title="PROJECTS MANAGEMENT // CRUD & REORDER"
         subtitle="Drag & drop project cards to change their order on the live website immediately"
@@ -323,23 +323,23 @@ export default function AdminProjectsPage() {
                   order: projects.length + 1,
                 });
               }}
-              className="flex items-center space-x-2 px-4 py-2.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-black font-bold shadow-[0_0_15px_rgba(0,240,255,0.3)] transition-all"
+              className="flex items-center space-x-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-semibold text-sm shadow-lg shadow-blue-500/25 transition-all cursor-pointer"
             >
               <Plus className="w-4 h-4" />
               <span>Create New Project</span>
             </button>
 
             {saveStatus && (
-              <span className="text-cyan-400 font-bold flex items-center space-x-1.5 animate-pulse">
+              <span className="text-blue-400 font-bold flex items-center space-x-1.5 animate-pulse text-xs">
                 <CheckCircle2 className="w-4 h-4" />
                 <span>{saveStatus}</span>
               </span>
             )}
           </div>
 
-          <div className="text-gray-400">
+          <div className="text-slate-400 text-sm">
             Total Projects: <span className="text-white font-bold">{projects.length}</span> (
-            <span className="text-emerald-400">
+            <span className="text-emerald-400 font-medium">
               {projects.filter((p) => p.published).length} Published
             </span>
             )
@@ -348,9 +348,9 @@ export default function AdminProjectsPage() {
 
         {/* Drag-and-Drop Sortable Project List */}
         {loading ? (
-          <div className="py-12 text-center text-gray-500">Loading projects matrix...</div>
+          <div className="py-12 text-center text-slate-400">Loading projects matrix...</div>
         ) : projects.length === 0 ? (
-          <div className="glass-panel p-12 rounded-2xl text-center text-gray-400 border border-dashed border-gray-700">
+          <div className="bg-slate-900/60 p-12 rounded-2xl text-center text-slate-400 border border-dashed border-slate-700">
             No projects found. Click "Create New Project" to add your first project.
           </div>
         ) : (
@@ -385,24 +385,24 @@ export default function AdminProjectsPage() {
 
         {/* Project Edit / Create Modal */}
         {editingProject && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
-            <div className="w-full max-w-3xl max-h-[90vh] overflow-y-auto glass-panel p-6 sm:p-8 rounded-3xl border border-cyan-500/30 shadow-2xl space-y-6">
-              <div className="flex items-center justify-between border-b border-white/10 pb-4">
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md">
+            <div className="w-full max-w-3xl max-h-[90vh] overflow-y-auto bg-slate-900 p-6 sm:p-8 rounded-3xl border border-slate-700 shadow-2xl space-y-6">
+              <div className="flex items-center justify-between border-b border-slate-800 pb-4">
                 <h2 className="text-base font-bold text-white uppercase tracking-wider">
                   {isNew ? "Create New System Project" : `Edit Project: ${editingProject.title}`}
                 </h2>
                 <button
                   onClick={() => setEditingProject(null)}
-                  className="p-2 rounded-lg hover:bg-white/10 text-gray-400 hover:text-white"
+                  className="p-2 rounded-lg hover:bg-slate-800 text-slate-400 hover:text-white transition-colors cursor-pointer"
                 >
                   <X className="w-5 h-5" />
                 </button>
               </div>
 
-              <form onSubmit={handleSaveModal} className="space-y-4 font-mono text-xs">
+              <form onSubmit={handleSaveModal} className="space-y-4 font-sans text-xs">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-gray-400 mb-1 uppercase">Title (English) *</label>
+                    <label className="block text-slate-200 mb-1.5 uppercase font-semibold">Title (English) *</label>
                     <input
                       type="text"
                       required
@@ -414,19 +414,19 @@ export default function AdminProjectsPage() {
                           slug: editingProject.slug || e.target.value.toLowerCase().replace(/[^a-z0-9]+/g, "-"),
                         })
                       }
-                      className="w-full px-3.5 py-2.5 rounded-xl bg-white/[0.04] border border-white/10 text-white focus:border-cyan-400 focus:outline-none"
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-slate-950/80 border border-slate-700 text-white placeholder-slate-500 focus:border-blue-500 focus:outline-none text-sm"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-gray-400 mb-1 uppercase">Title (Arabic)</label>
+                    <label className="block text-slate-200 mb-1.5 uppercase font-semibold text-right">Title (Arabic)</label>
                     <input
                       type="text"
                       value={editingProject.titleAr || ""}
                       onChange={(e) =>
                         setEditingProject({ ...editingProject, titleAr: e.target.value })
                       }
-                      className="w-full px-3.5 py-2.5 rounded-xl bg-white/[0.04] border border-white/10 text-white focus:border-cyan-400 focus:outline-none"
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-slate-950/80 border border-slate-700 text-white placeholder-slate-500 focus:border-blue-500 focus:outline-none text-right font-sans text-sm"
                       dir="rtl"
                     />
                   </div>
@@ -434,7 +434,7 @@ export default function AdminProjectsPage() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                   <div>
-                    <label className="block text-gray-400 mb-1 uppercase">URL Slug *</label>
+                    <label className="block text-slate-200 mb-1.5 uppercase font-semibold">URL Slug *</label>
                     <input
                       type="text"
                       required
@@ -442,16 +442,16 @@ export default function AdminProjectsPage() {
                       onChange={(e) =>
                         setEditingProject({ ...editingProject, slug: e.target.value })
                       }
-                      className="w-full px-3.5 py-2.5 rounded-xl bg-white/[0.04] border border-white/10 text-cyan-300 focus:border-cyan-400 focus:outline-none"
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-slate-950/80 border border-slate-700 text-blue-300 focus:border-blue-500 focus:outline-none font-mono text-sm"
                     />
                   </div>
 
                   <div>
-                    <div className="flex items-center justify-between mb-1">
-                      <label className="block text-gray-400 uppercase font-semibold">
-                        Category / التصنيف (مخصص يمكنك كتابته)
+                    <div className="flex items-center justify-between mb-1.5">
+                      <label className="block text-slate-200 uppercase font-semibold">
+                        Category / التصنيف
                       </label>
-                      <span className="text-[10px] text-cyan-400">اكتب أي تصنيف مخصص</span>
+                      <span className="text-xs text-blue-400 font-medium">اكتب أي تصنيف مخصص</span>
                     </div>
                     <input
                       type="text"
@@ -464,7 +464,7 @@ export default function AdminProjectsPage() {
                           category: e.target.value,
                         })
                       }
-                      className="w-full px-3.5 py-2.5 rounded-xl bg-[#080B12] border border-white/10 text-white focus:border-cyan-400 focus:outline-none font-mono"
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-slate-950/80 border border-slate-700 text-white placeholder-slate-500 focus:border-blue-500 focus:outline-none text-sm"
                     />
                     <datalist id="categories-list">
                       <option value="AI Agents" />
@@ -479,10 +479,10 @@ export default function AdminProjectsPage() {
                           key={cat}
                           type="button"
                           onClick={() => setEditingProject({ ...editingProject, category: cat })}
-                          className={`px-2 py-0.5 rounded text-[10px] border transition-colors cursor-pointer ${
+                          className={`px-2.5 py-1 rounded-lg text-xs border transition-colors cursor-pointer ${
                             editingProject.category === cat
-                              ? "bg-cyan-500/20 border-cyan-400 text-cyan-300 font-bold"
-                              : "bg-white/[0.03] border-white/10 text-gray-400 hover:text-white"
+                              ? "bg-blue-600/25 border-blue-500 text-blue-300 font-semibold"
+                              : "bg-slate-800 border-slate-700 text-slate-300 hover:text-white"
                           }`}
                         >
                           {cat}
@@ -492,7 +492,7 @@ export default function AdminProjectsPage() {
                   </div>
 
                   <div>
-                    <label className="block text-gray-400 mb-1 uppercase">Status</label>
+                    <label className="block text-slate-200 mb-1.5 uppercase font-semibold">Status</label>
                     <select
                       value={editingProject.status}
                       onChange={(e) =>
@@ -501,7 +501,7 @@ export default function AdminProjectsPage() {
                           status: e.target.value as any,
                         })
                       }
-                      className="w-full px-3.5 py-2.5 rounded-xl bg-[#080B12] border border-white/10 text-white focus:border-cyan-400 focus:outline-none"
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-slate-950/80 border border-slate-700 text-white focus:border-blue-500 focus:outline-none text-sm"
                     >
                       <option value="Live Production">Live Production</option>
                       <option value="Completed">Completed</option>
@@ -512,7 +512,7 @@ export default function AdminProjectsPage() {
                 </div>
 
                 <div>
-                  <label className="block text-gray-400 mb-1 uppercase">Short Summary (EN) *</label>
+                  <label className="block text-slate-200 mb-1.5 uppercase font-semibold">Short Summary (EN) *</label>
                   <textarea
                     rows={2}
                     required
@@ -523,12 +523,12 @@ export default function AdminProjectsPage() {
                         shortDescription: e.target.value,
                       })
                     }
-                    className="w-full px-3.5 py-2 rounded-xl bg-white/[0.04] border border-white/10 text-white font-sans text-xs focus:border-cyan-400 focus:outline-none"
+                    className="w-full px-3.5 py-2 rounded-xl bg-slate-950/80 border border-slate-700 text-white placeholder-slate-500 font-sans text-xs focus:border-blue-500 focus:outline-none leading-relaxed"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-gray-400 mb-1 uppercase">Full Case Study Narrative</label>
+                  <label className="block text-slate-200 mb-1.5 uppercase font-semibold">Full Case Study Narrative</label>
                   <textarea
                     rows={4}
                     value={editingProject.fullDescription}
@@ -538,38 +538,38 @@ export default function AdminProjectsPage() {
                         fullDescription: e.target.value,
                       })
                     }
-                    className="w-full px-3.5 py-2 rounded-xl bg-white/[0.04] border border-white/10 text-white font-sans text-xs focus:border-cyan-400 focus:outline-none"
+                    className="w-full px-3.5 py-2 rounded-xl bg-slate-950/80 border border-slate-700 text-white placeholder-slate-500 font-sans text-xs focus:border-blue-500 focus:outline-none leading-relaxed"
                   />
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-gray-400 mb-1 uppercase">The Problem / Challenge</label>
+                    <label className="block text-slate-200 mb-1.5 uppercase font-semibold">The Problem / Challenge</label>
                     <textarea
                       rows={2}
                       value={editingProject.problem || ""}
                       onChange={(e) =>
                         setEditingProject({ ...editingProject, problem: e.target.value })
                       }
-                      className="w-full px-3.5 py-2 rounded-xl bg-white/[0.04] border border-white/10 text-white font-sans text-xs focus:border-cyan-400 focus:outline-none"
+                      className="w-full px-3.5 py-2 rounded-xl bg-slate-950/80 border border-slate-700 text-white placeholder-slate-500 font-sans text-xs focus:border-blue-500 focus:outline-none leading-relaxed"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-gray-400 mb-1 uppercase">The Engineering Solution</label>
+                    <label className="block text-slate-200 mb-1.5 uppercase font-semibold">The Engineering Solution</label>
                     <textarea
                       rows={2}
                       value={editingProject.solution || ""}
                       onChange={(e) =>
                         setEditingProject({ ...editingProject, solution: e.target.value })
                       }
-                      className="w-full px-3.5 py-2 rounded-xl bg-white/[0.04] border border-white/10 text-white font-sans text-xs focus:border-cyan-400 focus:outline-none"
+                      className="w-full px-3.5 py-2 rounded-xl bg-slate-950/80 border border-slate-700 text-white placeholder-slate-500 font-sans text-xs focus:border-blue-500 focus:outline-none leading-relaxed"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-gray-400 mb-1 uppercase">Architecture Pipeline</label>
+                  <label className="block text-slate-200 mb-1.5 uppercase font-semibold">Architecture Pipeline</label>
                   <input
                     type="text"
                     value={editingProject.architecture || ""}
@@ -580,13 +580,13 @@ export default function AdminProjectsPage() {
                       })
                     }
                     placeholder="e.g. Webhook -> n8n -> Gemini Pro -> Vector DB"
-                    className="w-full px-3.5 py-2.5 rounded-xl bg-white/[0.04] border border-white/10 text-white focus:border-cyan-400 focus:outline-none"
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-slate-950/80 border border-slate-700 text-white placeholder-slate-500 focus:border-blue-500 focus:outline-none text-sm font-mono"
                   />
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-gray-400 mb-1 uppercase">Thumbnail URL *</label>
+                    <label className="block text-slate-200 mb-1.5 uppercase font-semibold">Thumbnail URL *</label>
                     <input
                       type="text"
                       required
@@ -597,12 +597,12 @@ export default function AdminProjectsPage() {
                           thumbnail: e.target.value,
                         })
                       }
-                      className="w-full px-3.5 py-2.5 rounded-xl bg-white/[0.04] border border-white/10 text-white focus:border-cyan-400 focus:outline-none"
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-slate-950/80 border border-slate-700 text-white placeholder-slate-500 focus:border-blue-500 focus:outline-none text-sm"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-gray-400 mb-1 uppercase">Technologies (comma separated)</label>
+                    <label className="block text-slate-200 mb-1.5 uppercase font-semibold">Technologies (comma separated)</label>
                     <input
                       type="text"
                       value={editingProject.technologies.join(", ")}
@@ -612,14 +612,14 @@ export default function AdminProjectsPage() {
                           technologies: e.target.value.split(",").map((s) => s.trim()).filter(Boolean),
                         })
                       }
-                      className="w-full px-3.5 py-2.5 rounded-xl bg-white/[0.04] border border-white/10 text-white focus:border-cyan-400 focus:outline-none"
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-slate-950/80 border border-slate-700 text-white placeholder-slate-500 focus:border-blue-500 focus:outline-none text-sm"
                     />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-gray-400 mb-1 uppercase">Live Demo URL</label>
+                    <label className="block text-slate-200 mb-1.5 uppercase font-semibold">Live Demo URL</label>
                     <input
                       type="text"
                       value={editingProject.liveDemoUrl || ""}
@@ -629,12 +629,12 @@ export default function AdminProjectsPage() {
                           liveDemoUrl: e.target.value,
                         })
                       }
-                      className="w-full px-3.5 py-2.5 rounded-xl bg-white/[0.04] border border-white/10 text-white focus:border-cyan-400 focus:outline-none"
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-slate-950/80 border border-slate-700 text-white placeholder-slate-500 focus:border-blue-500 focus:outline-none text-sm"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-gray-400 mb-1 uppercase">GitHub URL</label>
+                    <label className="block text-slate-200 mb-1.5 uppercase font-semibold">GitHub URL</label>
                     <input
                       type="text"
                       value={editingProject.githubUrl || ""}
@@ -644,14 +644,14 @@ export default function AdminProjectsPage() {
                           githubUrl: e.target.value,
                         })
                       }
-                      className="w-full px-3.5 py-2.5 rounded-xl bg-white/[0.04] border border-white/10 text-white focus:border-cyan-400 focus:outline-none"
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-slate-950/80 border border-slate-700 text-white placeholder-slate-500 focus:border-blue-500 focus:outline-none text-sm"
                     />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-gray-400 mb-1 uppercase">YouTube Showcase URL</label>
+                    <label className="block text-slate-200 mb-1.5 uppercase font-semibold">YouTube Showcase URL</label>
                     <input
                       type="url"
                       placeholder="https://www.youtube.com/watch?v=... or https://youtu.be/..."
@@ -662,12 +662,12 @@ export default function AdminProjectsPage() {
                           youtubeUrl: e.target.value,
                         })
                       }
-                      className="w-full px-3.5 py-2.5 rounded-xl bg-white/[0.04] border border-white/10 text-red-300 focus:border-red-400 focus:outline-none"
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-slate-950/80 border border-slate-700 text-red-400 placeholder-slate-500 focus:border-red-500 focus:outline-none text-sm"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-gray-400 mb-1 uppercase">Demo Video URL (MP4 / WebM)</label>
+                    <label className="block text-slate-200 mb-1.5 uppercase font-semibold">Demo Video URL (MP4 / WebM)</label>
                     <input
                       type="text"
                       placeholder="/uploads/... or external video URL"
@@ -678,13 +678,13 @@ export default function AdminProjectsPage() {
                           demoVideo: e.target.value,
                         })
                       }
-                      className="w-full px-3.5 py-2.5 rounded-xl bg-white/[0.04] border border-white/10 text-violet-300 focus:border-violet-400 focus:outline-none"
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-slate-950/80 border border-slate-700 text-indigo-300 placeholder-slate-500 focus:border-indigo-500 focus:outline-none text-sm"
                     />
                   </div>
                 </div>
 
                 <div className="flex items-center space-x-6 pt-2">
-                  <label className="flex items-center space-x-2 cursor-pointer">
+                  <label className="flex items-center space-x-2.5 cursor-pointer">
                     <input
                       type="checkbox"
                       checked={editingProject.published}
@@ -694,12 +694,12 @@ export default function AdminProjectsPage() {
                           published: e.target.checked,
                         })
                       }
-                      className="w-4 h-4 rounded text-cyan-500 focus:ring-cyan-400"
+                      className="w-4 h-4 rounded text-blue-600 focus:ring-blue-500 bg-slate-900 border-slate-700"
                     />
-                    <span className="text-white">Published to Live Site</span>
+                    <span className="text-white font-medium text-xs">Published to Live Site</span>
                   </label>
 
-                  <label className="flex items-center space-x-2 cursor-pointer">
+                  <label className="flex items-center space-x-2.5 cursor-pointer">
                     <input
                       type="checkbox"
                       checked={editingProject.featured}
@@ -709,23 +709,23 @@ export default function AdminProjectsPage() {
                           featured: e.target.checked,
                         })
                       }
-                      className="w-4 h-4 rounded text-cyan-500 focus:ring-cyan-400"
+                      className="w-4 h-4 rounded text-blue-600 focus:ring-blue-500 bg-slate-900 border-slate-700"
                     />
-                    <span className="text-white">Highlight as Featured</span>
+                    <span className="text-white font-medium text-xs">Highlight as Featured</span>
                   </label>
                 </div>
 
-                <div className="pt-4 border-t border-white/10 flex items-center justify-end space-x-3">
+                <div className="pt-4 border-t border-slate-800 flex items-center justify-end space-x-3">
                   <button
                     type="button"
                     onClick={() => setEditingProject(null)}
-                    className="px-4 py-2.5 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] text-gray-400 hover:text-white transition-colors"
+                    className="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white font-medium text-sm transition-colors cursor-pointer"
                   >
                     Cancel
                   </button>
                   <button
                     type="submit"
-                    className="flex items-center space-x-2 px-6 py-2.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-black font-bold shadow-[0_0_15px_rgba(0,240,255,0.4)] transition-all"
+                    className="flex items-center space-x-2 px-6 py-2.5 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-semibold text-sm shadow-lg shadow-blue-500/25 transition-all cursor-pointer"
                   >
                     <Save className="w-4 h-4" />
                     <span>Save Project</span>

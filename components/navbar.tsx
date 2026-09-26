@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { Bot, Menu, X, Globe, Sparkles, Shield, Sun, Moon } from "lucide-react";
+import { Bot, Menu, X, Globe, Sparkles, Sun, Moon } from "lucide-react";
 
 interface NavbarProps {
   lang: "en" | "ar";
@@ -78,8 +78,8 @@ export function Navbar({
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Brand Logo */}
-        <Link href="/" className="group flex items-center space-x-3 rtl:space-x-reverse">
-          <div className="relative flex items-center justify-center w-10 h-10 rounded-full bg-white dark:bg-white/[0.04] border border-slate-200 dark:border-white/15 group-hover:border-[#0066FF] dark:group-hover:border-[#00C2FF] shadow-sm transition-all duration-300 overflow-hidden shrink-0">
+        <Link href="/" className="group flex items-center space-x-2.5 sm:space-x-3 rtl:space-x-reverse min-w-0 shrink">
+          <div className="relative flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white dark:bg-white/[0.04] border border-slate-200 dark:border-white/15 group-hover:border-[#0066FF] dark:group-hover:border-[#00C2FF] shadow-sm transition-all duration-300 overflow-hidden shrink-0">
             <img
               src="/avatar.png"
               alt={lang === "ar" ? "عباس صبحي" : "Abbas Sobhy"}
@@ -87,12 +87,12 @@ export function Navbar({
             />
             <span className="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-[#00C2FF] ring-2 ring-white dark:ring-[#07111F] animate-pulse" />
           </div>
-          <div>
-            <div className="text-sm font-bold tracking-wide text-slate-900 dark:text-white group-hover:text-[#0066FF] dark:group-hover:text-[#00C2FF] transition-colors">
+          <div className="min-w-0">
+            <div className="text-xs sm:text-sm font-bold tracking-wide text-slate-900 dark:text-white group-hover:text-[#0066FF] dark:group-hover:text-[#00C2FF] transition-colors truncate">
               {lang === "ar" ? "عباس صبحي" : "Abbas Sobhy"}
             </div>
-            <div className="text-[11px] font-mono tracking-wider text-slate-500 dark:text-slate-400">
-              {lang === "ar" ? "ذكاء اصطناعي وأتمتة" : "AI & Automation Engineer"}
+            <div className="text-[10px] sm:text-[11px] font-mono tracking-wider text-slate-500 dark:text-slate-400 truncate">
+              {lang === "ar" ? "ذكاء اصطناعي وأتمتة" : "AI & Automation"}
             </div>
           </div>
         </Link>
@@ -125,12 +125,12 @@ export function Navbar({
         </nav>
 
         {/* Action Controls Cluster */}
-        <div className="flex items-center space-x-2 sm:space-x-2.5 rtl:space-x-reverse">
+        <div className="flex items-center space-x-1.5 sm:space-x-2.5 rtl:space-x-reverse shrink-0">
           {/* Theme Switcher */}
           {onToggleTheme && (
             <button
               onClick={onToggleTheme}
-              className="p-2 rounded-xl bg-white dark:bg-white/[0.04] hover:bg-slate-100 dark:hover:bg-white/[0.08] border border-slate-200 dark:border-white/10 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white shadow-sm transition-all"
+              className="p-1.5 sm:p-2 rounded-xl bg-white dark:bg-white/[0.04] hover:bg-slate-100 dark:hover:bg-white/[0.08] border border-slate-200 dark:border-white/10 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white shadow-sm transition-all"
               title={theme === "dark" ? "Switch to Light Mode" : "Switch to Dark Mode"}
               aria-label="Toggle Theme"
             >
@@ -145,7 +145,7 @@ export function Navbar({
           {/* Language Switcher */}
           <button
             onClick={onToggleLang}
-            className="flex items-center space-x-1.5 rtl:space-x-reverse px-2.5 py-1.5 rounded-xl bg-white dark:bg-white/[0.04] hover:bg-slate-100 dark:hover:bg-white/[0.08] border border-slate-200 dark:border-white/10 text-xs font-mono text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white shadow-sm transition-all"
+            className="flex items-center space-x-1 rtl:space-x-reverse px-2 py-1 sm:px-2.5 sm:py-1.5 rounded-xl bg-white dark:bg-white/[0.04] hover:bg-slate-100 dark:hover:bg-white/[0.08] border border-slate-200 dark:border-white/10 text-[11px] sm:text-xs font-mono text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white shadow-sm transition-all"
             title="Toggle Language (العربية / English)"
           >
             <Globe className="w-3.5 h-3.5 text-[#0066FF] dark:text-[#00C2FF]" />
@@ -155,29 +155,20 @@ export function Navbar({
           {/* NOVA Assistant Trigger */}
           <button
             onClick={onOpenNova}
-            className="p-2 rounded-xl bg-white dark:bg-white/[0.04] hover:bg-[#0066FF]/10 dark:hover:bg-[#00C2FF]/10 border border-slate-200 dark:border-white/10 text-[#0066FF] dark:text-[#00C2FF] shadow-sm transition-all group"
+            className="p-1.5 sm:p-2 rounded-xl bg-white dark:bg-white/[0.04] hover:bg-[#0066FF]/10 dark:hover:bg-[#00C2FF]/10 border border-slate-200 dark:border-white/10 text-[#0066FF] dark:text-[#00C2FF] shadow-sm transition-all group"
             title={lang === "ar" ? "المساعد الذكي NOVA" : "NOVA AI Assistant"}
             aria-label="Open NOVA AI Assistant"
           >
             <Bot className="w-4 h-4 group-hover:scale-110 transition-transform" />
           </button>
 
-          {/* Admin Login Link */}
-          <Link
-            href="/admin"
-            className="p-2 rounded-xl bg-white dark:bg-white/[0.03] hover:bg-slate-100 dark:hover:bg-white/[0.08] border border-slate-200 dark:border-white/10 text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 shadow-sm transition-all"
-            title="Admin Dashboard"
-          >
-            <Shield className="w-4 h-4" />
-          </Link>
-
           {/* Mobile Menu Toggle */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 rounded-xl bg-white dark:bg-white/[0.04] border border-slate-200 dark:border-white/10 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white shadow-sm transition-all"
+            className="lg:hidden p-1.5 sm:p-2 rounded-xl bg-white dark:bg-white/[0.04] border border-slate-200 dark:border-white/10 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white shadow-sm transition-all"
             aria-label="Toggle menu"
           >
-            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            {mobileMenuOpen ? <X className="w-4 h-4 sm:w-5 sm:h-5" /> : <Menu className="w-4 h-4 sm:w-5 sm:h-5" />}
           </button>
         </div>
       </div>

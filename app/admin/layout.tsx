@@ -62,22 +62,22 @@ export default function AdminLayout({
   // If checking authentication, show encrypted verification gate
   if (isAuthenticated === null) {
     return (
-      <div className="min-h-screen bg-[#05070B] text-cyan-400 flex flex-col items-center justify-center p-4 font-mono text-xs">
-        <div className="p-8 rounded-3xl bg-white/[0.02] border border-cyan-500/20 shadow-[0_0_50px_rgba(0,240,255,0.08)] text-center space-y-4 max-w-sm">
-          <div className="w-12 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center mx-auto text-cyan-400">
-            <Lock className="w-6 h-6 animate-pulse" />
+      <div className="min-h-screen bg-[#0B0F19] text-[#00C2FF] flex flex-col items-center justify-center p-4 font-sans antialiased">
+        <div className="p-8 rounded-3xl bg-slate-900/90 border border-slate-800 shadow-2xl text-center space-y-4 max-w-sm">
+          <div className="w-14 h-14 rounded-2xl bg-[#0066FF]/15 border border-[#00C2FF]/30 flex items-center justify-center mx-auto text-[#00C2FF] shadow-lg shadow-blue-500/10">
+            <Lock className="w-7 h-7 animate-pulse" />
           </div>
           <div>
-            <div className="text-white font-bold tracking-wider uppercase text-sm">
-              AUTHENTICATING MATRIX
+            <div className="text-white font-bold tracking-wide uppercase text-base">
+              AUTHENTICATING ACCESS
             </div>
-            <p className="text-gray-400 text-[11px] mt-1">
+            <p className="text-slate-300 text-xs mt-1 leading-relaxed">
               Verifying administrative credentials & cryptographic token...
             </p>
           </div>
-          <div className="flex items-center justify-center space-x-2 text-cyan-400 pt-2">
+          <div className="flex items-center justify-center space-x-2 text-[#00C2FF] pt-2">
             <Loader2 className="w-4 h-4 animate-spin" />
-            <span className="text-[10px] uppercase tracking-widest">Checking Auth</span>
+            <span className="text-xs uppercase tracking-widest font-semibold font-mono">Verifying Session</span>
           </div>
         </div>
       </div>
@@ -90,12 +90,12 @@ export default function AdminLayout({
   }
 
   return (
-    <div className="min-h-screen bg-[#05070B] text-slate-100 flex">
+    <div className="min-h-screen bg-[#0B0F19] text-slate-100 flex font-sans antialiased selection:bg-[#0066FF]/30 selection:text-white">
       {/* Fixed Sidebar */}
       <AdminSidebar onLogout={handleLogout} />
 
       {/* Main Content Area */}
-      <div className="flex-1 ml-64 min-h-screen flex flex-col bg-[#05070B]">
+      <div className="flex-1 ml-64 min-h-screen flex flex-col bg-[#0B0F19]">
         {children}
       </div>
     </div>

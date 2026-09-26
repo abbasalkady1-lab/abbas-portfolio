@@ -187,24 +187,36 @@ export async function executeAgentAction(input: ActionSchema) {
     <section id="capabilities" className="py-24 px-4 sm:px-6 lg:px-8 relative z-10">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center space-x-2 rtl:space-x-reverse px-3.5 py-1.5 rounded-full bg-white dark:bg-white/[0.04] border border-slate-200 dark:border-white/10 text-[#6D5DFB] dark:text-[#818CF8] font-mono text-xs mb-3 shadow-sm">
-            <Sparkles className="w-3.5 h-3.5 text-[#6D5DFB]" />
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="text-center mb-16"
+        >
+          <motion.div
+            animate={{ y: [0, -4, 0] }}
+            transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+            className="inline-flex items-center space-x-2 rtl:space-x-reverse px-4 py-1.5 rounded-full bg-white dark:bg-white/[0.04] border border-slate-200 dark:border-white/10 text-[#6D5DFB] dark:text-[#818CF8] font-mono text-xs mb-3 shadow-md shadow-indigo-500/5"
+          >
+            <Sparkles className="w-3.5 h-3.5 text-[#6D5DFB] animate-pulse" />
             <span className="font-bold tracking-wider uppercase">
               {isAr ? "الركائز الهندسية الأربعة" : "CORE ENGINEERING PILLARS"}
             </span>
-          </div>
+          </motion.div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white font-sans tracking-tight">
-            {isAr ? "قدرات الذكاء الاصطناعي وهندسة الأتمتة" : "AI & Automation Engineering Capabilities"}
+            <span className="animate-shimmer-text inline-block">
+              {isAr ? "قدرات الذكاء الاصطناعي وهندسة الأتمتة" : "AI & Automation Engineering Capabilities"}
+            </span>
           </h2>
 
-          <p className="mt-3.5 text-sm sm:text-base text-slate-600 dark:text-slate-400 max-w-2xl mx-auto font-sans leading-relaxed">
+          <p className="mt-3.5 text-sm sm:text-base text-slate-600 dark:text-slate-300 max-w-2xl mx-auto font-sans leading-relaxed">
             {isAr
               ? "معايير برمجية متقدمة ومنهجيات عمل تضمن بناء حلول ذكية مستقرة وموثوقة وقابلة للتوسع في بيئات العمل الحقيقية."
               : "Rigorous engineering principles applied to real-world autonomous systems, distributed pipelines, and production web apps."}
           </p>
-        </div>
+        </motion.div>
 
         {/* 4 Interactive Capability Tabs */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-10">
@@ -212,9 +224,11 @@ export async function executeAgentAction(input: ActionSchema) {
             const PIcon = p.icon;
             const isSelected = activeTab === index;
             return (
-              <button
+              <motion.button
                 key={p.id}
                 onClick={() => setActiveTab(index)}
+                whileHover={{ y: -3, scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
                 className={`p-4 rounded-2xl text-left rtl:text-right border transition-all duration-300 flex flex-col justify-between ${
                   isSelected
                     ? `${p.cardClass} shadow-lg scale-[1.02] border-2`
@@ -234,7 +248,7 @@ export async function executeAgentAction(input: ActionSchema) {
                     {p.metrics[0].value} {isAr ? p.metrics[0].labelAr : p.metrics[0].labelEn}
                   </div>
                 </div>
-              </button>
+              </motion.button>
             );
           })}
         </div>

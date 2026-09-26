@@ -173,15 +173,21 @@ export function ProjectsGallery({ projects, lang }: ProjectsGalleryProps) {
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center space-x-2 rtl:space-x-reverse px-3.5 py-1.5 rounded-full bg-white dark:bg-white/[0.04] border border-slate-200 dark:border-white/10 text-[#0066FF] dark:text-[#00C2FF] font-mono text-xs mb-3 shadow-sm">
+          <motion.div
+            animate={{ y: [0, -4, 0] }}
+            transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+            className="inline-flex items-center space-x-2 rtl:space-x-reverse px-3.5 py-1.5 rounded-full bg-white dark:bg-white/[0.04] border border-slate-200 dark:border-white/10 text-[#0066FF] dark:text-[#00C2FF] font-mono text-xs mb-3 shadow-sm"
+          >
             <Sparkles className="w-3.5 h-3.5 text-[#00C2FF]" />
             <span className="font-bold tracking-wider uppercase">
               {isAr ? "المشاريع ودراسات الحالة الهندسية" : "SELECTED CASE STUDIES"}
             </span>
-          </div>
+          </motion.div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white font-sans tracking-tight">
-            {isAr ? "مشاريع استثنائية وإثباتات هندسية" : "Engineering Proof & Flagships"}
+            <span className="animate-shimmer-text">
+              {isAr ? "مشاريع استثنائية وإثباتات هندسية" : "Engineering Proof & Flagships"}
+            </span>
           </h2>
 
           <p className="mt-3.5 text-sm sm:text-base text-slate-600 dark:text-slate-400 max-w-2xl mx-auto font-sans leading-relaxed">

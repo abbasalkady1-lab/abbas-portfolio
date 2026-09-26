@@ -157,6 +157,49 @@ body {
   }
 }
 
+@keyframes float-gentle {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes text-glow-pulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 15px rgba(0, 194, 255, 0.3));
+  }
+  50% {
+    filter: drop-shadow(0 0 28px rgba(0, 102, 255, 0.65));
+  }
+}
+
+@keyframes shimmer-slide {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-float-gentle {
+  animation: float-gentle 5s ease-in-out infinite;
+}
+
+.animate-text-glow {
+  animation: text-glow-pulse 4s ease-in-out infinite;
+}
+
+.animate-shimmer-text {
+  background: linear-gradient(90deg, #0066FF 0%, #00C2FF 25%, #FFFFFF 50%, #00C2FF 75%, #0066FF 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer-slide 6s linear infinite;
+}
+
 @keyframes breathe-aura {
   0%, 100% {
     transform: scale(1);

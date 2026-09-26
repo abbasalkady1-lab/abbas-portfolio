@@ -142,7 +142,7 @@ export default function AdminMediaPage() {
   });
 
   return (
-    <div className="flex-1 flex flex-col font-mono text-xs">
+    <div className="flex-1 flex flex-col font-sans antialiased text-slate-200">
       <AdminHeader
         title="MEDIA & VIDEO MANAGEMENT // CMS ASSETS REPOSITORY"
         subtitle="Upload images and video files, integrate YouTube showcase links with expressive thumbnails, and copy embed codes"
@@ -153,7 +153,7 @@ export default function AdminMediaPage() {
         <div className="flex flex-wrap items-center justify-between gap-4">
           <div className="flex flex-wrap items-center gap-3">
             {/* Upload Files Button */}
-            <label className="flex items-center space-x-2 px-4 py-2.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-black font-bold cursor-pointer shadow-[0_0_15px_rgba(0,240,255,0.3)] transition-all">
+            <label className="flex items-center space-x-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-semibold text-sm shadow-lg shadow-blue-500/25 transition-all cursor-pointer">
               <Upload className="w-4 h-4" />
               <span>{uploading ? "Uploading..." : "Upload Images & Videos"}</span>
               <input
@@ -168,7 +168,7 @@ export default function AdminMediaPage() {
             {/* Add YouTube / Video Link Button */}
             <button
               onClick={() => setShowAddVideoModal(true)}
-              className="flex items-center space-x-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-500 hover:to-rose-500 text-white font-bold shadow-[0_0_15px_rgba(239,68,68,0.3)] transition-all"
+              className="flex items-center space-x-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-500 hover:to-rose-500 text-white font-semibold text-sm shadow-lg shadow-red-500/25 transition-all cursor-pointer"
             >
               <YoutubeIcon className="w-4 h-4" />
               <span>Add YouTube / Video URL</span>
@@ -176,35 +176,35 @@ export default function AdminMediaPage() {
           </div>
 
           {/* Filter Pills */}
-          <div className="flex items-center space-x-2 bg-white/[0.04] p-1 rounded-xl border border-white/10">
+          <div className="flex items-center space-x-1.5 bg-slate-900 p-1.5 rounded-2xl border border-slate-700/80 shadow-md">
             <button
               onClick={() => setFilterType("all")}
-              className={`px-3 py-1.5 rounded-lg transition-all ${
-                filterType === "all" ? "bg-cyan-500 text-black font-bold" : "text-gray-400 hover:text-white"
+              className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
+                filterType === "all" ? "bg-blue-600 text-white shadow-md shadow-blue-500/25" : "text-slate-400 hover:text-white"
               }`}
             >
               All ({media.length})
             </button>
             <button
               onClick={() => setFilterType("image")}
-              className={`px-3 py-1.5 rounded-lg transition-all ${
-                filterType === "image" ? "bg-cyan-500 text-black font-bold" : "text-gray-400 hover:text-white"
+              className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
+                filterType === "image" ? "bg-blue-600 text-white shadow-md shadow-blue-500/25" : "text-slate-400 hover:text-white"
               }`}
             >
               Images ({media.filter((m) => !m.type.includes("video") && m.type !== "youtube").length})
             </button>
             <button
               onClick={() => setFilterType("video")}
-              className={`px-3 py-1.5 rounded-lg transition-all ${
-                filterType === "video" ? "bg-cyan-500 text-black font-bold" : "text-gray-400 hover:text-white"
+              className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
+                filterType === "video" ? "bg-blue-600 text-white shadow-md shadow-blue-500/25" : "text-slate-400 hover:text-white"
               }`}
             >
               Videos ({media.filter((m) => m.type.includes("video")).length})
             </button>
             <button
               onClick={() => setFilterType("youtube")}
-              className={`px-3 py-1.5 rounded-lg transition-all ${
-                filterType === "youtube" ? "bg-red-500 text-white font-bold" : "text-gray-400 hover:text-white"
+              className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
+                filterType === "youtube" ? "bg-red-600 text-white shadow-md shadow-red-500/25" : "text-slate-400 hover:text-white"
               }`}
             >
               YouTube ({media.filter((m) => m.type === "youtube").length})
@@ -214,9 +214,9 @@ export default function AdminMediaPage() {
 
         {/* Media Grid */}
         {loading ? (
-          <div className="py-12 text-center text-gray-500">Loading media library...</div>
+          <div className="py-12 text-center text-slate-400">Loading media library...</div>
         ) : filteredMedia.length === 0 ? (
-          <div className="glass-panel p-12 rounded-2xl text-center text-gray-400 border border-dashed border-gray-700">
+          <div className="bg-slate-900/60 p-12 rounded-2xl text-center text-slate-400 border border-dashed border-slate-700">
             No media assets found in this filter. Upload images, videos, or add YouTube links above.
           </div>
         ) : (
@@ -229,46 +229,46 @@ export default function AdminMediaPage() {
               return (
                 <div
                   key={item.id}
-                  className="glass-panel rounded-xl overflow-hidden border border-white/10 hover:border-cyan-500/40 transition-all flex flex-col justify-between group shadow-lg"
+                  className="bg-slate-900/90 rounded-2xl overflow-hidden border border-slate-800 hover:border-blue-500/50 transition-all flex flex-col justify-between group shadow-xl hover:shadow-2xl hover:shadow-blue-500/5"
                 >
                   {/* Media Display Container */}
                   <div
-                    className="aspect-square bg-gray-950 relative overflow-hidden cursor-pointer"
+                    className="aspect-square bg-slate-950 relative overflow-hidden cursor-pointer"
                     onClick={() => setPreviewItem(item)}
                   >
                     {isYt || thumbnailSrc ? (
                       <img
                         src={thumbnailSrc || item.url}
                         alt={item.title || item.name}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                       />
                     ) : isVid ? (
                       <video
                         src={item.url}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                       />
                     ) : (
                       <img
                         src={item.url}
                         alt={item.name}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                       />
                     )}
 
                     {/* Type Badge */}
                     <div className="absolute top-2 left-2 z-10">
                       {isYt ? (
-                        <span className="inline-flex items-center space-x-1 px-2 py-0.5 rounded-full bg-red-600/90 text-white font-mono text-[9px] font-bold shadow-sm">
+                        <span className="inline-flex items-center space-x-1 px-2.5 py-0.5 rounded-full bg-red-600 text-white font-mono text-[10px] font-bold shadow-md">
                           <YoutubeIcon className="w-3 h-3" />
                           <span>YOUTUBE</span>
                         </span>
                       ) : isVid ? (
-                        <span className="inline-flex items-center space-x-1 px-2 py-0.5 rounded-full bg-violet-600/90 text-white font-mono text-[9px] font-bold shadow-sm">
+                        <span className="inline-flex items-center space-x-1 px-2.5 py-0.5 rounded-full bg-indigo-600 text-white font-mono text-[10px] font-bold shadow-md">
                           <Video className="w-3 h-3" />
                           <span>VIDEO</span>
                         </span>
                       ) : (
-                        <span className="inline-flex items-center space-x-1 px-2 py-0.5 rounded-full bg-cyan-600/90 text-white font-mono text-[9px] font-bold shadow-sm">
+                        <span className="inline-flex items-center space-x-1 px-2.5 py-0.5 rounded-full bg-blue-600 text-white font-mono text-[10px] font-bold shadow-md">
                           <ImageIcon className="w-3 h-3" />
                           <span>IMAGE</span>
                         </span>
@@ -276,44 +276,44 @@ export default function AdminMediaPage() {
                     </div>
 
                     {/* Play / Preview Hover Overlay */}
-                    <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
+                    <div className="absolute inset-0 bg-slate-950/60 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity backdrop-blur-xs">
                       {isYt || isVid ? (
-                        <div className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white border border-white/40 shadow-lg">
+                        <div className="w-11 h-11 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white border border-white/40 shadow-xl">
                           <Play className="w-5 h-5 fill-white ml-0.5" />
                         </div>
                       ) : (
-                        <Eye className="w-6 h-6 text-cyan-400" />
+                        <Eye className="w-6 h-6 text-white" />
                       )}
                     </div>
                   </div>
 
                   {/* Info & Action Bar */}
-                  <div className="p-3 space-y-2 border-t border-white/5">
-                    <div className="truncate text-white text-[11px] font-medium" title={item.title || item.name}>
+                  <div className="p-3.5 space-y-2 border-t border-slate-800">
+                    <div className="truncate text-white text-xs font-semibold" title={item.title || item.name}>
                       {item.title || item.name}
                     </div>
 
-                    <div className="flex items-center justify-between text-[10px] text-gray-500">
+                    <div className="flex items-center justify-between text-xs text-slate-400">
                       <span>{item.size ? `${Math.round(item.size / 1024)} KB` : isYt ? "YouTube Stream" : "Hosted Media"}</span>
                       <span>{item.uploadedAt}</span>
                     </div>
 
-                    <div className="flex items-center space-x-1 pt-1">
+                    <div className="flex items-center space-x-1.5 pt-1">
                       {/* Copy URL */}
                       <button
                         onClick={() => handleCopyUrl(item.url, item.id)}
-                        className="flex-1 py-1.5 rounded-lg bg-white/[0.04] hover:bg-cyan-500/20 text-gray-300 hover:text-cyan-300 flex items-center justify-center space-x-1 transition-colors"
+                        className="flex-1 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white flex items-center justify-center space-x-1 transition-colors cursor-pointer border border-slate-700/60"
                         title="Copy direct URL"
                       >
                         {copiedId === item.id ? (
                           <>
                             <Check className="w-3 h-3 text-emerald-400" />
-                            <span className="text-[9px] text-emerald-400 font-bold">Copied!</span>
+                            <span className="text-[10px] text-emerald-400 font-bold">Copied!</span>
                           </>
                         ) : (
                           <>
                             <Copy className="w-3 h-3" />
-                            <span className="text-[9px]">URL</span>
+                            <span className="text-[10px] font-medium">URL</span>
                           </>
                         )}
                       </button>
@@ -321,7 +321,7 @@ export default function AdminMediaPage() {
                       {/* Copy Embed */}
                       <button
                         onClick={() => handleCopyEmbed(item)}
-                        className="py-1.5 px-2 rounded-lg bg-white/[0.04] hover:bg-violet-500/20 text-gray-300 hover:text-violet-300 flex items-center justify-center space-x-1 transition-colors"
+                        className="py-1.5 px-2.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white flex items-center justify-center space-x-1 transition-colors cursor-pointer border border-slate-700/60"
                         title="Copy HTML Embed Code"
                       >
                         {copiedId === `embed-${item.id}` ? (
@@ -334,7 +334,7 @@ export default function AdminMediaPage() {
                       {/* Delete */}
                       <button
                         onClick={() => handleDelete(item.id)}
-                        className="p-1.5 rounded-lg hover:bg-red-500/20 text-gray-400 hover:text-red-400 transition-colors"
+                        className="p-1.5 rounded-lg hover:bg-red-500/20 text-slate-400 hover:text-red-400 transition-colors cursor-pointer"
                         title="Delete asset"
                       >
                         <Trash2 className="w-3.5 h-3.5" />
@@ -350,31 +350,31 @@ export default function AdminMediaPage() {
 
       {/* MODAL 1: ADD YOUTUBE / VIDEO URL */}
       {showAddVideoModal && (
-        <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="glass-panel w-full max-w-lg rounded-3xl border border-red-500/30 p-6 sm:p-8 space-y-6 shadow-2xl relative">
-            <div className="flex items-center justify-between border-b border-white/10 pb-4">
-              <div className="flex items-center space-x-2.5">
+        <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4">
+          <div className="bg-slate-900 w-full max-w-lg rounded-3xl border border-slate-700 p-6 sm:p-8 space-y-6 shadow-2xl relative font-sans text-xs">
+            <div className="flex items-center justify-between border-b border-slate-800 pb-4">
+              <div className="flex items-center space-x-3">
                 <div className="p-2.5 rounded-xl bg-red-500/10 text-red-400 border border-red-500/25">
                   <YoutubeIcon className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-white text-sm">ADD YOUTUBE / VIDEO ASSET</h3>
-                  <p className="text-gray-400 text-[10px]">
+                  <h3 className="font-bold text-white text-base">ADD YOUTUBE / VIDEO ASSET</h3>
+                  <p className="text-slate-400 text-xs mt-0.5">
                     Enter a YouTube video URL or hosted video with custom expressive thumbnail
                   </p>
                 </div>
               </div>
               <button
                 onClick={() => setShowAddVideoModal(false)}
-                className="p-2 rounded-xl hover:bg-white/10 text-gray-400 hover:text-white"
+                className="p-2 rounded-xl hover:bg-slate-800 text-slate-400 hover:text-white transition-colors cursor-pointer"
               >
-                <X className="w-4 h-4" />
+                <X className="w-5 h-5" />
               </button>
             </div>
 
             <form onSubmit={handleAddYouTubeOrVideo} className="space-y-4">
               <div>
-                <label className="block text-gray-400 mb-1 uppercase tracking-wider text-[10px]">
+                <label className="block text-slate-200 mb-1.5 uppercase tracking-wide font-semibold text-xs">
                   Video Link (YouTube URL or Direct Video) *
                 </label>
                 <input
@@ -383,12 +383,12 @@ export default function AdminMediaPage() {
                   value={videoUrl}
                   onChange={(e) => setVideoUrl(e.target.value)}
                   placeholder="https://www.youtube.com/watch?v=... or https://youtu.be/..."
-                  className="w-full px-3.5 py-2.5 rounded-xl bg-white/[0.04] border border-white/10 text-white focus:border-red-400 focus:outline-none"
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-slate-950/80 border border-slate-700 text-white placeholder-slate-500 focus:border-red-500 focus:outline-none text-sm"
                 />
               </div>
 
               <div>
-                <label className="block text-gray-400 mb-1 uppercase tracking-wider text-[10px]">
+                <label className="block text-slate-200 mb-1.5 uppercase tracking-wide font-semibold text-xs">
                   Video Title / Showcase Label
                 </label>
                 <input
@@ -396,12 +396,12 @@ export default function AdminMediaPage() {
                   value={videoTitle}
                   onChange={(e) => setVideoTitle(e.target.value)}
                   placeholder="e.g. Runnova Autonomous AI Employee Live Voice Walkthrough"
-                  className="w-full px-3.5 py-2.5 rounded-xl bg-white/[0.04] border border-white/10 text-white focus:border-red-400 focus:outline-none"
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-slate-950/80 border border-slate-700 text-white placeholder-slate-500 focus:border-red-500 focus:outline-none text-sm"
                 />
               </div>
 
               <div>
-                <label className="block text-gray-400 mb-1 uppercase tracking-wider text-[10px]">
+                <label className="block text-slate-200 mb-1.5 uppercase tracking-wide font-semibold text-xs">
                   Expressive Thumbnail URL (Optional)
                 </label>
                 <input
@@ -409,15 +409,15 @@ export default function AdminMediaPage() {
                   value={customThumbnail}
                   onChange={(e) => setCustomThumbnail(e.target.value)}
                   placeholder="Leave empty to auto-extract high-res YouTube thumbnail"
-                  className="w-full px-3.5 py-2.5 rounded-xl bg-white/[0.04] border border-white/10 text-white focus:border-red-400 focus:outline-none"
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-slate-950/80 border border-slate-700 text-white placeholder-slate-500 focus:border-red-500 focus:outline-none text-sm"
                 />
-                <span className="text-[10px] text-gray-500 mt-1 block">
+                <span className="text-xs text-slate-400 mt-1 block">
                   For YouTube videos, the high-res maxres thumbnail is auto-resolved automatically.
                 </span>
               </div>
 
               <div>
-                <label className="block text-gray-400 mb-1 uppercase tracking-wider text-[10px]">
+                <label className="block text-slate-200 mb-1.5 uppercase tracking-wide font-semibold text-xs">
                   Description / Showcase Notes
                 </label>
                 <textarea
@@ -425,7 +425,7 @@ export default function AdminMediaPage() {
                   value={videoDescription}
                   onChange={(e) => setVideoDescription(e.target.value)}
                   placeholder="Brief description of the demo or architecture featured in the video..."
-                  className="w-full px-3.5 py-2 rounded-xl bg-white/[0.04] border border-white/10 text-white focus:border-red-400 focus:outline-none"
+                  className="w-full px-3.5 py-2 rounded-xl bg-slate-950/80 border border-slate-700 text-white placeholder-slate-500 focus:border-red-500 focus:outline-none font-sans text-xs leading-relaxed"
                 />
               </div>
 
@@ -433,7 +433,7 @@ export default function AdminMediaPage() {
                 <button
                   type="button"
                   onClick={() => setShowAddVideoModal(false)}
-                  className="px-4 py-2.5 rounded-xl bg-white/[0.04] text-gray-400 hover:text-white"
+                  className="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white font-medium text-sm transition-colors cursor-pointer"
                 >
                   Cancel
                 </button>
@@ -441,7 +441,7 @@ export default function AdminMediaPage() {
                 <button
                   type="submit"
                   disabled={isSubmittingVideo}
-                  className="px-5 py-2.5 rounded-xl bg-red-600 hover:bg-red-500 text-white font-bold shadow-[0_0_15px_rgba(239,68,68,0.4)] transition-all flex items-center space-x-2"
+                  className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-500 hover:to-rose-500 text-white font-semibold text-sm shadow-lg shadow-red-500/25 transition-all flex items-center space-x-2 cursor-pointer disabled:opacity-50"
                 >
                   <Sparkles className="w-4 h-4" />
                   <span>{isSubmittingVideo ? "Registering..." : "Add to Media Repository"}</span>
@@ -455,38 +455,38 @@ export default function AdminMediaPage() {
       {/* MODAL 2: INTERACTIVE PREVIEW (YOUTUBE / VIDEO / IMAGE) */}
       {previewItem && (
         <div
-          className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4"
+          className="fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-4 font-sans"
           onClick={() => setPreviewItem(null)}
         >
           <div
-            className="glass-panel w-full max-w-4xl max-h-[90vh] rounded-3xl border border-white/15 p-6 overflow-hidden space-y-4 shadow-2xl relative flex flex-col"
+            className="bg-slate-900 w-full max-w-4xl max-h-[90vh] rounded-3xl border border-slate-700 p-6 overflow-hidden space-y-4 shadow-2xl relative flex flex-col"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Modal Header */}
-            <div className="flex items-center justify-between border-b border-white/10 pb-3 shrink-0">
-              <div className="flex items-center space-x-2">
+            <div className="flex items-center justify-between border-b border-slate-800 pb-3 shrink-0">
+              <div className="flex items-center space-x-2.5">
                 {previewItem.type === "youtube" ? (
                   <YoutubeIcon className="w-5 h-5 text-red-500" />
                 ) : previewItem.type.includes("video") ? (
-                  <Video className="w-5 h-5 text-violet-400" />
+                  <Video className="w-5 h-5 text-indigo-400" />
                 ) : (
-                  <ImageIcon className="w-5 h-5 text-cyan-400" />
+                  <ImageIcon className="w-5 h-5 text-blue-400" />
                 )}
-                <span className="font-bold text-white text-sm truncate max-w-md">
+                <span className="font-bold text-white text-base truncate max-w-md">
                   {previewItem.title || previewItem.name}
                 </span>
               </div>
 
               <button
                 onClick={() => setPreviewItem(null)}
-                className="p-1.5 rounded-lg hover:bg-white/10 text-gray-400 hover:text-white"
+                className="p-1.5 rounded-lg hover:bg-slate-800 text-slate-400 hover:text-white transition-colors cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
 
             {/* Media Player / Image Area */}
-            <div className="flex-1 min-h-[300px] max-h-[60vh] flex items-center justify-center bg-black/60 rounded-2xl overflow-hidden border border-white/10">
+            <div className="flex-1 min-h-[300px] max-h-[60vh] flex items-center justify-center bg-slate-950 rounded-2xl overflow-hidden border border-slate-800">
               {previewItem.type === "youtube" && previewItem.embedUrl ? (
                 <iframe
                   src={previewItem.embedUrl}
@@ -513,26 +513,26 @@ export default function AdminMediaPage() {
             </div>
 
             {/* Bottom Actions & Details */}
-            <div className="flex flex-wrap items-center justify-between gap-3 pt-2 text-[11px] shrink-0 border-t border-white/10">
-              <div className="text-gray-400 truncate max-w-md">
+            <div className="flex flex-wrap items-center justify-between gap-3 pt-2 text-xs shrink-0 border-t border-slate-800">
+              <div className="text-slate-400 truncate max-w-md">
                 <span>URL: </span>
-                <span className="text-cyan-300 font-mono select-all">{previewItem.url}</span>
+                <span className="text-blue-300 font-mono select-all font-medium">{previewItem.url}</span>
               </div>
 
               <div className="flex items-center space-x-2">
                 <button
                   onClick={() => handleCopyUrl(previewItem.url, previewItem.id)}
-                  className="px-3 py-1.5 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] text-white flex items-center space-x-1.5 transition-colors"
+                  className="px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-white flex items-center space-x-1.5 transition-colors cursor-pointer border border-slate-700/60"
                 >
-                  <Copy className="w-3.5 h-3.5 text-cyan-400" />
+                  <Copy className="w-3.5 h-3.5 text-blue-400" />
                   <span>Copy Direct URL</span>
                 </button>
 
                 <button
                   onClick={() => handleCopyEmbed(previewItem)}
-                  className="px-3 py-1.5 rounded-xl bg-violet-600/30 hover:bg-violet-600/50 text-violet-200 border border-violet-500/30 flex items-center space-x-1.5 transition-colors"
+                  className="px-3.5 py-2 rounded-xl bg-indigo-600/30 hover:bg-indigo-600/50 text-indigo-200 border border-indigo-500/30 flex items-center space-x-1.5 transition-colors cursor-pointer"
                 >
-                  <Film className="w-3.5 h-3.5 text-violet-400" />
+                  <Film className="w-3.5 h-3.5 text-indigo-400" />
                   <span>Copy Embed Code</span>
                 </button>
 
@@ -540,7 +540,7 @@ export default function AdminMediaPage() {
                   href={previewItem.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-1.5 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] text-gray-400 hover:text-white"
+                  className="p-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white transition-colors cursor-pointer border border-slate-700/60"
                   title="Open source link in new tab"
                 >
                   <ExternalLink className="w-4 h-4" />

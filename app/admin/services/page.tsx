@@ -194,7 +194,7 @@ export default function AdminServicesPage() {
   const cleanPhone = (profile?.whatsapp || "+201000000000").replace(/[^0-9]/g, "");
 
   return (
-    <div className="flex-1 flex flex-col font-mono text-xs">
+    <div className="flex-1 flex flex-col font-sans antialiased text-slate-200">
       <AdminHeader
         title="SERVICES & SOLUTIONS // CLIENT OFFERINGS"
         subtitle="Manage client-facing services, feature bullets, custom CTAs, WhatsApp/Email channels, and order"
@@ -202,31 +202,31 @@ export default function AdminServicesPage() {
 
       <main className="p-6 sm:p-8 space-y-6 max-w-7xl">
         {/* Contact Channels Configuration Banner */}
-        <div className="p-5 rounded-2xl bg-gradient-to-r from-sky-950/40 via-[#0D111A] to-cyan-950/30 border border-cyan-500/30 shadow-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        <div className="p-5 rounded-2xl bg-slate-900 border border-slate-700/80 shadow-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <div className="flex items-center space-x-3.5 rtl:space-x-reverse">
-            <div className="p-2.5 rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-400">
+            <div className="p-2.5 rounded-xl bg-blue-500/10 border border-blue-500/30 text-blue-400">
               <MessageCircle className="w-5 h-5" />
             </div>
             <div>
               <div className="font-bold text-white uppercase text-sm flex items-center space-x-2">
                 <span>Direct Contact Channels (WhatsApp & Email)</span>
-                <span className="text-[10px] font-normal px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-300">
+                <span className="text-xs font-normal px-2.5 py-0.5 rounded-md bg-blue-500/10 text-blue-300 border border-blue-500/20">
                   Global Configuration
                 </span>
               </div>
-              <p className="text-gray-400 text-xs font-sans mt-0.5">
+              <p className="text-slate-300 text-xs font-sans mt-0.5">
                 These credentials power all instant WhatsApp buttons and Email inquiry links across all services.
               </p>
             </div>
           </div>
 
           <div className="flex items-center space-x-3 rtl:space-x-reverse w-full md:w-auto justify-between md:justify-end">
-            <div className="flex items-center space-x-4 text-xs">
+            <div className="flex items-center space-x-4 text-xs font-medium">
               <div className="flex items-center space-x-1.5 text-emerald-400">
                 <MessageCircle className="w-3.5 h-3.5" />
                 <span className="font-mono">{profile?.whatsapp || "Not Set"}</span>
               </div>
-              <div className="flex items-center space-x-1.5 text-sky-400">
+              <div className="flex items-center space-x-1.5 text-blue-400">
                 <Mail className="w-3.5 h-3.5" />
                 <span className="font-mono">{profile?.email || "Not Set"}</span>
               </div>
@@ -234,9 +234,9 @@ export default function AdminServicesPage() {
 
             <button
               onClick={() => setIsEditingContact(!isEditingContact)}
-              className="px-3 py-1.5 rounded-xl bg-white/[0.06] hover:bg-white/10 border border-white/10 text-white font-bold transition-all flex items-center space-x-1.5"
+              className="px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white font-semibold text-xs transition-all flex items-center space-x-1.5 cursor-pointer"
             >
-              <Settings className="w-3.5 h-3.5 text-cyan-400" />
+              <Settings className="w-3.5 h-3.5 text-blue-400" />
               <span>{isEditingContact ? "Close" : "Edit Channels"}</span>
             </button>
           </div>
@@ -246,35 +246,35 @@ export default function AdminServicesPage() {
         {isEditingContact && (
           <form
             onSubmit={handleSaveContactChannels}
-            className="p-5 rounded-2xl bg-[#080B12] border border-cyan-500/40 space-y-4 animate-in fade-in"
+            className="p-5 rounded-2xl bg-slate-900 border border-slate-700 space-y-4 shadow-xl"
           >
-            <div className="font-bold text-cyan-300 text-xs uppercase flex items-center space-x-2">
+            <div className="font-bold text-blue-400 text-xs uppercase flex items-center space-x-2">
               <Phone className="w-4 h-4" />
               <span>Update Global WhatsApp & Email for Service Inquiries</span>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-gray-400 mb-1 uppercase">WhatsApp Number (e.g. +201000000000)</label>
+                <label className="block text-slate-200 mb-1.5 uppercase font-semibold text-xs">WhatsApp Number (e.g. +201000000000)</label>
                 <input
                   type="text"
                   required
                   value={tempWhatsapp}
                   onChange={(e) => setTempWhatsapp(e.target.value)}
                   placeholder="+201000000000"
-                  className="w-full px-3.5 py-2 rounded-xl bg-white/[0.04] border border-white/10 text-white focus:border-cyan-400 focus:outline-none"
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-slate-950/80 border border-slate-700 text-white placeholder-slate-500 focus:border-blue-500 focus:outline-none font-mono text-sm"
                 />
               </div>
 
               <div>
-                <label className="block text-gray-400 mb-1 uppercase">Official Email Address</label>
+                <label className="block text-slate-200 mb-1.5 uppercase font-semibold text-xs">Official Email Address</label>
                 <input
                   type="email"
                   required
                   value={tempEmail}
                   onChange={(e) => setTempEmail(e.target.value)}
                   placeholder="contact@abbaselkady.dev"
-                  className="w-full px-3.5 py-2 rounded-xl bg-white/[0.04] border border-white/10 text-white focus:border-cyan-400 focus:outline-none"
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-slate-950/80 border border-slate-700 text-white placeholder-slate-500 focus:border-blue-500 focus:outline-none font-mono text-sm"
                 />
               </div>
             </div>
@@ -283,13 +283,13 @@ export default function AdminServicesPage() {
               <button
                 type="button"
                 onClick={() => setIsEditingContact(false)}
-                className="px-4 py-2 rounded-xl bg-white/[0.04] text-gray-400 hover:text-white"
+                className="px-4 py-2 rounded-xl bg-slate-800 text-slate-300 hover:text-white text-xs font-medium cursor-pointer"
               >
                 Cancel
               </button>
               <button
                 type="submit"
-                className="px-5 py-2 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-black font-bold flex items-center space-x-1.5 shadow-lg shadow-cyan-500/20"
+                className="px-5 py-2 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-semibold flex items-center space-x-1.5 shadow-lg shadow-blue-500/20 text-xs cursor-pointer"
               >
                 <Save className="w-3.5 h-3.5" />
                 <span>Save Channels</span>
@@ -299,7 +299,7 @@ export default function AdminServicesPage() {
         )}
 
         {contactFeedback && (
-          <div className="p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 flex items-center space-x-2">
+          <div className="p-3.5 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 flex items-center space-x-2 text-xs font-semibold">
             <CheckCircle2 className="w-4 h-4" />
             <span>{contactFeedback}</span>
           </div>
@@ -330,16 +330,16 @@ export default function AdminServicesPage() {
                 order: services.length + 1,
               });
             }}
-            className="flex items-center space-x-2 px-4 py-2.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-black font-bold shadow-[0_0_15px_rgba(0,240,255,0.3)] transition-all"
+            className="flex items-center space-x-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-semibold text-sm shadow-lg shadow-blue-500/25 transition-all cursor-pointer"
           >
             <Plus className="w-4 h-4" />
             <span>Add New Service Offering</span>
           </button>
 
-          <div className="flex items-center space-x-3 text-gray-400">
-            <span>Total Services: {services.length}</span>
-            <span className="text-gray-600">&bull;</span>
-            <span className="text-emerald-400">
+          <div className="flex items-center space-x-3 text-slate-400 text-sm">
+            <span>Total Services: <strong className="text-white">{services.length}</strong></span>
+            <span className="text-slate-600">&bull;</span>
+            <span className="text-emerald-400 font-medium">
               Active: {services.filter((s) => s.visible !== false).length}
             </span>
           </div>
@@ -357,31 +357,31 @@ export default function AdminServicesPage() {
               return (
                 <div
                   key={srv.id}
-                  className={`glass-panel p-6 rounded-2xl border transition-all flex flex-col justify-between group shadow-lg ${
+                  className={`bg-slate-900/90 p-6 rounded-2xl border transition-all flex flex-col justify-between group shadow-xl ${
                     srv.visible === false
-                      ? "border-white/5 opacity-60 bg-black/40"
-                      : "border-white/10 hover:border-cyan-500/30"
+                      ? "border-slate-800 opacity-60 bg-slate-950/60"
+                      : "border-slate-800 hover:border-blue-500/50 hover:shadow-2xl hover:shadow-blue-500/5"
                   }`}
                 >
                   <div>
                     {/* Top Status Bar */}
                     <div className="flex items-center justify-between mb-4">
                       <div className="flex items-center space-x-2">
-                        <div className="p-2 rounded-xl bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
+                        <div className="p-2.5 rounded-xl bg-blue-500/10 text-blue-400 border border-blue-500/20">
                           <IconComp className="w-4 h-4" />
                         </div>
-                        <span className="text-[10px] px-2 py-0.5 rounded bg-white/[0.04] text-gray-300 font-bold uppercase">
+                        <span className="text-xs px-2.5 py-0.5 rounded-md bg-slate-800 text-slate-300 font-bold uppercase font-mono">
                           #{srv.order} &bull; {srv.iconName}
                         </span>
 
                         {/* Contact Method Badge */}
                         <span
-                          className={`text-[10px] px-2 py-0.5 rounded font-bold uppercase flex items-center space-x-1 ${
+                          className={`text-xs px-2.5 py-0.5 rounded-md font-semibold uppercase flex items-center space-x-1 ${
                             srv.contactMethod === "whatsapp"
                               ? "bg-emerald-500/15 text-emerald-400 border border-emerald-500/30"
                               : srv.contactMethod === "email"
-                              ? "bg-sky-500/15 text-sky-400 border border-sky-500/30"
-                              : "bg-cyan-500/15 text-cyan-300 border border-cyan-500/30"
+                              ? "bg-blue-500/15 text-blue-400 border border-blue-500/30"
+                              : "bg-indigo-500/15 text-indigo-300 border border-indigo-500/30"
                           }`}
                         >
                           {srv.contactMethod === "whatsapp" ? (
@@ -410,8 +410,8 @@ export default function AdminServicesPage() {
                         <button
                           onClick={() => handleToggleVisibility(srv)}
                           title={srv.visible === false ? "Show on site" : "Hide from site"}
-                          className={`p-1.5 rounded-lg transition-colors ${
-                            srv.visible === false ? "text-gray-500 hover:text-white" : "text-emerald-400 hover:text-emerald-300"
+                          className={`p-2 rounded-lg transition-colors cursor-pointer ${
+                            srv.visible === false ? "text-slate-500 hover:text-white" : "text-emerald-400 hover:text-emerald-300"
                           }`}
                         >
                           {srv.visible === false ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
@@ -421,7 +421,7 @@ export default function AdminServicesPage() {
                           disabled={index === 0}
                           onClick={() => handleReorder(index, "up")}
                           title="Move Up"
-                          className="p-1.5 rounded-lg text-gray-400 hover:text-white disabled:opacity-30"
+                          className="p-2 rounded-lg text-slate-400 hover:text-white disabled:opacity-30 cursor-pointer"
                         >
                           <ArrowUp className="w-4 h-4" />
                         </button>
@@ -430,7 +430,7 @@ export default function AdminServicesPage() {
                           disabled={index === services.length - 1}
                           onClick={() => handleReorder(index, "down")}
                           title="Move Down"
-                          className="p-1.5 rounded-lg text-gray-400 hover:text-white disabled:opacity-30"
+                          className="p-2 rounded-lg text-slate-400 hover:text-white disabled:opacity-30 cursor-pointer"
                         >
                           <ArrowDown className="w-4 h-4" />
                         </button>
@@ -442,7 +442,7 @@ export default function AdminServicesPage() {
                             setActiveTab("en");
                           }}
                           title="Edit Service"
-                          className="p-1.5 rounded-lg text-gray-400 hover:text-cyan-400"
+                          className="p-2 rounded-lg text-slate-400 hover:text-blue-400 hover:bg-slate-800 transition-colors cursor-pointer"
                         >
                           <Edit2 className="w-4 h-4" />
                         </button>
@@ -450,7 +450,7 @@ export default function AdminServicesPage() {
                         <button
                           onClick={() => handleDelete(srv.id)}
                           title="Delete Service"
-                          className="p-1.5 rounded-lg text-gray-400 hover:text-red-400"
+                          className="p-2 rounded-lg text-slate-400 hover:text-red-400 hover:bg-slate-800 transition-colors cursor-pointer"
                         >
                           <Trash2 className="w-4 h-4" />
                         </button>
@@ -459,36 +459,36 @@ export default function AdminServicesPage() {
 
                     {/* Titles */}
                     <div className="space-y-1">
-                      <h3 className="text-base font-bold text-white group-hover:text-cyan-300 transition-colors">
+                      <h3 className="text-base font-bold text-white group-hover:text-blue-300 transition-colors">
                         {srv.title}
                       </h3>
                       {srv.titleAr && (
-                        <div className="text-sm font-semibold text-gray-300" dir="rtl">
+                        <div className="text-sm font-semibold text-slate-300" dir="rtl">
                           {srv.titleAr}
                         </div>
                       )}
                     </div>
 
                     {/* Descriptions */}
-                    <p className="text-gray-400 text-xs font-sans mt-2 leading-relaxed">
+                    <p className="text-slate-300 text-xs font-sans mt-2.5 leading-relaxed">
                       {srv.description}
                     </p>
                     {srv.descriptionAr && (
-                      <p className="text-gray-400 text-xs font-sans mt-1 leading-relaxed" dir="rtl">
+                      <p className="text-slate-300 text-xs font-sans mt-1.5 leading-relaxed" dir="rtl">
                         {srv.descriptionAr}
                       </p>
                     )}
 
                     {/* Features List Preview */}
-                    <div className="mt-4 pt-3 border-t border-white/5 space-y-1.5">
-                      <div className="text-[10px] text-gray-500 uppercase font-semibold">
+                    <div className="mt-4 pt-3 border-t border-slate-800 space-y-1.5">
+                      <div className="text-xs text-slate-400 uppercase font-semibold">
                         Features / Deliverables ({srv.features?.length || 0}):
                       </div>
                       <div className="flex flex-wrap gap-1.5">
                         {srv.features?.slice(0, 4).map((f, i) => (
                           <span
                             key={i}
-                            className="text-[10px] px-2 py-0.5 rounded bg-white/[0.04] text-gray-300 border border-white/5"
+                            className="text-xs px-2.5 py-1 rounded-lg bg-slate-800 text-slate-200 border border-slate-700"
                           >
                             {f}
                           </span>
@@ -498,10 +498,10 @@ export default function AdminServicesPage() {
                   </div>
 
                   {/* Card Bottom Meta */}
-                  <div className="mt-6 pt-4 border-t border-white/5 flex items-center justify-between text-gray-400 text-[11px]">
+                  <div className="mt-6 pt-4 border-t border-slate-800 flex items-center justify-between text-slate-400 text-xs">
                     <div className="flex items-center space-x-2">
                       {srv.deliveryTime && (
-                        <span className="text-gray-400">&bull; {srv.deliveryTime}</span>
+                        <span className="text-slate-400 font-medium">&bull; {srv.deliveryTime}</span>
                       )}
                       {srv.priceEstimate && (
                         <span className="text-emerald-400 font-semibold">&bull; {srv.priceEstimate}</span>
@@ -509,28 +509,28 @@ export default function AdminServicesPage() {
                     </div>
 
                     {/* Direct Test Links */}
-                    <div className="flex items-center space-x-2">
+                    <div className="flex items-center space-x-3">
                       <a
                         href={`https://wa.me/${cleanPhone}?text=${encodeURIComponent(
                           srv.whatsappMessage || `Inquiry about: ${srv.title}`
                         )}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-emerald-400 hover:text-emerald-300 flex items-center space-x-1"
+                        className="text-emerald-400 hover:text-emerald-300 flex items-center space-x-1 font-medium"
                         title="Test WhatsApp Link"
                       >
-                        <MessageCircle className="w-3 h-3" />
+                        <MessageCircle className="w-3.5 h-3.5" />
                         <span>Test WA</span>
                       </a>
-                      <span className="text-gray-600">|</span>
+                      <span className="text-slate-600">|</span>
                       <a
                         href={`mailto:${profile?.email || "contact@abbaselkady.dev"}?subject=${encodeURIComponent(
                           srv.emailSubject || `Inquiry: ${srv.title}`
                         )}`}
-                        className="text-sky-400 hover:text-sky-300 flex items-center space-x-1"
+                        className="text-blue-400 hover:text-blue-300 flex items-center space-x-1 font-medium"
                         title="Test Email Link"
                       >
-                        <Mail className="w-3 h-3" />
+                        <Mail className="w-3.5 h-3.5" />
                         <span>Test Email</span>
                       </a>
                     </div>
@@ -543,34 +543,34 @@ export default function AdminServicesPage() {
 
         {/* Modal: Add or Edit Service */}
         {editingService && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md overflow-y-auto">
-            <div className="w-full max-w-2xl glass-panel p-6 rounded-3xl border border-cyan-500/40 shadow-2xl space-y-4 my-8 max-h-[90vh] overflow-y-auto">
-              <div className="flex items-center justify-between border-b border-white/10 pb-3">
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md overflow-y-auto">
+            <div className="w-full max-w-2xl bg-slate-900 p-6 sm:p-8 rounded-3xl border border-slate-700 shadow-2xl space-y-5 my-8 max-h-[90vh] overflow-y-auto">
+              <div className="flex items-center justify-between border-b border-slate-800 pb-4">
                 <div>
-                  <h3 className="font-bold text-white uppercase text-sm">
+                  <h3 className="font-bold text-white text-base">
                     {isNew ? "Create Service Offering" : `Edit Service: ${editingService.title || "Untitled"}`}
                   </h3>
-                  <span className="text-[11px] text-gray-400">
+                  <span className="text-xs text-slate-400">
                     Configure bilingual information, deliverables, pricing scope, and contact channels
                   </span>
                 </div>
                 <button
                   onClick={() => setEditingService(null)}
-                  className="p-1 rounded-lg text-gray-400 hover:text-white"
+                  className="p-2 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800 transition-colors cursor-pointer"
                 >
                   <X className="w-5 h-5" />
                 </button>
               </div>
 
               {/* Form Navigation Tabs */}
-              <div className="flex items-center space-x-2 border-b border-white/10 pb-2">
+              <div className="flex items-center space-x-2 border-b border-slate-800 pb-3">
                 <button
                   type="button"
                   onClick={() => setActiveTab("en")}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
+                  className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
                     activeTab === "en"
-                      ? "bg-cyan-500 text-black shadow-sm"
-                      : "bg-white/[0.04] text-gray-400 hover:text-white"
+                      ? "bg-blue-600 text-white shadow-md shadow-blue-500/25"
+                      : "bg-slate-800 text-slate-300 hover:text-white"
                   }`}
                 >
                   1. English Details
@@ -579,10 +579,10 @@ export default function AdminServicesPage() {
                 <button
                   type="button"
                   onClick={() => setActiveTab("ar")}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
+                  className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
                     activeTab === "ar"
-                      ? "bg-cyan-500 text-black shadow-sm"
-                      : "bg-white/[0.04] text-gray-400 hover:text-white"
+                      ? "bg-blue-600 text-white shadow-md shadow-blue-500/25"
+                      : "bg-slate-800 text-slate-300 hover:text-white"
                   }`}
                 >
                   2. التفاصيل بالعربية
@@ -591,10 +591,10 @@ export default function AdminServicesPage() {
                 <button
                   type="button"
                   onClick={() => setActiveTab("contact")}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
+                  className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
                     activeTab === "contact"
-                      ? "bg-cyan-500 text-black shadow-sm"
-                      : "bg-white/[0.04] text-gray-400 hover:text-white"
+                      ? "bg-blue-600 text-white shadow-md shadow-blue-500/25"
+                      : "bg-slate-800 text-slate-300 hover:text-white"
                   }`}
                 >
                   3. Contact & Channels
@@ -603,22 +603,22 @@ export default function AdminServicesPage() {
                 <button
                   type="button"
                   onClick={() => setActiveTab("commercial")}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
+                  className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
                     activeTab === "commercial"
-                      ? "bg-cyan-500 text-black shadow-sm"
-                      : "bg-white/[0.04] text-gray-400 hover:text-white"
+                      ? "bg-blue-600 text-white shadow-md shadow-blue-500/25"
+                      : "bg-slate-800 text-slate-300 hover:text-white"
                   }`}
                 >
                   4. Scope & Specs
                 </button>
               </div>
 
-              <form onSubmit={handleSaveModal} className="space-y-4 font-mono text-xs">
+              <form onSubmit={handleSaveModal} className="space-y-4 font-sans text-xs">
                 {/* TAB 1: ENGLISH DETAILS */}
                 {activeTab === "en" && (
                   <div className="space-y-4 animate-in fade-in">
                     <div>
-                      <label className="block text-gray-400 mb-1 uppercase">Service Title (English) *</label>
+                      <label className="block text-slate-200 mb-1.5 uppercase font-semibold">Service Title (English) *</label>
                       <input
                         type="text"
                         required
@@ -627,12 +627,12 @@ export default function AdminServicesPage() {
                           setEditingService({ ...editingService, title: e.target.value })
                         }
                         placeholder="e.g. Autonomous AI Agents Development"
-                        className="w-full px-3.5 py-2.5 rounded-xl bg-white/[0.04] border border-white/10 text-white focus:border-cyan-400 focus:outline-none"
+                        className="w-full px-3.5 py-2.5 rounded-xl bg-slate-950/80 border border-slate-700 text-white placeholder-slate-500 focus:border-blue-500 focus:outline-none text-sm"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-gray-400 mb-1 uppercase">Description (English) *</label>
+                      <label className="block text-slate-200 mb-1.5 uppercase font-semibold">Description (English) *</label>
                       <textarea
                         rows={3}
                         required
@@ -641,12 +641,12 @@ export default function AdminServicesPage() {
                           setEditingService({ ...editingService, description: e.target.value })
                         }
                         placeholder="Detailed technical description of this service..."
-                        className="w-full px-3.5 py-2 rounded-xl bg-white/[0.04] border border-white/10 text-white font-sans text-xs focus:border-cyan-400 focus:outline-none leading-relaxed"
+                        className="w-full px-3.5 py-2 rounded-xl bg-slate-950/80 border border-slate-700 text-white placeholder-slate-500 font-sans text-xs focus:border-blue-500 focus:outline-none leading-relaxed"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-gray-400 mb-1 uppercase">
+                      <label className="block text-slate-200 mb-1.5 uppercase font-semibold">
                         Key Features / Deliverables (Comma-separated)
                       </label>
                       <input
@@ -659,12 +659,12 @@ export default function AdminServicesPage() {
                           })
                         }
                         placeholder="Autonomous Task Execution, Custom Tool Calling, Zero Hallucination"
-                        className="w-full px-3.5 py-2.5 rounded-xl bg-white/[0.04] border border-white/10 text-white focus:border-cyan-400 focus:outline-none"
+                        className="w-full px-3.5 py-2.5 rounded-xl bg-slate-950/80 border border-slate-700 text-white placeholder-slate-500 focus:border-blue-500 focus:outline-none text-sm"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-gray-400 mb-1 uppercase">Custom CTA Button Text (EN)</label>
+                      <label className="block text-slate-200 mb-1.5 uppercase font-semibold">Custom CTA Button Text (EN)</label>
                       <input
                         type="text"
                         value={editingService.ctaText || ""}
@@ -672,7 +672,7 @@ export default function AdminServicesPage() {
                           setEditingService({ ...editingService, ctaText: e.target.value })
                         }
                         placeholder="e.g. Build an Agent"
-                        className="w-full px-3.5 py-2.5 rounded-xl bg-white/[0.04] border border-white/10 text-white focus:border-cyan-400 focus:outline-none"
+                        className="w-full px-3.5 py-2.5 rounded-xl bg-slate-950/80 border border-slate-700 text-white placeholder-slate-500 focus:border-blue-500 focus:outline-none text-sm"
                       />
                     </div>
                   </div>
@@ -682,7 +682,7 @@ export default function AdminServicesPage() {
                 {activeTab === "ar" && (
                   <div className="space-y-4 animate-in fade-in" dir="rtl">
                     <div>
-                      <label className="block text-gray-400 mb-1 uppercase">عنوان الخدمة (باللغة العربية)</label>
+                      <label className="block text-slate-200 mb-1.5 uppercase font-semibold text-right">عنوان الخدمة (باللغة العربية)</label>
                       <input
                         type="text"
                         value={editingService.titleAr || ""}
@@ -690,12 +690,12 @@ export default function AdminServicesPage() {
                           setEditingService({ ...editingService, titleAr: e.target.value })
                         }
                         placeholder="مثال: تطوير وكلاء الذكاء الاصطناعي الذاتية"
-                        className="w-full px-3.5 py-2.5 rounded-xl bg-white/[0.04] border border-white/10 text-white focus:border-cyan-400 focus:outline-none"
+                        className="w-full px-3.5 py-2.5 rounded-xl bg-slate-950/80 border border-slate-700 text-white placeholder-slate-500 focus:border-blue-500 focus:outline-none text-right font-sans text-sm"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-gray-400 mb-1 uppercase">وصف الخدمة (باللغة العربية)</label>
+                      <label className="block text-slate-200 mb-1.5 uppercase font-semibold text-right">وصف الخدمة (باللغة العربية)</label>
                       <textarea
                         rows={3}
                         value={editingService.descriptionAr || ""}
@@ -703,12 +703,12 @@ export default function AdminServicesPage() {
                           setEditingService({ ...editingService, descriptionAr: e.target.value })
                         }
                         placeholder="شرح تفصيلي لما تقدمه هذه الخدمة للعميل والمؤسسة..."
-                        className="w-full px-3.5 py-2 rounded-xl bg-white/[0.04] border border-white/10 text-white font-sans text-xs focus:border-cyan-400 focus:outline-none leading-relaxed"
+                        className="w-full px-3.5 py-2 rounded-xl bg-slate-950/80 border border-slate-700 text-white placeholder-slate-500 font-sans text-xs focus:border-blue-500 focus:outline-none text-right leading-relaxed"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-gray-400 mb-1 uppercase">
+                      <label className="block text-slate-200 mb-1.5 uppercase font-semibold text-right">
                         المخرجات والميزات (مفصولة بفواصل)
                       </label>
                       <input
@@ -721,12 +721,12 @@ export default function AdminServicesPage() {
                           })
                         }
                         placeholder="تنفيذ المهام ذاتياً، ربط واستدعاء الأدوات، منع الهلوسة بالتوثيق"
-                        className="w-full px-3.5 py-2.5 rounded-xl bg-white/[0.04] border border-white/10 text-white focus:border-cyan-400 focus:outline-none"
+                        className="w-full px-3.5 py-2.5 rounded-xl bg-slate-950/80 border border-slate-700 text-white placeholder-slate-500 focus:border-blue-500 focus:outline-none text-right font-sans text-sm"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-gray-400 mb-1 uppercase">نص زر الإجراء (بالعربية)</label>
+                      <label className="block text-slate-200 mb-1.5 uppercase font-semibold text-right">نص زر الإجراء (بالعربية)</label>
                       <input
                         type="text"
                         value={editingService.ctaTextAr || ""}
@@ -734,7 +734,7 @@ export default function AdminServicesPage() {
                           setEditingService({ ...editingService, ctaTextAr: e.target.value })
                         }
                         placeholder="مثال: بناء وكيل ذكي"
-                        className="w-full px-3.5 py-2.5 rounded-xl bg-white/[0.04] border border-white/10 text-white focus:border-cyan-400 focus:outline-none"
+                        className="w-full px-3.5 py-2.5 rounded-xl bg-slate-950/80 border border-slate-700 text-white placeholder-slate-500 focus:border-blue-500 focus:outline-none text-right font-sans text-sm"
                       />
                     </div>
                   </div>
@@ -744,7 +744,7 @@ export default function AdminServicesPage() {
                 {activeTab === "contact" && (
                   <div className="space-y-4 animate-in fade-in">
                     <div>
-                      <label className="block text-gray-400 mb-1 uppercase">Preferred Contact Channel *</label>
+                      <label className="block text-slate-200 mb-1.5 uppercase font-semibold">Preferred Contact Channel *</label>
                       <select
                         value={editingService.contactMethod || "both"}
                         onChange={(e) =>
@@ -753,19 +753,19 @@ export default function AdminServicesPage() {
                             contactMethod: e.target.value as "whatsapp" | "email" | "both",
                           })
                         }
-                        className="w-full px-3.5 py-2.5 rounded-xl bg-[#080B12] border border-white/10 text-white focus:border-cyan-400 focus:outline-none"
+                        className="w-full px-3.5 py-2.5 rounded-xl bg-slate-950/80 border border-slate-700 text-white focus:border-blue-500 focus:outline-none text-sm"
                       >
                         <option value="both">Both Channels (واتساب وبريد إلكتروني معاً - Recommended)</option>
                         <option value="whatsapp">WhatsApp Only (واتساب فقط - Fast Instant Booking)</option>
                         <option value="email">Email Only (بريد إلكتروني فقط - Formal Inquiry)</option>
                       </select>
-                      <p className="text-[11px] text-gray-400 mt-1">
+                      <p className="text-xs text-slate-400 mt-1.5">
                         Determines which action buttons are shown on this service card on the public portfolio.
                       </p>
                     </div>
 
                     <div>
-                      <label className="block text-gray-400 mb-1 uppercase">
+                      <label className="block text-slate-200 mb-1.5 uppercase font-semibold">
                         Custom WhatsApp Pre-filled Message (English)
                       </label>
                       <input
@@ -775,12 +775,12 @@ export default function AdminServicesPage() {
                           setEditingService({ ...editingService, whatsappMessage: e.target.value })
                         }
                         placeholder={`Hello Abbas, I would like to inquire about: ${editingService.title || "this service"}`}
-                        className="w-full px-3.5 py-2.5 rounded-xl bg-white/[0.04] border border-white/10 text-white focus:border-cyan-400 focus:outline-none"
+                        className="w-full px-3.5 py-2.5 rounded-xl bg-slate-950/80 border border-slate-700 text-white placeholder-slate-500 focus:border-blue-500 focus:outline-none text-sm"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-gray-400 mb-1 uppercase">
+                      <label className="block text-slate-200 mb-1.5 uppercase font-semibold text-right">
                         رسالة الواتساب التلقائية (بالعربية)
                       </label>
                       <input
@@ -791,12 +791,12 @@ export default function AdminServicesPage() {
                           setEditingService({ ...editingService, whatsappMessageAr: e.target.value })
                         }
                         placeholder={`مرحباً عباس، أود الاستفسار عن خدمة: ${editingService.titleAr || "هذه الخدمة"}`}
-                        className="w-full px-3.5 py-2.5 rounded-xl bg-white/[0.04] border border-white/10 text-white focus:border-cyan-400 focus:outline-none"
+                        className="w-full px-3.5 py-2.5 rounded-xl bg-slate-950/80 border border-slate-700 text-white placeholder-slate-500 focus:border-blue-500 focus:outline-none text-right font-sans text-sm"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-gray-400 mb-1 uppercase">Custom Email Subject Line</label>
+                      <label className="block text-slate-200 mb-1.5 uppercase font-semibold">Custom Email Subject Line</label>
                       <input
                         type="text"
                         value={editingService.emailSubject || ""}
@@ -804,7 +804,7 @@ export default function AdminServicesPage() {
                           setEditingService({ ...editingService, emailSubject: e.target.value })
                         }
                         placeholder={`[Service Inquiry] ${editingService.title || "New Project"}`}
-                        className="w-full px-3.5 py-2.5 rounded-xl bg-white/[0.04] border border-white/10 text-white focus:border-cyan-400 focus:outline-none"
+                        className="w-full px-3.5 py-2.5 rounded-xl bg-slate-950/80 border border-slate-700 text-white placeholder-slate-500 focus:border-blue-500 focus:outline-none text-sm"
                       />
                     </div>
                   </div>
@@ -815,13 +815,13 @@ export default function AdminServicesPage() {
                   <div className="space-y-4 animate-in fade-in">
                     <div className="grid grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-gray-400 mb-1 uppercase">Icon Representation</label>
+                        <label className="block text-slate-200 mb-1.5 uppercase font-semibold">Icon Representation</label>
                         <select
                           value={editingService.iconName}
                           onChange={(e) =>
                             setEditingService({ ...editingService, iconName: e.target.value })
                           }
-                          className="w-full px-3.5 py-2.5 rounded-xl bg-[#080B12] border border-white/10 text-white focus:border-cyan-400 focus:outline-none"
+                          className="w-full px-3.5 py-2.5 rounded-xl bg-slate-950/80 border border-slate-700 text-white focus:border-blue-500 focus:outline-none text-sm"
                         >
                           {ICON_OPTIONS.map((opt) => (
                             <option key={opt.value} value={opt.value}>
@@ -832,7 +832,7 @@ export default function AdminServicesPage() {
                       </div>
 
                       <div>
-                        <label className="block text-gray-400 mb-1 uppercase">Display Order Number</label>
+                        <label className="block text-slate-200 mb-1.5 uppercase font-semibold">Display Order Number</label>
                         <input
                           type="number"
                           value={editingService.order}
@@ -842,14 +842,14 @@ export default function AdminServicesPage() {
                               order: parseInt(e.target.value) || 1,
                             })
                           }
-                          className="w-full px-3.5 py-2.5 rounded-xl bg-white/[0.04] border border-white/10 text-white focus:border-cyan-400 focus:outline-none"
+                          className="w-full px-3.5 py-2.5 rounded-xl bg-slate-950/80 border border-slate-700 text-white placeholder-slate-500 focus:border-blue-500 focus:outline-none text-sm font-mono"
                         />
                       </div>
                     </div>
 
                     <div className="grid grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-gray-400 mb-1 uppercase">Delivery Timeframe (EN)</label>
+                        <label className="block text-slate-200 mb-1.5 uppercase font-semibold">Delivery Timeframe (EN)</label>
                         <input
                           type="text"
                           value={editingService.deliveryTime || ""}
@@ -857,12 +857,12 @@ export default function AdminServicesPage() {
                             setEditingService({ ...editingService, deliveryTime: e.target.value })
                           }
                           placeholder="e.g. 2-3 Weeks"
-                          className="w-full px-3.5 py-2.5 rounded-xl bg-white/[0.04] border border-white/10 text-white focus:border-cyan-400 focus:outline-none"
+                          className="w-full px-3.5 py-2.5 rounded-xl bg-slate-950/80 border border-slate-700 text-white placeholder-slate-500 focus:border-blue-500 focus:outline-none text-sm"
                         />
                       </div>
 
                       <div>
-                        <label className="block text-gray-400 mb-1 uppercase">المدة الزمنية (بالعربية)</label>
+                        <label className="block text-slate-200 mb-1.5 uppercase font-semibold text-right">المدة الزمنية (بالعربية)</label>
                         <input
                           type="text"
                           dir="rtl"
@@ -871,14 +871,14 @@ export default function AdminServicesPage() {
                             setEditingService({ ...editingService, deliveryTimeAr: e.target.value })
                           }
                           placeholder="مثال: ٢-٣ أسابيع"
-                          className="w-full px-3.5 py-2.5 rounded-xl bg-white/[0.04] border border-white/10 text-white focus:border-cyan-400 focus:outline-none"
+                          className="w-full px-3.5 py-2.5 rounded-xl bg-slate-950/80 border border-slate-700 text-white placeholder-slate-500 focus:border-blue-500 focus:outline-none text-right font-sans text-sm"
                         />
                       </div>
                     </div>
 
                     <div className="grid grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-gray-400 mb-1 uppercase">Pricing Estimate (EN)</label>
+                        <label className="block text-slate-200 mb-1.5 uppercase font-semibold">Pricing Estimate (EN)</label>
                         <input
                           type="text"
                           value={editingService.priceEstimate || ""}
@@ -886,12 +886,12 @@ export default function AdminServicesPage() {
                             setEditingService({ ...editingService, priceEstimate: e.target.value })
                           }
                           placeholder="e.g. Custom Engineering"
-                          className="w-full px-3.5 py-2.5 rounded-xl bg-white/[0.04] border border-white/10 text-white focus:border-cyan-400 focus:outline-none"
+                          className="w-full px-3.5 py-2.5 rounded-xl bg-slate-950/80 border border-slate-700 text-white placeholder-slate-500 focus:border-blue-500 focus:outline-none text-sm"
                         />
                       </div>
 
                       <div>
-                        <label className="block text-gray-400 mb-1 uppercase">تقدير السعر (بالعربية)</label>
+                        <label className="block text-slate-200 mb-1.5 uppercase font-semibold text-right">تقدير السعر (بالعربية)</label>
                         <input
                           type="text"
                           dir="rtl"
@@ -900,7 +900,7 @@ export default function AdminServicesPage() {
                             setEditingService({ ...editingService, priceEstimateAr: e.target.value })
                           }
                           placeholder="مثال: تسعير مخصص"
-                          className="w-full px-3.5 py-2.5 rounded-xl bg-white/[0.04] border border-white/10 text-white focus:border-cyan-400 focus:outline-none"
+                          className="w-full px-3.5 py-2.5 rounded-xl bg-slate-950/80 border border-slate-700 text-white placeholder-slate-500 focus:border-blue-500 focus:outline-none text-right font-sans text-sm"
                         />
                       </div>
                     </div>
@@ -913,24 +913,24 @@ export default function AdminServicesPage() {
                           onChange={(e) =>
                             setEditingService({ ...editingService, visible: e.target.checked })
                           }
-                          className="w-4 h-4 rounded text-cyan-500 bg-white/[0.05] border-white/20 focus:ring-0"
+                          className="w-4 h-4 rounded text-blue-600 bg-slate-900 border-slate-700 focus:ring-0"
                         />
-                        <span>Visible on Public Portfolio Website (إظهار الخدمة بالموقع)</span>
+                        <span className="text-white font-medium text-xs">Visible on Public Portfolio Website (إظهار الخدمة بالموقع)</span>
                       </label>
                     </div>
                   </div>
                 )}
 
                 {/* Modal Footer Controls */}
-                <div className="pt-4 border-t border-white/10 flex items-center justify-between">
-                  <div className="flex items-center space-x-1">
+                <div className="pt-4 border-t border-slate-800 flex items-center justify-between">
+                  <div className="flex items-center space-x-1.5">
                     {["en", "ar", "contact", "commercial"].map((t, idx) => (
                       <button
                         key={t}
                         type="button"
                         onClick={() => setActiveTab(t as any)}
-                        className={`w-2.5 h-2.5 rounded-full transition-all ${
-                          activeTab === t ? "bg-cyan-400 scale-125" : "bg-white/20"
+                        className={`w-2.5 h-2.5 rounded-full transition-all cursor-pointer ${
+                          activeTab === t ? "bg-blue-500 scale-125" : "bg-slate-700"
                         }`}
                         title={`Tab ${idx + 1}`}
                       />
@@ -941,15 +941,15 @@ export default function AdminServicesPage() {
                     <button
                       type="button"
                       onClick={() => setEditingService(null)}
-                      className="px-4 py-2 rounded-xl bg-white/[0.04] text-gray-400 hover:text-white"
+                      className="px-4 py-2.5 rounded-xl bg-slate-800 text-slate-300 hover:text-white text-sm font-medium transition-colors cursor-pointer"
                     >
                       Cancel
                     </button>
                     <button
                       type="submit"
-                      className="px-5 py-2 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-black font-bold flex items-center space-x-1.5 shadow-lg shadow-cyan-500/20"
+                      className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-semibold text-sm shadow-lg shadow-blue-500/20 flex items-center space-x-1.5 transition-all cursor-pointer"
                     >
-                      <Save className="w-3.5 h-3.5" />
+                      <Save className="w-4 h-4" />
                       <span>{isNew ? "Create Service" : "Save Changes"}</span>
                     </button>
                   </div>

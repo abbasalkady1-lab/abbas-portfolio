@@ -67,23 +67,29 @@ export function FeaturedVideoSection({ video, lang }: FeaturedVideoSectionProps)
       <div className="max-w-5xl mx-auto space-y-10">
         {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="text-center space-y-4 max-w-3xl mx-auto"
         >
-          <div className="inline-flex items-center space-x-2 rtl:space-x-reverse px-3.5 py-1.5 rounded-full bg-[#0066FF]/10 dark:bg-[#00C2FF]/10 border border-[#0066FF]/20 dark:border-[#00C2FF]/30 text-[#0066FF] dark:text-[#00C2FF] text-xs font-mono tracking-wider font-semibold">
-            <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
+          <motion.div
+            animate={{ y: [0, -4, 0] }}
+            transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+            className="inline-flex items-center space-x-2 rtl:space-x-reverse px-4 py-1.5 rounded-full bg-[#0066FF]/10 dark:bg-[#00C2FF]/10 border border-[#0066FF]/20 dark:border-[#00C2FF]/30 text-[#0066FF] dark:text-[#00C2FF] text-xs font-mono tracking-wider font-semibold shadow-md shadow-blue-500/5"
+          >
+            <span className="w-2.5 h-2.5 rounded-full bg-red-500 animate-pulse ring-4 ring-red-500/20" />
             <YoutubeIcon className="w-3.5 h-3.5 text-red-500" />
             <span>{badge}</span>
-          </div>
+          </motion.div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight">
-            {title}
+            <span className="animate-shimmer-text inline-block">
+              {title}
+            </span>
           </h2>
 
-          <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 font-sans leading-relaxed">
+          <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 font-sans leading-relaxed">
             {subtitle}
           </p>
         </motion.div>
