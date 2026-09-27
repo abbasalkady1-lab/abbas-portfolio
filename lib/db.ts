@@ -18,6 +18,8 @@ import {
   MediaItem,
   FeaturedVideo,
 } from "@/types";
+import { isMongoAvailable } from "./mongodb";
+import * as mongo from "./db-mongo";
 
 const DB_PATH = path.join(process.cwd(), "data", "db.json");
 
@@ -73,12 +75,17 @@ function getBundledDatabase(): SiteDatabase {
 }
 
 export async function getDatabase(): Promise<SiteDatabase> {
-  // On Vercel the filesystem is not a writable CMS store. Always use the
-  // bundled JSON so homepage SSR never touches disk (avoids EROFS / missing cwd paths).
+  // Use MongoDB when available (production / when MONGODB_URI is set)
+  if (isMongoAvailable()) {
+    return mongo.getDatabase();
+  }
+
+  // On Vercel without MongoDB, use bundled JSON (read-only)
   if (isVercelEnvironment()) {
     return getBundledDatabase();
   }
 
+  // Local dev: read from db.json
   try {
     if (fs.existsSync(DB_PATH)) {
       const raw = fs.readFileSync(DB_PATH, "utf-8");
@@ -94,8 +101,12 @@ export async function getDatabase(): Promise<SiteDatabase> {
 }
 
 export async function saveDatabase(data: SiteDatabase): Promise<void> {
-  // On Vercel, the deployed filesystem is strictly read-only.
-  // Never attempt to mutate the filesystem on Vercel.
+  // Use MongoDB when available
+  if (isMongoAvailable()) {
+    return mongo.saveDatabase(data);
+  }
+
+  // On Vercel without MongoDB, reject
   if (isVercelEnvironment()) {
     console.warn(
       "[Database] Mutation rejected: Read-only serverless filesystem on Vercel."
@@ -103,6 +114,7 @@ export async function saveDatabase(data: SiteDatabase): Promise<void> {
     throw new ReadOnlyStorageError();
   }
 
+  // Local dev: write to db.json
   try {
     const dir = path.dirname(DB_PATH);
     if (!fs.existsSync(dir)) {
