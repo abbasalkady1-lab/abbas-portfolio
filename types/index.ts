@@ -153,6 +153,12 @@ export interface CVData {
   arUpdatedAt: string;
   activeLanguage: "en" | "ar";
   downloadCount: number;
+  titleEn?: string;
+  titleAr?: string;
+  summaryEn?: string;
+  summaryAr?: string;
+  highlightsEn?: string[];
+  highlightsAr?: string[];
 }
 
 export interface ProfileData {

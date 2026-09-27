@@ -13,8 +13,14 @@ export async function PUT(req: NextRequest) {
     const updated = {
       ...current,
       ...data,
-      enUpdatedAt: data.enUrl && data.enUrl !== current.enUrl ? new Date().toISOString().split("T")[0] : current.enUpdatedAt,
-      arUpdatedAt: data.arUrl && data.arUrl !== current.arUrl ? new Date().toISOString().split("T")[0] : current.arUpdatedAt,
+      enUpdatedAt:
+        data.enUrl && data.enUrl !== current.enUrl
+          ? new Date().toISOString().split("T")[0]
+          : data.enUpdatedAt || current.enUpdatedAt,
+      arUpdatedAt:
+        data.arUrl && data.arUrl !== current.arUrl
+          ? new Date().toISOString().split("T")[0]
+          : data.arUpdatedAt || current.arUpdatedAt,
     };
 
     await saveCV(updated);

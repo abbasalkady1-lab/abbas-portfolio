@@ -35,14 +35,6 @@ export function Footer({ profile, lang }: FooterProps) {
           </div>
         </div>
 
-        {/* Center: Intelligence statement */}
-        <div className="text-center text-xs text-slate-500 max-w-sm">
-          <span>
-            {isAr
-              ? "صُممت هذه المنصة كبيئة برمجية ذكية ونظام مستقل يمثل التوأم الرقمي لعباس القاضي."
-              : "Architected as an autonomous digital system & portfolio ecosystem. Powered by Google AI."}
-          </span>
-        </div>
 
         {/* Right: Actions & Admin Link */}
         <div className="flex items-center space-x-4 rtl:space-x-reverse">
