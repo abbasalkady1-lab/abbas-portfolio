@@ -106,7 +106,7 @@
       "githubUrl": "https://github.com/abbasalkady1-lab/runnova-app",
       "year": "2025",
       "status": "Live Production",
-      "featured": true,
+      "featured": false,
       "published": true,
       "order": 1
     },
