@@ -169,7 +169,7 @@ export function Hero({ profile, lang, onOpenNova }: HeroProps) {
                 className="group relative inline-flex items-center space-x-2.5 rtl:space-x-reverse px-6 py-3.5 rounded-xl bg-gradient-to-r from-[#0066FF] via-[#0A84FF] to-[#6D5DFB] text-white font-sans text-sm font-bold shadow-lg shadow-[#0066FF]/25 hover:shadow-xl hover:shadow-[#0066FF]/35 transition-all"
               >
                 <span>{isAr ? "استعراض المشاريع الرائدة" : "Explore Flagship Work"}</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform" />
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 rtl:-scale-x-100 transition-transform" />
               </motion.a>
 
               {/* Secondary CTA: Talk to NOVA */}
@@ -177,16 +177,16 @@ export function Hero({ profile, lang, onOpenNova }: HeroProps) {
                 onClick={onOpenNova}
                 whileHover={{
                   y: -2,
-                  borderColor: "rgba(10, 132, 255, 0.6)",
-                  boxShadow: "0 0 25px -4px rgba(10, 132, 255, 0.25)",
+                  borderColor: "rgba(0, 194, 255, 0.6)",
+                  boxShadow: "0 0 25px -4px rgba(0, 194, 255, 0.25)",
                 }}
                 whileTap={{ scale: 0.97 }}
-                className="group relative inline-flex items-center space-x-2.5 rtl:space-x-reverse px-5 py-3.5 rounded-xl bg-white/90 dark:bg-[#0B1627]/90 hover:bg-white text-slate-800 border border-slate-300 dark:border-white/15 dark:text-white shadow-sm transition-all"
+                className="group relative inline-flex items-center space-x-2.5 rtl:space-x-reverse px-5 py-3.5 rounded-xl bg-white/90 dark:bg-[#0B1324]/90 hover:bg-white text-slate-800 border border-slate-300 dark:border-white/15 dark:text-white shadow-sm transition-all"
               >
                 <div className="w-2.5 h-2.5 rounded-full bg-[#00C2FF] animate-pulse" />
                 <Bot className="w-4 h-4 text-[#0066FF] dark:text-[#00C2FF]" />
                 <span className="font-bold text-sm">{isAr ? "تحدث مع NOVA" : "Talk to Nova"}</span>
-                <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#0A84FF]/10 text-[#0066FF] dark:text-[#00C2FF] font-mono font-bold">
+                <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#00C2FF]/10 text-[#0066FF] dark:text-[#00C2FF] font-mono font-bold">
                   AI Voice
                 </span>
               </motion.button>

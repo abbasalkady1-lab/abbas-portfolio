@@ -312,7 +312,7 @@ export function ProjectsGallery({ projects, lang }: ProjectsGalleryProps) {
                       <span>
                         {isAr ? "دراسة الحالة الهندسية بالتفصيل" : "Deep Technical Case Study"}
                       </span>
-                      <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 rtl:group-hover/btn:-translate-x-1 transition-transform" />
+                      <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 rtl:group-hover/btn:-translate-x-1 rtl:-scale-x-100 transition-transform" />
                     </Link>
 
                     {flagshipProject.liveDemoUrl && (
@@ -540,7 +540,7 @@ export function ProjectsGallery({ projects, lang }: ProjectsGalleryProps) {
                               className="inline-flex items-center space-x-1.5 rtl:space-x-reverse text-[#0066FF] hover:text-[#0A84FF] dark:text-[#00C2FF] dark:hover:text-cyan-300 font-sans text-xs font-bold group/link"
                             >
                               <span>{isAr ? "تفاصيل دراسة الحالة" : "Case Study"}</span>
-                              <ArrowRight className="w-3.5 h-3.5 group-hover/link:translate-x-1 rtl:group-hover/link:-translate-x-1 transition-transform" />
+                              <ArrowRight className="w-3.5 h-3.5 group-hover/link:translate-x-1 rtl:group-hover/link:-translate-x-1 rtl:-scale-x-100 transition-transform" />
                             </Link>
 
                             <div className="flex items-center space-x-1.5 rtl:space-x-reverse">
@@ -698,7 +698,7 @@ export function ProjectsGallery({ projects, lang }: ProjectsGalleryProps) {
                             className="inline-flex items-center space-x-1.5 rtl:space-x-reverse text-[#0066FF] hover:text-[#0A84FF] dark:text-[#00C2FF] dark:hover:text-cyan-300 font-sans text-xs font-bold group/link"
                           >
                             <span>{isAr ? "تفاصيل دراسة الحالة" : "Technical Case Study"}</span>
-                            <ArrowRight className="w-3.5 h-3.5 group-hover/link:translate-x-1 rtl:group-hover/link:-translate-x-1 transition-transform" />
+                            <ArrowRight className="w-3.5 h-3.5 group-hover/link:translate-x-1 rtl:group-hover/link:-translate-x-1 rtl:-scale-x-100 transition-transform" />
                           </Link>
 
                           <div className="flex items-center space-x-2 rtl:space-x-reverse">

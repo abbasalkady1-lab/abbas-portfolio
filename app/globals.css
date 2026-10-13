@@ -1,14 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  /* LIGHT THEME (DEFAULT) — REFINED HIGH-END PALETTE */
-  --bg-page: #F7F9FC;
+  /* LIGHT THEME — REFINED HIGH-END PALETTE */
+  --bg-page: #F8FAFC;
   --bg-surface: #FFFFFF;
-  --bg-surface-muted: #EFF3F8;
+  --bg-surface-muted: #F1F5F9;
   --bg-surface-elevated: #FFFFFF;
-  --text-primary: #0B1220;
+  --text-primary: #0F172A;
   --text-secondary: #475569;
   --text-muted: #64748B;
   --border-subtle: rgba(15, 23, 42, 0.08);
@@ -22,7 +24,7 @@
   --accent-subtle: rgba(10, 132, 255, 0.08);
   --shadow-card: 0 4px 20px -2px rgba(11, 18, 32, 0.05), 0 2px 6px -1px rgba(11, 18, 32, 0.03);
   --shadow-hover: 0 16px 36px -6px rgba(10, 132, 255, 0.12), 0 6px 12px -2px rgba(11, 18, 32, 0.04);
-  --glass-bg: rgba(255, 255, 255, 0.85);
+  --glass-bg: rgba(255, 255, 255, 0.88);
   --glass-border: rgba(15, 23, 42, 0.08);
   --glass-hover-bg: rgba(255, 255, 255, 0.98);
   --grid-line: rgba(11, 18, 32, 0.035);
@@ -30,16 +32,16 @@
 }
 
 .dark {
-  /* DARK THEME (OPTIONAL) — MIDNIGHT OBSIDIAN & ELECTRIC GLOW */
-  --bg-page: #07111F;
-  --bg-surface: #0B1627;
-  --bg-surface-muted: #111C2E;
-  --bg-surface-elevated: #162238;
+  /* DARK THEME (DEFAULT) — EXECUTIVE MIDNIGHT OBSIDIAN & ELECTRIC GLOW */
+  --bg-page: #070C16;
+  --bg-surface: #0B1324;
+  --bg-surface-muted: #101B33;
+  --bg-surface-elevated: #162444;
   --text-primary: #F8FAFC;
   --text-secondary: #94A3B8;
   --text-muted: #64748B;
   --border-subtle: rgba(255, 255, 255, 0.08);
-  --border-strong: rgba(255, 255, 255, 0.18);
+  --border-strong: rgba(255, 255, 255, 0.16);
   --accent-primary: #0A84FF;
   --accent-primary-deep: #0066FF;
   --accent-secondary: #6D5DFB;
@@ -49,11 +51,11 @@
   --accent-subtle: rgba(0, 194, 255, 0.12);
   --shadow-card: 0 8px 32px -4px rgba(0, 0, 0, 0.55);
   --shadow-hover: 0 20px 45px -5px rgba(0, 194, 255, 0.2);
-  --glass-bg: rgba(11, 22, 39, 0.8);
+  --glass-bg: rgba(11, 19, 36, 0.85);
   --glass-border: rgba(255, 255, 255, 0.08);
-  --glass-hover-bg: rgba(17, 28, 46, 0.92);
+  --glass-hover-bg: rgba(16, 27, 51, 0.94);
   --grid-line: rgba(255, 255, 255, 0.025);
-  --radial-ambient: rgba(10, 132, 255, 0.08);
+  --radial-ambient: rgba(10, 132, 255, 0.09);
 }
 
 html {
@@ -63,14 +65,26 @@ html {
 body {
   background-color: var(--bg-page);
   color: var(--text-primary);
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   overflow-x: hidden;
   transition: background-color 0.25s ease, color 0.25s ease;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Arabic typography standard */
+[dir="rtl"], .dir-rtl {
+  font-family: 'Cairo', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  letter-spacing: normal;
+}
+
+code, kbd, samp, pre, .font-mono {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
 ::selection {
-  background-color: rgba(10, 132, 255, 0.2);
-  color: #0A84FF;
+  background-color: rgba(0, 194, 255, 0.25);
+  color: #00C2FF;
 }
 
 /* Custom Scrollbar */

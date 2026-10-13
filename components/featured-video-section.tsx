@@ -100,7 +100,7 @@ export function FeaturedVideoSection({ video, lang }: FeaturedVideoSectionProps)
           whileInView={{ opacity: 1, scale: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="relative rounded-3xl overflow-hidden bg-slate-900/95 dark:bg-[#07111F]/90 border border-slate-700/60 dark:border-white/15 shadow-2xl dark:shadow-[0_20px_60px_-15px_rgba(0,194,255,0.15)] group"
+          className="relative rounded-3xl overflow-hidden bg-slate-900/95 dark:bg-[#070C16] border border-slate-700/60 dark:border-white/15 shadow-2xl dark:shadow-[0_20px_60px_-15px_rgba(0,194,255,0.15)] group"
         >
           {/* Top Window Chrome Bar */}
           <div className="flex items-center justify-between px-5 py-3.5 border-b border-slate-700/60 dark:border-white/10 bg-slate-800/80 dark:bg-white/[0.03] backdrop-blur-md">

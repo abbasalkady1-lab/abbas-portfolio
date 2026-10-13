@@ -64,24 +64,25 @@ export function About({ profile, lang }: AboutProps) {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="lg:col-span-5 bg-white dark:bg-[#0F121C] p-6 sm:p-8 rounded-2xl border border-slate-200/80 dark:border-white/10 relative overflow-hidden group shadow-sm dark:shadow-lg"
+            className="lg:col-span-5 bg-white dark:bg-[#0B1324] p-6 sm:p-8 rounded-2xl border border-slate-200/80 dark:border-white/10 relative overflow-hidden group shadow-sm dark:shadow-2xl"
           >
             {/* Subtle corner light */}
-            <div className="absolute top-0 right-0 w-32 h-32 bg-sky-500/5 dark:bg-cyan-500/5 rounded-full blur-3xl -z-10 group-hover:bg-sky-500/10 dark:group-hover:bg-cyan-500/10 transition-all" />
+            <div className="absolute top-0 right-0 w-36 h-36 bg-[#0A84FF]/10 dark:bg-[#00C2FF]/10 rounded-full blur-3xl -z-10 group-hover:scale-125 transition-transform" />
 
             {/* Avatar / Portrait */}
-            <div className="relative w-28 h-28 mx-auto mb-6 rounded-2xl overflow-hidden border border-slate-200 dark:border-white/15 p-1 bg-slate-50 dark:bg-white/[0.02] shadow-sm">
+            <div className="relative w-28 h-28 mx-auto mb-6 rounded-2xl overflow-hidden border border-slate-200 dark:border-white/15 p-1 bg-slate-50 dark:bg-white/[0.02] shadow-md group-hover:border-[#00C2FF]/50 transition-all">
               <img
                 src={profile.avatarUrl}
                 alt={isAr ? profile.nameAr : profile.name}
-                className="w-full h-full object-cover rounded-xl transition-all duration-500"
+                className="w-full h-full object-cover rounded-xl transition-all duration-500 group-hover:scale-105"
               />
+              <span className="absolute bottom-2 right-2 w-3 h-3 rounded-full bg-emerald-500 ring-2 ring-white dark:ring-[#0B1324] animate-pulse" />
             </div>
 
             <h3 className="text-center text-xl sm:text-2xl font-bold text-slate-900 dark:text-white font-sans">
               {isAr ? profile.nameAr : profile.name}
             </h3>
-            <p className="text-center text-xs font-mono text-sky-600 dark:text-cyan-400 mt-1 uppercase tracking-wider">
+            <p className="text-center text-xs font-mono text-[#0066FF] dark:text-[#00C2FF] mt-1 uppercase tracking-wider font-semibold">
               {isAr ? profile.jobTitleAr : profile.jobTitle}
             </p>
 

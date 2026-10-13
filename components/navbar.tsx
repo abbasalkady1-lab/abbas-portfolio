@@ -82,17 +82,17 @@ export function Navbar({
           <div className="relative flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white dark:bg-white/[0.04] border border-slate-200 dark:border-white/15 group-hover:border-[#0066FF] dark:group-hover:border-[#00C2FF] shadow-sm transition-all duration-300 overflow-hidden shrink-0">
             <img
               src="/avatar.png"
-              alt={lang === "ar" ? "عباس صبحي" : "Abbas Sobhy"}
+              alt={lang === "ar" ? "عباس القاضي" : "Abbas El Kady"}
               className="w-full h-full object-cover"
             />
             <span className="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-[#00C2FF] ring-2 ring-white dark:ring-[#07111F] animate-pulse" />
           </div>
           <div className="min-w-0">
             <div className="text-xs sm:text-sm font-bold tracking-wide text-slate-900 dark:text-white group-hover:text-[#0066FF] dark:group-hover:text-[#00C2FF] transition-colors truncate">
-              {lang === "ar" ? "عباس صبحي" : "Abbas Sobhy"}
+              {lang === "ar" ? "عباس القاضي" : "Abbas El Kady"}
             </div>
             <div className="text-[10px] sm:text-[11px] font-mono tracking-wider text-slate-500 dark:text-slate-400 truncate">
-              {lang === "ar" ? "ذكاء اصطناعي وأتمتة" : "AI & Automation"}
+              {lang === "ar" ? "مهندس ذكاء اصطناعي وأتمتة" : "AI & Automation Engineer"}
             </div>
           </div>
         </Link>

@@ -144,7 +144,7 @@ export function ContactSection({ profile, lang }: ContactSectionProps) {
             transition={{ duration: 0.45 }}
             className="lg:col-span-5 space-y-4"
           >
-            <div className="bg-white dark:bg-[#0F121C] p-6 sm:p-7 rounded-2xl border border-slate-200/80 dark:border-white/10 space-y-3.5 shadow-sm">
+            <div className="bg-white dark:bg-[#0B1324] p-6 sm:p-7 rounded-2xl border border-slate-200/80 dark:border-white/10 space-y-3.5 shadow-sm">
               <div className="flex items-center justify-between border-b border-slate-100 dark:border-white/5 pb-3">
                 <h3 className="text-base font-bold font-sans text-slate-900 dark:text-white flex items-center space-x-2 rtl:space-x-reverse">
                   <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
@@ -360,7 +360,7 @@ export function ContactSection({ profile, lang }: ContactSectionProps) {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.45 }}
-            className="lg:col-span-7 bg-white dark:bg-[#0F121C] p-6 sm:p-8 rounded-2xl border border-slate-200/80 dark:border-white/10 shadow-sm"
+            className="lg:col-span-7 bg-white dark:bg-[#0B1324] p-6 sm:p-8 rounded-2xl border border-slate-200/80 dark:border-white/10 shadow-sm"
           >
             {submitted ? (
               <div className="py-12 text-center space-y-4">

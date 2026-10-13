@@ -77,7 +77,14 @@ function getBundledDatabase(): SiteDatabase {
 export async function getDatabase(): Promise<SiteDatabase> {
   // Use MongoDB when available (production / when MONGODB_URI is set)
   if (isMongoAvailable()) {
-    return mongo.getDatabase();
+    try {
+      return await mongo.getDatabase();
+    } catch (mongoError) {
+      console.warn(
+        "[Database] MongoDB fetch failed, falling back to local/bundled storage:",
+        mongoError
+      );
+    }
   }
 
   // On Vercel without MongoDB, use bundled JSON (read-only)

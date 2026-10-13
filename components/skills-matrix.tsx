@@ -158,7 +158,7 @@ export function SkillsMatrix({ skills, lang }: SkillsMatrixProps) {
                 transition={{ duration: 0.3, delay: i * 0.03 }}
                 whileHover={{ y: -4, scale: 1.02 }}
                 onClick={() => clickable && setSelectedSkill(skill)}
-                className={`bg-white dark:bg-[#0F121C] p-4 sm:p-5 rounded-2xl border border-slate-200/80 dark:border-white/10 hover:border-slate-300 dark:hover:border-white/20 flex flex-col justify-between group shadow-sm dark:shadow-none transition-all ${
+                className={`bg-white dark:bg-[#0B1324] p-4 sm:p-5 rounded-2xl border border-slate-200/80 dark:border-white/10 hover:border-[#0066FF]/40 dark:hover:border-[#00C2FF]/40 hover:shadow-lg hover:shadow-cyan-500/5 flex flex-col justify-between group shadow-sm transition-all ${
                   clickable ? "cursor-pointer" : ""
                 }`}
               >
@@ -213,7 +213,7 @@ export function SkillsMatrix({ skills, lang }: SkillsMatrixProps) {
                     whileInView={{ width: `${skill.level}%` }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8, delay: 0.2 + i * 0.04 }}
-                    className="h-full bg-gradient-to-r from-sky-500 to-blue-600 dark:from-cyan-400 dark:to-blue-500 rounded-full"
+                    className="h-full bg-gradient-to-r from-[#0066FF] via-[#0A84FF] to-[#00C2FF] rounded-full shadow-[0_0_8px_rgba(0,194,255,0.4)]"
                   />
                 </div>
 

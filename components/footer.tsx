@@ -18,11 +18,11 @@ export function Footer({ profile, lang }: FooterProps) {
   };
 
   return (
-    <footer className="relative border-t border-slate-200 dark:border-white/10 bg-white dark:bg-[#05060A] py-12 px-4 sm:px-6 lg:px-8 z-10 font-sans text-xs text-slate-500 dark:text-slate-400 transition-colors duration-200">
+    <footer className="relative border-t border-slate-200 dark:border-white/10 bg-white dark:bg-[#070C16] py-12 px-4 sm:px-6 lg:px-8 z-10 font-sans text-xs text-slate-500 dark:text-slate-400 transition-colors duration-200">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
         {/* Left: Brand & Title */}
         <div className="flex items-center space-x-3 rtl:space-x-reverse text-center md:text-left rtl:md:text-right">
-          <div className="w-8 h-8 rounded-lg bg-sky-50 dark:bg-white/[0.04] border border-sky-200 dark:border-white/10 flex items-center justify-center text-sky-600 dark:text-cyan-400 font-mono font-bold">
+          <div className="w-8 h-8 rounded-lg bg-sky-50 dark:bg-white/[0.04] border border-sky-200 dark:border-white/10 flex items-center justify-center text-[#0066FF] dark:text-[#00C2FF] font-mono font-bold">
             AK
           </div>
           <div>
@@ -30,7 +30,7 @@ export function Footer({ profile, lang }: FooterProps) {
               {isAr ? profile.nameAr : profile.name}
             </div>
             <div className="text-[11px] text-slate-500 dark:text-slate-400">
-              {isAr ? profile.jobTitleAr : "CS & AI Specialist &bull; Agentic Systems"}
+              {isAr ? profile.jobTitleAr : "AI & Automation Specialist • Autonomous Systems"}
             </div>
           </div>
         </div>
@@ -40,7 +40,7 @@ export function Footer({ profile, lang }: FooterProps) {
         <div className="flex items-center space-x-4 rtl:space-x-reverse">
           <Link
             href="/admin"
-            className="flex items-center space-x-1.5 rtl:space-x-reverse text-slate-500 hover:text-sky-600 dark:text-slate-400 dark:hover:text-cyan-400 transition-colors"
+            className="flex items-center space-x-1.5 rtl:space-x-reverse text-slate-400 hover:text-slate-600 dark:text-slate-500 dark:hover:text-slate-300 transition-colors"
             title="Admin Dashboard"
           >
             <Shield className="w-3.5 h-3.5" />
@@ -58,8 +58,8 @@ export function Footer({ profile, lang }: FooterProps) {
       </div>
 
       <div className="max-w-7xl mx-auto mt-8 pt-6 border-t border-slate-100 dark:border-white/5 text-center text-[11px] text-slate-400 dark:text-slate-500 flex flex-col sm:flex-row items-center justify-between gap-2">
-        <span>&copy; {new Date().getFullYear()} Abbas El Kady. All rights reserved.</span>
-        <span className="font-mono">Verified Portfolio Domain</span>
+        <span>&copy; {new Date().getFullYear()} {isAr ? profile.nameAr : profile.name}. {isAr ? "جميع الحقوق محفوظة." : "All rights reserved."}</span>
+        <span className="font-mono">{isAr ? "نطاق رسمي موثق — abbasalkady.com" : "Verified Official Domain — abbasalkady.com"}</span>
       </div>
     </footer>
   );

@@ -102,7 +102,7 @@ export function TimelineSection({ timeline, lang }: TimelineSectionProps) {
                 </div>
 
                 {/* Card */}
-                <div className="bg-white dark:bg-[#0F121C] p-6 rounded-2xl border border-slate-200/80 dark:border-white/10 hover:border-slate-300 dark:hover:border-white/20 transition-all duration-200 shadow-sm">
+                <div className="bg-white dark:bg-[#0B1324] p-6 rounded-2xl border border-slate-200/80 dark:border-white/10 hover:border-slate-300 dark:hover:border-white/20 transition-all duration-200 shadow-sm">
                   <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
                     <span
                       className={`px-2.5 py-0.5 rounded-md text-[11px] font-mono font-semibold ${

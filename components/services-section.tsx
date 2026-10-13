@@ -157,7 +157,7 @@ export function ServicesSection({ services, profile, lang }: ServicesSectionProp
                 key={srv.id}
                 variants={cardVariants}
                 whileHover={{ y: -6, transition: { duration: 0.25 } }}
-                className="bg-white dark:bg-[#0D111A] rounded-2xl border border-slate-200/80 dark:border-white/10 hover:border-sky-400/80 dark:hover:border-cyan-400/60 transition-all duration-300 flex flex-col justify-between group shadow-sm hover:shadow-2xl hover:shadow-sky-500/10 p-7 sm:p-8 relative overflow-hidden"
+                className="bg-white dark:bg-[#0B1324] rounded-2xl border border-slate-200/80 dark:border-white/10 hover:border-sky-400/80 dark:hover:border-cyan-400/60 transition-all duration-300 flex flex-col justify-between group shadow-sm hover:shadow-2xl hover:shadow-sky-500/10 p-7 sm:p-8 relative overflow-hidden"
               >
                 {/* Dynamic animated glow sweep on hover */}
                 <div className="absolute top-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-transparent via-sky-500 dark:via-cyan-400 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

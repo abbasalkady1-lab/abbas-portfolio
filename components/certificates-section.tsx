@@ -94,7 +94,7 @@ export function CertificatesSection({ certificates, lang }: CertificatesSectionP
                 transition={{ duration: 0.35 }}
                 whileHover={{ y: -4 }}
                 onClick={() => setSelectedCert(cert)}
-                className="bg-white dark:bg-[#0F121C] rounded-2xl border border-slate-200/90 dark:border-white/10 hover:border-[#0A84FF]/50 dark:hover:border-[#00C2FF]/50 transition-all duration-300 flex flex-col justify-between group shadow-sm hover:shadow-xl hover:shadow-[#0066FF]/10 cursor-pointer overflow-hidden"
+                className="bg-white dark:bg-[#0B1324] rounded-2xl border border-slate-200/90 dark:border-white/10 hover:border-[#0A84FF]/50 dark:hover:border-[#00C2FF]/50 transition-all duration-300 flex flex-col justify-between group shadow-sm hover:shadow-xl hover:shadow-[#0066FF]/10 cursor-pointer overflow-hidden"
               >
                 <div>
                   {/* Certificate Image Thumbnail (if available) */}

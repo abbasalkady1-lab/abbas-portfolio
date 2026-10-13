@@ -26,19 +26,19 @@ interface PortfolioViewProps {
 
 export function PortfolioView({ initialData }: PortfolioViewProps) {
   const [lang, setLang] = useState<"en" | "ar">("en");
-  const [theme, setTheme] = useState<"light" | "dark">("light");
+  const [theme, setTheme] = useState<"light" | "dark">("dark");
   const [isNovaOpen, setIsNovaOpen] = useState<boolean>(false);
 
   useEffect(() => {
-    // Sync theme on client mount
+    // Sync theme on client mount - defaults to executive dark
     try {
       const saved = localStorage.getItem("theme");
-      if (saved === "dark") {
-        setTheme("dark");
-        document.documentElement.classList.add("dark");
-      } else {
+      if (saved === "light") {
         setTheme("light");
         document.documentElement.classList.remove("dark");
+      } else {
+        setTheme("dark");
+        document.documentElement.classList.add("dark");
       }
     } catch (e) {}
   }, []);

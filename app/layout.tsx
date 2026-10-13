@@ -189,7 +189,7 @@ export default async function RootLayout({
         ) : null}
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem("theme");if(t==="dark"){document.documentElement.classList.add("dark")}else{document.documentElement.classList.remove("dark")}}catch(e){}})()`,
+            __html: `(function(){try{var t=localStorage.getItem("theme");if(t==="light"){document.documentElement.classList.remove("dark")}else{document.documentElement.classList.add("dark")}}catch(e){}})()`,
           }}
         />
         <script
@@ -197,7 +197,7 @@ export default async function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="bg-[#F8FAFC] text-slate-900 dark:bg-[#090A0F] dark:text-slate-100 antialiased overflow-x-hidden selection:bg-sky-500/20 selection:text-sky-700 dark:selection:text-sky-300">
+      <body className="bg-[#F8FAFC] text-slate-900 dark:bg-[#070C16] dark:text-slate-100 antialiased overflow-x-hidden selection:bg-[#00C2FF]/20 selection:text-sky-700 dark:selection:text-[#00C2FF]">
         <GoogleAnalytics
           measurementId={resolveGaMeasurementId(seo.googleAnalyticsId)}
         />
