@@ -31,6 +31,9 @@ export async function POST(req: NextRequest) {
       proofLabelAr: data.proofLabelAr || "",
       tags: Array.isArray(data.tags) ? data.tags : [],
       yearsOfExperience: data.yearsOfExperience || "",
+      learningOutcomes: Array.isArray(data.learningOutcomes) ? data.learningOutcomes : [],
+      learningOutcomesAr: Array.isArray(data.learningOutcomesAr) ? data.learningOutcomesAr : [],
+      relatedProjectIds: Array.isArray(data.relatedProjectIds) ? data.relatedProjectIds : [],
     };
 
     skills.push(newSkill);
@@ -59,6 +62,15 @@ export async function PUT(req: NextRequest) {
       ...data,
       level: Number(data.level) || skills[index].level,
       tags: Array.isArray(data.tags) ? data.tags : skills[index].tags || [],
+      learningOutcomes: Array.isArray(data.learningOutcomes)
+        ? data.learningOutcomes
+        : skills[index].learningOutcomes || [],
+      learningOutcomesAr: Array.isArray(data.learningOutcomesAr)
+        ? data.learningOutcomesAr
+        : skills[index].learningOutcomesAr || [],
+      relatedProjectIds: Array.isArray(data.relatedProjectIds)
+        ? data.relatedProjectIds
+        : skills[index].relatedProjectIds || [],
     };
 
     await saveSkills(skills);

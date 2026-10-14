@@ -36,3 +36,4 @@ proxy-3001.js
 
 .vercel
 .env*
+.cursor/

@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { AdminHeader } from "@/components/admin/admin-header";
-import { Skill } from "@/types";
+import { Skill, Project } from "@/types";
 import {
   Plus,
   Edit2,
@@ -27,6 +27,9 @@ import {
   Clock,
   FileText,
   Award,
+  BookOpen,
+  Briefcase,
+  CheckCircle2,
 } from "lucide-react";
 
 const availableIcons = [
@@ -43,10 +46,11 @@ const defaultCategories = [
   "Tools & DevOps",
 ];
 
-type ModalTab = "general" | "details" | "links";
+type ModalTab = "general" | "details" | "learnings" | "projects" | "links";
 
 export default function AdminSkillsPage() {
   const [skills, setSkills] = useState<Skill[]>([]);
+  const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(true);
   const [editingSkill, setEditingSkill] = useState<Skill | null>(null);
   const [isNew, setIsNew] = useState(false);
@@ -54,6 +58,9 @@ export default function AdminSkillsPage() {
   const [modalTab, setModalTab] = useState<ModalTab>("general");
   const [customCategory, setCustomCategory] = useState("");
   const [tagsInput, setTagsInput] = useState("");
+  const [learningOutcomesInput, setLearningOutcomesInput] = useState("");
+  const [learningOutcomesArInput, setLearningOutcomesArInput] = useState("");
+  const [selectedProjectIds, setSelectedProjectIds] = useState<string[]>([]);
 
   const fetchSkills = async () => {
     try {
@@ -67,8 +74,21 @@ export default function AdminSkillsPage() {
     }
   };
 
+  const fetchProjects = async () => {
+    try {
+      const res = await fetch("/api/projects");
+      const data = await res.json();
+      if (Array.isArray(data)) {
+        setProjects(data);
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
   useEffect(() => {
     fetchSkills();
+    fetchProjects();
   }, []);
 
   // Derive categories from existing skills + defaults
@@ -97,6 +117,9 @@ export default function AdminSkillsPage() {
     setModalTab("general");
     setCustomCategory("");
     setTagsInput("");
+    setLearningOutcomesInput("");
+    setLearningOutcomesArInput("");
+    setSelectedProjectIds([]);
     setEditingSkill({
       id: "",
       name: "",
@@ -116,6 +139,9 @@ export default function AdminSkillsPage() {
       proofLabelAr: "",
       tags: [],
       yearsOfExperience: "",
+      learningOutcomes: [],
+      learningOutcomesAr: [],
+      relatedProjectIds: [],
     });
   };
 
@@ -124,6 +150,9 @@ export default function AdminSkillsPage() {
     setModalTab("general");
     setCustomCategory("");
     setTagsInput((skill.tags || []).join(", "));
+    setLearningOutcomesInput((skill.learningOutcomes || []).join("\n"));
+    setLearningOutcomesArInput((skill.learningOutcomesAr || []).join("\n"));
+    setSelectedProjectIds(skill.relatedProjectIds || []);
     setEditingSkill({ ...skill });
   };
 
@@ -137,10 +166,24 @@ export default function AdminSkillsPage() {
       .map((t) => t.trim())
       .filter(Boolean);
 
-    const finalSkill = {
+    // Parse learning outcomes from newline-separated inputs
+    const parsedLearnings = learningOutcomesInput
+      .split("\n")
+      .map((t) => t.trim())
+      .filter(Boolean);
+
+    const parsedLearningsAr = learningOutcomesArInput
+      .split("\n")
+      .map((t) => t.trim())
+      .filter(Boolean);
+
+    const finalSkill: Skill = {
       ...editingSkill,
       category: customCategory || editingSkill.category,
       tags: parsedTags,
+      learningOutcomes: parsedLearnings,
+      learningOutcomesAr: parsedLearningsAr,
+      relatedProjectIds: selectedProjectIds,
     };
 
     if (isNew) {
@@ -271,7 +314,7 @@ export default function AdminSkillsPage() {
                   )}
 
                   {/* Indicators row */}
-                  <div className="flex items-center gap-2 mt-2">
+                  <div className="flex items-center gap-2 mt-2 flex-wrap">
                     {skill.link && (
                       <span title="Has link"><Link2 className="w-3 h-3 text-green-400" /></span>
                     )}
@@ -280,6 +323,24 @@ export default function AdminSkillsPage() {
                     )}
                     {skill.description && (
                       <span title="Has description"><FileText className="w-3 h-3 text-cyan-400" /></span>
+                    )}
+                    {skill.learningOutcomes && skill.learningOutcomes.length > 0 && (
+                      <span
+                        title={`${skill.learningOutcomes.length} learning outcomes`}
+                        className="flex items-center gap-0.5 text-[9px] text-emerald-400 font-sans"
+                      >
+                        <BookOpen className="w-3 h-3" />
+                        <span>{skill.learningOutcomes.length}</span>
+                      </span>
+                    )}
+                    {skill.relatedProjectIds && skill.relatedProjectIds.length > 0 && (
+                      <span
+                        title={`${skill.relatedProjectIds.length} linked projects`}
+                        className="flex items-center gap-0.5 text-[9px] text-blue-400 font-sans"
+                      >
+                        <Briefcase className="w-3 h-3" />
+                        <span>{skill.relatedProjectIds.length}</span>
+                      </span>
                     )}
                     {skill.yearsOfExperience && (
                       <span className="text-[9px] text-slate-400 font-sans">
@@ -356,14 +417,56 @@ export default function AdminSkillsPage() {
               </div>
 
               {/* Tab Navigation */}
-              <div className="flex gap-2 mb-6">
-                <button onClick={() => setModalTab("general")} className={tabClass(modalTab === "general")}>
+              <div className="flex flex-wrap gap-2 mb-6">
+                <button
+                  type="button"
+                  onClick={() => setModalTab("general")}
+                  className={tabClass(modalTab === "general")}
+                >
                   General
                 </button>
-                <button onClick={() => setModalTab("details")} className={tabClass(modalTab === "details")}>
+                <button
+                  type="button"
+                  onClick={() => setModalTab("details")}
+                  className={tabClass(modalTab === "details")}
+                >
                   Details & Tags
                 </button>
-                <button onClick={() => setModalTab("links")} className={tabClass(modalTab === "links")}>
+                <button
+                  type="button"
+                  onClick={() => setModalTab("learnings")}
+                  className={tabClass(modalTab === "learnings")}
+                >
+                  <span className="flex items-center gap-1.5">
+                    <BookOpen className="w-3.5 h-3.5 text-emerald-400" />
+                    What I Learned
+                    {learningOutcomesInput.split("\n").filter(Boolean).length > 0 && (
+                      <span className="ml-1 px-1.5 py-0.5 text-[10px] rounded-full bg-emerald-500/20 text-emerald-300">
+                        {learningOutcomesInput.split("\n").filter(Boolean).length}
+                      </span>
+                    )}
+                  </span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setModalTab("projects")}
+                  className={tabClass(modalTab === "projects")}
+                >
+                  <span className="flex items-center gap-1.5">
+                    <Briefcase className="w-3.5 h-3.5 text-blue-400" />
+                    Linked Projects
+                    {selectedProjectIds.length > 0 && (
+                      <span className="ml-1 px-1.5 py-0.5 text-[10px] rounded-full bg-blue-500/20 text-blue-300">
+                        {selectedProjectIds.length}
+                      </span>
+                    )}
+                  </span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setModalTab("links")}
+                  className={tabClass(modalTab === "links")}
+                >
                   Links & Proof
                 </button>
               </div>
@@ -564,6 +667,152 @@ export default function AdminSkillsPage() {
                         </div>
                       )}
                     </div>
+                  </div>
+                )}
+
+                {/* ─── TAB: What I Learned (ما تم تعلمه) ─── */}
+                {modalTab === "learnings" && (
+                  <div className="space-y-4">
+                    <div className="p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-xs text-emerald-300/90 leading-relaxed">
+                      <p className="font-semibold text-emerald-300 mb-1 flex items-center gap-2">
+                        <BookOpen className="w-4 h-4" />
+                        ما تم تعلمه واكتسابه في هذه المهارة (What I Learned)
+                      </p>
+                      <p>
+                        اكتب كل نقطة أو موضوع أتقنته في سطر مستقل. عند ضغط الزائر على بطاقة المهارة في موقعك، ستظهر له هذه النقاط كقائمة إنجازات ومعارف تفصيلية.
+                      </p>
+                    </div>
+
+                    <div>
+                      <div className="flex items-center justify-between mb-1.5">
+                        <label className={labelClass}>
+                          Learning Outcomes & Key Competencies (EN)
+                        </label>
+                        <span className="text-[11px] text-slate-500 font-sans">One item per line</span>
+                      </div>
+                      <textarea
+                        rows={5}
+                        value={learningOutcomesInput}
+                        onChange={(e) => setLearningOutcomesInput(e.target.value)}
+                        className={`${inputClass} font-mono text-xs leading-relaxed`}
+                        placeholder={`e.g.\nProduction deployment with Docker and FastAPI\nPrompt engineering and fine-tuning with LoRA\nVector embeddings search and RAG architecture\nPerformance optimization and benchmark evaluation`}
+                      />
+                    </div>
+
+                    <div>
+                      <div className="flex items-center justify-between mb-1.5">
+                        <label className={labelClass}>
+                          ما تم تعلمه واكتسابه والخبرات العملية (AR)
+                        </label>
+                        <span className="text-[11px] text-slate-500 font-sans">نقطة في كل سطر</span>
+                      </div>
+                      <textarea
+                        rows={5}
+                        value={learningOutcomesArInput}
+                        onChange={(e) => setLearningOutcomesArInput(e.target.value)}
+                        className={`${inputClass} font-mono text-xs leading-relaxed`}
+                        dir="rtl"
+                        placeholder={`مثال:\nفهم عميق لبنية نماذج Transformers وآليات الانتباه الذاتي\nبناء خطوط استرجاع وتوليد معزز RAG متقدمة\nتحسين الأداء وتقليل وقت الاستجابة لطلبات الـ API\nنشر النماذج والحلول في بيئة الإنتاج السحابية`}
+                      />
+                    </div>
+                  </div>
+                )}
+
+                {/* ─── TAB: Associated Projects (المشاريع المرتبطة) ─── */}
+                {modalTab === "projects" && (
+                  <div className="space-y-4">
+                    <div className="p-4 rounded-2xl bg-blue-500/10 border border-blue-500/20 text-xs text-blue-300/90 leading-relaxed">
+                      <p className="font-semibold text-blue-300 mb-1 flex items-center gap-2">
+                        <Briefcase className="w-4 h-4" />
+                        ربط المشاريع المنفذة بهذه المهارة (Associated Projects)
+                      </p>
+                      <p>
+                        اختر المشاريع التي قمت بتطويرها باستخدام هذه المهارة. ستظهر هذه المشاريع مباشرة داخل نافذة تفاصيل المهارة مع صورها وروابط المعاينة والدراسة الشاملة.
+                      </p>
+                    </div>
+
+                    <div className="flex items-center justify-between text-xs text-slate-400 font-sans">
+                      <span>
+                        المشاريع المحددة: <strong className="text-blue-400">{selectedProjectIds.length}</strong> من أصل {projects.length}
+                      </span>
+                      {selectedProjectIds.length > 0 && (
+                        <button
+                          type="button"
+                          onClick={() => setSelectedProjectIds([])}
+                          className="text-xs text-red-400 hover:underline"
+                        >
+                          إلغاء تحديد الكل (Clear all)
+                        </button>
+                      )}
+                    </div>
+
+                    {projects.length === 0 ? (
+                      <div className="py-8 text-center text-slate-500 text-xs font-sans">
+                        لا توجد مشاريع مضافة بعد في لوحة التحكم.
+                      </div>
+                    ) : (
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 max-h-[320px] overflow-y-auto pr-1">
+                        {projects.map((project) => {
+                          const isSelected = selectedProjectIds.includes(project.id);
+                          return (
+                            <div
+                              key={project.id}
+                              onClick={() => {
+                                setSelectedProjectIds((prev) =>
+                                  prev.includes(project.id)
+                                    ? prev.filter((id) => id !== project.id)
+                                    : [...prev, project.id]
+                                );
+                              }}
+                              className={`p-3 rounded-xl border cursor-pointer transition-all flex items-start gap-3 ${
+                                isSelected
+                                  ? "bg-blue-600/15 border-blue-500/50 shadow-sm"
+                                  : "bg-slate-950/60 border-slate-800 hover:border-slate-700"
+                              }`}
+                            >
+                              <input
+                                type="checkbox"
+                                checked={isSelected}
+                                onChange={() => {}} // handled by parent onClick
+                                className="mt-1 w-4 h-4 rounded text-blue-600 focus:ring-blue-500 pointer-events-none"
+                              />
+                              <div className="flex-1 min-w-0">
+                                <div className="flex items-center justify-between gap-1">
+                                  <h5 className={`text-xs font-bold truncate ${isSelected ? "text-blue-300" : "text-slate-200"}`}>
+                                    {project.title}
+                                  </h5>
+                                  <span className="text-[10px] text-slate-500 shrink-0">
+                                    {project.category}
+                                  </span>
+                                </div>
+                                {project.titleAr && (
+                                  <p className="text-[11px] text-slate-400 truncate mt-0.5" dir="rtl">
+                                    {project.titleAr}
+                                  </p>
+                                )}
+                                {project.technologies && project.technologies.length > 0 && (
+                                  <div className="flex flex-wrap gap-1 mt-1.5">
+                                    {project.technologies.slice(0, 3).map((tech, i) => (
+                                      <span
+                                        key={i}
+                                        className="text-[9px] px-1.5 py-0.2 rounded bg-slate-800 text-slate-400"
+                                      >
+                                        {tech}
+                                      </span>
+                                    ))}
+                                    {project.technologies.length > 3 && (
+                                      <span className="text-[9px] text-slate-500">
+                                        +{project.technologies.length - 3}
+                                      </span>
+                                    )}
+                                  </div>
+                                )}
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    )}
                   </div>
                 )}
 

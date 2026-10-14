@@ -57,6 +57,9 @@ export interface Skill {
   proofLabelAr?: string;
   tags?: string[];
   yearsOfExperience?: string;
+  learningOutcomes?: string[];
+  learningOutcomesAr?: string[];
+  relatedProjectIds?: string[];
 }
 
 export interface TimelineItem {

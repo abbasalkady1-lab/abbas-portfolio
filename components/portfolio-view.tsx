@@ -112,7 +112,7 @@ export function PortfolioView({ initialData }: PortfolioViewProps) {
         <About profile={initialData.profile} lang={lang} />
 
         {/* 7. Technical Stack & Production Skills Matrix */}
-        <SkillsMatrix skills={initialData.skills} lang={lang} />
+        <SkillsMatrix skills={initialData.skills} projects={initialData.projects} lang={lang} />
 
         {/* 8. Career & Academic Journey */}
         <TimelineSection timeline={initialData.timeline} lang={lang} />
