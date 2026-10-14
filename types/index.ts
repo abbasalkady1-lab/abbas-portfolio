@@ -100,19 +100,31 @@ export interface Service {
   titleAr?: string;
   description: string;
   descriptionAr?: string;
+  fullDescription?: string;
+  fullDescriptionAr?: string;
   iconName: string;
+  thumbnail?: string; // Eye-catching cover/thumbnail
+  youtubeUrl?: string; // YouTube explainer video link
   features: string[];
   featuresAr?: string[];
   ctaText?: string;
   ctaTextAr?: string;
-  contactMethod?: "whatsapp" | "email" | "both";
+  contactMethod?: "whatsapp" | "email" | "both" | "external";
+  actionType?: "whatsapp" | "external" | "email" | "both";
+  externalUrl?: string;
+  externalUrlLabel?: string;
+  externalUrlLabelAr?: string;
   whatsappMessage?: string;
   whatsappMessageAr?: string;
   emailSubject?: string;
+  price?: string; // e.g. "$499" or "Starting at $300"
+  priceAr?: string; // e.g. "يبدأ من ٣٠٠$"
   priceEstimate?: string;
   priceEstimateAr?: string;
   deliveryTime?: string;
   deliveryTimeAr?: string;
+  badge?: string; // e.g. "Most Popular" or "Enterprise"
+  badgeAr?: string;
   visible?: boolean;
   order: number;
 }
